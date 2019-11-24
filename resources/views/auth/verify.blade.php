@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<section class="ftco-section ftco-section-2 section-signup page-header img" style="background-image: url({!! asset('') !!});">
+<section class="ftco-section ftco-section-2 section-signup page-header img">
     <div class="overlay"></div>
     <div class="container">
         <div class="row justify-content-center">
