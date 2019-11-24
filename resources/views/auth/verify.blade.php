@@ -1,28 +1,59 @@
 @extends('layouts.app')
-
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
-
-                <div class="card-body">
+<section class="ftco-section ftco-section-2 section-signup page-header img" style="background-image: url({!! asset('') !!});">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-6 mb-4 mb-md-0">
+                <div class="card card-login py-4">
+                    <div class="card-header card-header-primary text-center">
+                        <h4 class="card-title">{{ __('Before proceeding, please check your email for a verification link.') }}</h4>
+                        <h4 class="card-title">{{ __('If you did not receive the email') }},</h4>
+                    </div>
                     @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
+                        <section class="ftco-section" id="notifications">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="alert alert-success">
+                                            <div class="container">
+                                                <div class="d-flex">
+                                                    <div class="alert-icon">
+                                                        <i class="ion-ios-checkmark-circle"></i>
+                                                    </div>
+                                                    <p class="mb-0 ml-2">{{ __('A fresh verification link has been sent to your email address.') }}</p>
+                                                </div>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true"><i class="ion-ios-close"></i></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     @endif
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                    <form class="form-login" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+
+                        <div class="card-header card-header-primary text-center">
+                            <h4 class="card-title">{{ __('Verify Your Email Address') }}</h4>
+                        </div>
+
+                        <div class="card-body p-4">
+                            <div class="input-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('click here to request another') }}
+                                    </button>.
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

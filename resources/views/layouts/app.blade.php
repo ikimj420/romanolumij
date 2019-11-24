@@ -1,73 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>{{ config('app.name', 'RomanoLumij') }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700&display=swap" rel="stylesheet">
+        <!-- Styles -->
+        <link rel="stylesheet" href="{!! asset('css/open-iconic-bootstrap.min.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/animate.css') !!}">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="stylesheet" href="{!! asset('css/owl.carousel.min.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/owl.theme.default.min.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/magnific-popup.css') !!}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="stylesheet" href="{!! asset('css/aos.css') !!}">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+        <link rel="stylesheet" href="{!! asset('css/ionicons.min.css') !!}">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <link rel="stylesheet" href="{!! asset('css/bootstrap-datetimepicker.min.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/nouislider.css') !!}">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+        <link rel="stylesheet" href="{!! asset('css/flaticon.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/icomoon.css') !!}">
+        <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
+    </head>
+    <body>
 
-                    </ul>
+        <div class="main-section">
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                            @endif
-                        @else
-                            <li class="nav-link">
-                                <a class="nav-link" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }} / {{ Auth::user()->name }}
-                                </a>
+            <!-- NavBar -->
+            @include('include.nav')
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
             @yield('content')
-        </main>
-    </div>
-</body>
+
+            <!-- Footer -->
+            @include('include.footer')
+
+        </div>
+        <!-- Loader -->
+        @include('include.loader')
+
+    <!-- Script -->
+    <script src="{!! asset('js/jquery.min.js') !!}"></script>
+    <script src="{!! asset('js/jquery-migrate-3.0.1.min.js') !!}"></script>
+    <script src="{!! asset('js/popper.min.js') !!}"></script>
+    <script src="{!! asset('js/bootstrap.min.js') !!}"></script>
+    <script src="{!! asset('js/jquery.easing.1.3.js') !!}"></script>
+    <script src="{!! asset('js/jquery.waypoints.min.js') !!}"></script>
+    <script src="{!! asset('js/jquery.stellar.min.js') !!}"></script>
+    <script src="{!! asset('js/owl.carousel.min.js') !!}"></script>
+    <script src="{!! asset('js/jquery.magnific-popup.min.js') !!}"></script>
+    <script src="{!! asset('js/aos.js') !!}"></script>
+
+    {{--<script src="{!! asset('js/nouislider.min.js') !!}"></script>--}}
+    <script src="{!! asset('js/moment-with-locales.min.js') !!}"></script>
+    <script src="{!! asset('js/bootstrap-datetimepicker.min.js') !!}"></script>
+    <script src="{!! asset('js/main.js') !!}"></script>
+
+    </body>
 </html>
