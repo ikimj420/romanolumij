@@ -10,8 +10,8 @@
                         @csrf
 
                         <div class="card-header card-header-primary text-center">
-                            <h4 class="card-title">{{ __('Confirm Password') }}</h4>
-                            <p>{{ __('Please confirm your password before continuing.') }}</p>
+                            <h4 class="card-title">{{ __('auth.confirm') }}</h4>
+                            <p>{{ __('auth.pConfirm') }}</p>
                         </div>
 
                         <div class="card-body p-4">
@@ -22,7 +22,7 @@
                                     <i class="ion-ios-lock"></i>
                                   </span>
                                 </div>
-                                <input id="password" type="password" placeholder="{{ __('Password') }}" class="form-control
+                                <input id="password" type="password" placeholder="{{ __('app.password') }}" class="form-control
                                       @error('password') is-invalid @enderror"
                                        name="password" required autocomplete="current-password">
 
@@ -37,12 +37,12 @@
 
                         <div class="footer text-center">
                             <button type="submit" class="btn btn-primary">
-                                {{ __('Confirm Password') }}
+                                {{ __('app.confPassword') }}
                             </button>
 
                             @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
+                                    {{ __('app.forgetPassword') }}
                                 </a>
                             @endif
                         </div>

@@ -119,27 +119,3 @@
         </div>
     </section>
 @endif
-
-@if ($errors->any())
-    <section class="ftco-section" id="notifications">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="alert alert-danger">
-                        <div class="container">
-                            <div class="d-flex">
-                                <div class="alert-icon">
-                                    <i class="ion-ios-information-circle-outline"></i>
-                                </div>
-                                <p class="mb-0 ml-2">@dd($errors->any())</p>
-                            </div>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true"><i class="ion-ios-close"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-@endif

@@ -34,7 +34,7 @@
                         @csrf
 
                         <div class="card-header card-header-primary text-center">
-                            <h4 class="card-title">{{ __('Reset Password') }}</h4>
+                            <h4 class="card-title">{{ __('app.resetPassword') }}</h4>
                         </div>
 
                         <div class="card-body p-4">
@@ -46,7 +46,7 @@
                               </span>
                                 </div>
 
-                                <input id="email" type="email" class="form-control
+                                <input id="email" type="email" placeholder="{{__('app.email')}}" class="form-control
                                 @error('email') is-invalid @enderror"
                                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -59,7 +59,7 @@
                             <div class="input-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Send Password Reset Link') }}
+                                        {{ __('app.sendPassword') }}
                                     </button>
                                 </div>
                             </div>

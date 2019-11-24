@@ -7,8 +7,8 @@
             <div class="col-lg-8 col-md-6 mb-4 mb-md-0">
                 <div class="card card-login py-4">
                     <div class="card-header card-header-primary text-center">
-                        <h4 class="card-title">{{ __('Before proceeding, please check your email for a verification link.') }}</h4>
-                        <h4 class="card-title">{{ __('If you did not receive the email') }},</h4>
+                        <h4 class="card-title">{{ __('app.before') }}</h4>
+                        <h4 class="card-title">{{ __('app.ifReceive') }},</h4>
                     </div>
                     @if (session('resent'))
                         <section class="ftco-section" id="notifications">
@@ -21,7 +21,7 @@
                                                     <div class="alert-icon">
                                                         <i class="ion-ios-checkmark-circle"></i>
                                                     </div>
-                                                    <p class="mb-0 ml-2">{{ __('A fresh verification link has been sent to your email address.') }}</p>
+                                                    <p class="mb-0 ml-2">{{ __('app.fresh') }}</p>
                                                 </div>
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true"><i class="ion-ios-close"></i></span>
@@ -38,14 +38,14 @@
                         @csrf
 
                         <div class="card-header card-header-primary text-center">
-                            <h4 class="card-title">{{ __('Verify Your Email Address') }}</h4>
+                            <h4 class="card-title">{{ __('app.verify') }}</h4>
                         </div>
 
                         <div class="card-body p-4">
                             <div class="input-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('click here to request another') }}
+                                        {{ __('app.another') }}
                                     </button>.
                                 </div>
                             </div>

@@ -11,7 +11,7 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="card-header card-header-primary text-center">
-                            <h4 class="card-title">{{ __('Reset Password') }}</h4>
+                            <h4 class="card-title">{{ __('app.resetPassword') }}</h4>
                         </div>
 
                         <div class="card-body p-4">
@@ -22,7 +22,7 @@
                                     <i class="ion-ios-contact"></i>
                                   </span>
                                 </div>
-                                <input id="email" type="email" class="form-control
+                                <input id="email" type="email" placeholder="{{__('app.email')}}" class="form-control
                                     @error('email') is-invalid @enderror"
                                        name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
                                     @error('email')
@@ -38,7 +38,7 @@
                                     <i class="ion-ios-lock"></i>
                                   </span>
                                 </div>
-                                <input id="password" placeholder="{{ __('Password') }}" type="password" class="form-control
+                                <input id="password" placeholder="{{ __('app.password') }}" type="password" class="form-control
                                     @error('password') is-invalid @enderror"
                                        name="password" required autocomplete="new-password">
 
@@ -55,7 +55,7 @@
                                     <i class="ion-ios-lock"></i>
                                   </span>
                                 </div>
-                                <input id="password-confirm" type="password" placeholder="{{ __('Confirm Password') }}" class="form-control
+                                <input id="password-confirm" type="password" placeholder="{{ __('app.confPassword') }}" class="form-control
                                 @error('password-confirm') is-invalid @enderror"
                                        name="password_confirmation" required autocomplete="new-password">
 
@@ -70,9 +70,11 @@
 
                         <div class="footer text-center">
                             <button type="submit" class="btn btn-primary">
-                                {{ __('Reset Password') }}
+                                {{ __('app.resetPassword') }}
                             </button>
                         </div>
+
+                        <div class="toggle-button-cover mb-3"></div>
 
                     </form>
                 </div>
