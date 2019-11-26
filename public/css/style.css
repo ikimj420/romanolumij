@@ -4781,7 +4781,7 @@ a.close.disabled {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #fff;
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
@@ -8138,7 +8138,7 @@ body {
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
-  color: #1b1b1b; }
+  color: #fff; }
   body.menu-show {
     overflow: hidden;
     position: fixed;
@@ -8442,7 +8442,6 @@ h1, h2, h3, h4, h5,
       color: #000; }
 
 .form-control {
-  height: 48px !important;
   background: #fff !important;
   color: #777777 !important;
   font-size: 16px;
@@ -9114,7 +9113,7 @@ h1, h2, h3, h4, h5,
 .typo {
   position: relative;
   width: 100%;
-  padding-left: 25%;
+  padding-left: 10%;
   margin-bottom: 40px; }
   .typo .typo-note {
     bottom: 5px;

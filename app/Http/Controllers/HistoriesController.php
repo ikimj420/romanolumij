@@ -4,64 +4,68 @@ namespace App\Http\Controllers;
 
 use App\Models\History;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HistoriesController extends Controller
 {
 
     public function index()
     {
-        return view('histories.index');
+        $histories = History::latest()->get();
+        return view('histories.index', compact('histories'));
     }
 
     public function create()
     {
-        return view('histories.create');
+        return back();
     }
 
     public function store(Request $request)
     {
-        //validate data and create without pics
-        $history = History::create($this->validateRequest());
-        //add pics
-        $img_request = $request->hasFile('pics');
-        $img = $request->file('pics');
-        $folder = 'history';
-        $pics = $this->createImage($img_request, $img, $folder);
-        $history->pics = $pics;
-        //save history
-        $history->save();
-        return redirect(route('history.index'))->with('success','History Created Successfully!');
-    }
-
-    public function show(History $history)
-    {
-        //
-    }
-
-    public function edit(History $history)
-    {
-        //
-    }
-
-    public function update(Request $request, History $history)
-    {
-        //
-    }
-
-    public function destroy(History $history)
-    {
-        //
-    }
-
-    private function validateRequest()
-    {
-        return request()->validate([
+        //validation
+        $request->validate([
             'alav' => 'required',
             'title' => 'required',
             'istorija' => 'required',
             'history' => 'required',
-
-            'pics' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        History::create($request->all());
+
+        return redirect(route('history.index'))->withToastSuccess('History Created Successfully!');
+    }
+
+    public function show(History $history)
+    {
+
+        return view('histories.show', compact('history'));
+    }
+
+    public function edit()
+    {
+        return back();
+    }
+
+    public function update(Request $request, History $history)
+    {
+        $request->validate([
+            'alav' => 'required',
+            'title' => 'required',
+            'istorija' => 'required',
+            'history' => 'required',
+        ]);
+
+        //update history
+        $history->update($request->all());
+
+        return redirect(route('history.index'))->withToastSuccess('History Updated Successfully!');
+    }
+
+    public function destroy(History $history)
+    {
+        //delete history
+        $history->delete();
+
+        return redirect(route('history.index'))->withToastSuccess('History Deleted Successfully!');
     }
 }

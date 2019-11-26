@@ -60,7 +60,8 @@ class Controller extends BaseController
             Image::make($pictures)->fit(500, 500)->save( public_path('storage/' . $folder . '/' . $pics ) );
             //create Large
             Image::make($pictures)->fit(1280, 720)->save( public_path('storage/' . $folder . '/large/' . $pics ) );
+
+            return $pics;
         }
-        return $pics;
     }
 }

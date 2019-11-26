@@ -7,10 +7,10 @@
                     <h1 class="mb-4"><span>Structure</span></h1>
                     <h4 class="mb-5 mt-2">Free Bootstrap 4 UI Kit on Structure Design.</h4>
                     <div class="designed d-inline-block">
-                        <d class="d-flex align-items-center">
+                        <div class="d-flex align-items-center">
                             <div class="img" style="background-image: url(images/person.jpg);"></div>
                             <div class="ml-3"><p class="mb-0">Designed by: <span>Peter Mendelev</span></p></div>
-                        </d>
+                        </div>
                     </div>
                 </div>
             </div>

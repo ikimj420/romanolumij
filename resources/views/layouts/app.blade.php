@@ -36,6 +36,9 @@
 
         <div class="main-section">
 
+            <!-- sweetalert -->
+            @include('sweetalert::alert')
+
             <!-- NavBar -->
             @include('include.nav')
 

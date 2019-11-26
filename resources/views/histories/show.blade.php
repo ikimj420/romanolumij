@@ -16,14 +16,17 @@
         </div>
     </div>
 
-    <!-- Add Button -->
+    <!-- Update Delete Button -->
     @auth
         @if(Auth::user()->Admin())
             <section class="ftco-section">
                 <div class="container">
                     <div class="row">
                         <div class="mt-3">
-                            @include('histories.modal.add')
+                            @include('histories.modal.update')
+                        </div>
+                        <div class="mt-3 ml-3">
+                            @include('histories.modal.delete')
                         </div>
                     </div>
                 </div>
@@ -37,9 +40,9 @@
             <div class="row">
                 <div class="col-md-12">
                     @if (App::isLocale('rom'))
-                        @include('histories.include.rom')
+                        @include('histories.include.romS')
                     @else
-                        @include('histories.include.eng')
+                        @include('histories.include.engS')
                     @endif
                 </div>
             </div>

@@ -20,7 +20,6 @@ class CreateHistoriesTable extends Migration
             $table->text('istorija');
             $table->string('title');
             $table->text('history');
-            $table->string('pics')->nullable()->default('default.svg');
             $table->timestamps();
         });
     }
