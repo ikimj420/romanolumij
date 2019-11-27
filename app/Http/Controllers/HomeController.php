@@ -12,17 +12,6 @@ class HomeController extends Controller
         $this->middleware('auth');
     }*/
 
-    public function indexv()
-    {
-        return view('index');
-    }
-    public function history()
-    {
-        return view('history');
-    }
-
-
-
     public function index()
     {
         return view('welcome');

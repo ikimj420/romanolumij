@@ -34,7 +34,7 @@
         @endif
     @endauth
 
-    <!-- History -->
+    <!-- Role -->
     <section class="ftco-section" id="typography">
         <div class="container">
             <div class="row">
