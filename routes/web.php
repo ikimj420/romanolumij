@@ -13,6 +13,8 @@ Route::resource('/role', 'RolesController');
 Route::resource('/userLevel', 'UserLevelsController');
 //Category
 Route::resource('/category', 'CategoriesController');
+//Friend
+Route::resource('/friend', 'FriendsController');
 
 
 
