@@ -77,8 +77,10 @@ class FriendsController extends Controller
             Storage::delete('public/'. $folder .'/'.$friend->pics);
             $pics = $this->imageUpdate($image_request, $image, $folder);
             $friend->pics = $pics;
-        }
-        $friend->update();
+
+            $friend->update();
+        }else
+        $friend->update($request->all());
 
         return redirect(route('friend.index'))->withToastSuccess('Friend Updated Successfully!');
     }

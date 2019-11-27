@@ -27,12 +27,9 @@ class Controller extends BaseController
             $pics = str_replace(' ','_', $filenameToStor);
             //save in folder
             $pictures = $image;
-            //create thumbnail save in app
-            Image::make($pictures)->fit(100, 100)->save( public_path('storage/' . $folder . '/thumbnail/' . $pics ) );
             //create save in app
             Image::make($pictures)->fit(500, 500)->save( public_path('storage/' . $folder . '/' . $pics ) );
             //create Large
-            Image::make($pictures)->fit(1280, 720)->save( public_path('storage/' . $folder . '/large/' . $pics ) );
         }else{
             $pics = 'default.svg';
         }
@@ -54,12 +51,8 @@ class Controller extends BaseController
             $pics = str_replace(' ','_', $filenameToStor);
             //save in folder
             $pictures = $image;
-            //update thumbnail save in app
-            Image::make($pictures)->fit(100, 100)->save( public_path('storage/' . $folder . '/thumbnail/' . $pics ) );
             //update save in app
             Image::make($pictures)->fit(500, 500)->save( public_path('storage/' . $folder . '/' . $pics ) );
-            //create Large
-            Image::make($pictures)->fit(1280, 720)->save( public_path('storage/' . $folder . '/large/' . $pics ) );
 
             return $pics;
         }

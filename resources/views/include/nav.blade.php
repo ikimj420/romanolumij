@@ -20,8 +20,10 @@
                 <li class="nav-item"><a href="/" class="nav-link icon d-flex align-items-center"> @lang('menu.albums')</a></li>
                 <li class="nav-item"><a href="/" class="nav-link icon d-flex align-items-center"> @lang('menu.lexicon')</a></li>
                 <li class="nav-item"><a href="/" class="nav-link icon d-flex align-items-center"> @lang('menu.contact')</a></li>
-                <li class="nav-item"><a href="/" class="nav-link icon d-flex align-items-center"> @lang('menu.profile')</a></li>
-                <!-- Authentication Links -->
+                @auth()
+                <li class="nav-item"><a href="/profile/{!! Auth::id() !!}" class="nav-link icon d-flex align-items-center"> @lang('menu.profile')</a></li>
+                @endauth
+                    <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('menu.login') }}</a>

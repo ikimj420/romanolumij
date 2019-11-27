@@ -6,7 +6,6 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\Validator;
 
 class CategoriesController extends Controller
 {
@@ -78,8 +77,10 @@ class CategoriesController extends Controller
             Storage::delete('public/'. $folder .'/'.$category->pics);
             $pics = $this->imageUpdate($image_request, $image, $folder);
             $category->pics = $pics;
-        }
-        $category->update();
+
+            $category->update();
+        }else
+        $category->update($request->all());
 
         return redirect(route('category.index'))->withToastSuccess('Category Updated Successfully!');
     }

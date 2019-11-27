@@ -15,6 +15,8 @@ Route::resource('/userLevel', 'UserLevelsController');
 Route::resource('/category', 'CategoriesController');
 //Friend
 Route::resource('/friend', 'FriendsController');
+//Profile
+Route::resource('/profile', 'ProfilesController');
 
 
 
