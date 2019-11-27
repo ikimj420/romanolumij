@@ -7,6 +7,8 @@ Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('/index', 'HomeController@indexv');
 //History
 Route::resource('/history', 'HistoriesController');
+//User Level
+Route::resource('/role', 'RolesController');
 
 
 
