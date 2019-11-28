@@ -19,6 +19,8 @@ Route::resource('/friend', 'FriendsController');
 Route::resource('/profile', 'ProfilesController');
 //Poems
 Route::resource('/poem', 'PoemsController');
+//Story
+Route::resource('/story', 'StoriesController');
 
 
 

@@ -36,12 +36,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-//check if auth user is Admin
+    //check if auth user is Admin
     public function Admin()
     {
         return $this->role()->where('userLevel', 'Admin')->exists();
     }
-//check if auth user is Moderator
+    //check if auth user is Moderator
     public function Moderator()
     {
         return $this->role()->where('userLevel', 'Moderator')->exists();
@@ -72,8 +72,8 @@ class User extends Authenticatable
     }
 
     //HasMany
-/*    public function stories()
+    public function stories()
     {
         return $this->hasMany(\App\Models\Story::class);
-    }*/
+    }
 }

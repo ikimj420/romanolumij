@@ -37,57 +37,32 @@
                                 <section class="ftco-section ftco-section-2 bg-light" id="cards">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-md-4 mb-2">
+                                            @forelse($poems as $poem)
+                                                <div class="col-md-4 mb-2">
                                                 <div class="card text-center">
                                                     <div class="card-img">
                                                         <div class="image-wrap">
-                                                            <img src="images/bg_3.jpg" alt="Round Image" class="rounded img-fluid image image-2 image-full">
+                                                            <img src="{!! asset('/storage/poems/'.$poem->pics) !!}" alt="{!! $poem->title !!}" class="rounded img-fluid image image-2 image-full">
                                                             <div class="text">
-                                                                <div class="img img-2 round-circle" style="background-image: url(images/person-1.jpg);"></div>
+                                                                <a href="/profile/{!! $poem->user['id'] !!}">
+                                                                    <div class="img img-2 round-circle" style="background-image: url({!! asset('/storage/users/'.$poem->user['avatar']) !!});"></div>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="card-body pb-5">
-                                                        <h5 class="card-title mb-0 text-success">Author Name</h5>
-                                                        <a href="/"><span class="position d-block mb-4">Title</span></a>
-                                                        <p class="card-text">body</p>
+                                                        <a href="/profile/{!! $poem->user['id'] !!}">
+                                                            <h5 class="card-title mb-0 text-success">{!! $poem->user['username'] !!}</h5>
+                                                        </a>
+                                                        <a href="/poem/{!! $poem->id !!}">
+                                                            <span class="position d-block mb-4">{!! $poem->alav !!}</span>
+                                                            <p class="card-text">{!! Str::words($poem->djili, 9, ' ...') !!}</p>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mb-2">
-                                                <div class="card text-center">
-                                                    <div class="card-img">
-                                                        <div class="image-wrap">
-                                                            <img src="images/bg_3.jpg" alt="Round Image" class="rounded img-fluid image image-2 image-full">
-                                                            <div class="text">
-                                                                <div class="img img-2 round-circle" style="background-image: url(images/person-1.jpg);"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body pb-5">
-                                                        <h5 class="card-title mb-0 text-success">Author Name</h5>
-                                                        <a href="/"><span class="position d-block mb-4">Title</span></a>
-                                                        <p class="card-text">body</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 mb-2">
-                                                <div class="card text-center">
-                                                    <div class="card-img">
-                                                        <div class="image-wrap">
-                                                            <img src="images/bg_3.jpg" alt="Round Image" class="rounded img-fluid image image-2 image-full">
-                                                            <div class="text">
-                                                                <div class="img img-2 round-circle" style="background-image: url(images/person-1.jpg);"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body pb-5">
-                                                        <h5 class="card-title mb-0 text-success">Author Name</h5>
-                                                        <a href="/"><span class="position d-block mb-4">Title</span></a>
-                                                        <p class="card-text">body</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @empty
+                                            @endforelse
                                         </div>
                                     </div>
                                 </section>
@@ -96,57 +71,32 @@
                                 <section class="ftco-section ftco-section-2 bg-light" id="cards">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-md-4 mb-2">
+                                            @forelse($stories as $story)
+                                                <div class="col-md-4 mb-2">
                                                 <div class="card text-center">
                                                     <div class="card-img">
                                                         <div class="image-wrap">
-                                                            <img src="images/bg_3.jpg" alt="Round Image" class="rounded img-fluid image image-2 image-full">
+                                                            <img src="{!! asset('/storage/stories/'.$story->pics) !!}" alt="{!! $story->title !!}" class="rounded img-fluid image image-2 image-full">
                                                             <div class="text">
-                                                                <div class="img img-2 round-circle" style="background-image: url(images/person-1.jpg);"></div>
+                                                                <a href="/profile/{!! $story->user['id'] !!}">
+                                                                    <div class="img img-2 round-circle" style="background-image: url({!! asset('/storage/users/'.$story->user['avatar']) !!});"></div>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="card-body pb-5">
-                                                        <h5 class="card-title mb-0 text-success">Author Name</h5>
-                                                        <a href="/"><span class="position d-block mb-4">Title</span></a>
-                                                        <p class="card-text">body</p>
+                                                        <a href="/profile/{!! $story->user['id'] !!}">
+                                                            <h5 class="card-title mb-0 text-success">{!! $story->user['username'] !!}</h5>
+                                                        </a>
+                                                        <a href="/story/{!! $story->id !!}">
+                                                            <span class="position d-block mb-4">{!! $story->alav !!}</span>
+                                                            <p class="card-text">{!! Str::words($story->paramica, 9, ' ...') !!}</p>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mb-2">
-                                                <div class="card text-center">
-                                                    <div class="card-img">
-                                                        <div class="image-wrap">
-                                                            <img src="images/bg_3.jpg" alt="Round Image" class="rounded img-fluid image image-2 image-full">
-                                                            <div class="text">
-                                                                <div class="img img-2 round-circle" style="background-image: url(images/person-1.jpg);"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body pb-5">
-                                                        <h5 class="card-title mb-0 text-success">Author Name</h5>
-                                                        <a href="/"><span class="position d-block mb-4">Title</span></a>
-                                                        <p class="card-text">body</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 mb-2">
-                                                <div class="card text-center">
-                                                    <div class="card-img">
-                                                        <div class="image-wrap">
-                                                            <img src="images/bg_3.jpg" alt="Round Image" class="rounded img-fluid image image-2 image-full">
-                                                            <div class="text">
-                                                                <div class="img img-2 round-circle" style="background-image: url(images/person-1.jpg);"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body pb-5">
-                                                        <h5 class="card-title mb-0 text-success">Author Name</h5>
-                                                        <a href="/"><span class="position d-block mb-4">Title</span></a>
-                                                        <p class="card-text">body</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @empty
+                                            @endforelse
                                         </div>
                                     </div>
                                 </section>
@@ -155,6 +105,7 @@
                                 <section class="ftco-section ftco-section-2 bg-light" id="cards">
                                     <div class="container">
                                         <div class="row">
+
                                             <div class="col-md-4 mb-2">
                                                 <div class="card text-center">
                                                     <div class="card-img">
@@ -169,34 +120,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mb-2">
-                                                <div class="card text-center">
-                                                    <div class="card-img">
-                                                        <div class="image-wrap">
-                                                            <img src="images/bg_3.jpg" alt="Round Image" class="rounded img-fluid image image-2 image-full">
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body pb-5">
-                                                        <a href="/"><h5 class="card-title mb-0 text-success">Rom</h5></a>
-                                                        <p class="card-text">body</p>
-                                                        <p class="card-text">body</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 mb-2">
-                                                <div class="card text-center">
-                                                    <div class="card-img">
-                                                        <div class="image-wrap">
-                                                            <img src="images/bg_3.jpg" alt="Round Image" class="rounded img-fluid image image-2 image-full">
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body pb-5">
-                                                        <a href="/"><h5 class="card-title mb-0 text-success">Rom</h5></a>
-                                                        <p class="card-text">body</p>
-                                                        <p class="card-text">body</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </section>
