@@ -86,6 +86,7 @@ class ProfilesController extends Controller
 
             'role_id' => 'sometimes',
             'birthDate' => 'sometimes',
+            'site' => 'sometimes',
             'phones' => 'sometimes',
             'street' => 'sometimes',
             'city' => 'sometimes',

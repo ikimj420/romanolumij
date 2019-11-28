@@ -54,16 +54,16 @@ class User extends Authenticatable
     }
 
     //HasMany
-/*    public function albums()
+    public function albums()
     {
         return $this->hasMany(\App\Models\Album::class);
-    }*/
+    }
 
     //HasMany
-/*    public function photos()
+    public function images()
     {
-        return $this->hasMany(\App\Models\Photo::class);
-    }*/
+        return $this->hasMany(\App\Models\Image::class);
+    }
 
     //HasMany
     public function poems()

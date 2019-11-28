@@ -33,6 +33,10 @@
                     <input type="date" name="birthDate" class="form-control" value="{!! $user->birthDate !!}">
                 </div>
                 <div class="form-group">
+                    <label for="site" class="col-form-label">Site</label>
+                    <input type="date" name="site" class="form-control" value="{!! $user->site !!}">
+                </div>
+                <div class="form-group">
                     <label for="phones" class="col-form-label">Phones</label>
                     <input type="text" name="phones" class="form-control" value="{!! $user->phones !!}">
                 </div>

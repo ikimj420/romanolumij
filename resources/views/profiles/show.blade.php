@@ -85,6 +85,14 @@
                         </div>
                     </div>
                     <div class="typo">
+                        <span class="typo-note">Site</span>
+                        <div class="blockquote">
+                            <p>
+                                {!! $user->site !!}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="typo">
                         <span class="typo-note">Phones</span>
                         <div class="blockquote">
                             <p>
