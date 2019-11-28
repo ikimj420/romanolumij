@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use PhpParser\Node\Stmt\If_;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfilesController extends Controller
 {
@@ -43,34 +41,24 @@ class ProfilesController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'username' => 'required',
-            'email' => 'required',
-
-            'role_id' => 'sometimes',
-            'birthDate' => 'sometimes',
-            'phones' => 'sometimes',
-            'street' => 'sometimes',
-            'city' => 'sometimes',
-            'state' => 'sometimes',
-            'bio' => 'sometimes',
-            'avatar' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
-        ]);
         $user = User::findOrFail($id);
-        $folder = 'users';
-        $image_request = $request->hasFile('avatar');
+        //update
+        $user->update($this->validateRequest());
 
-        if(Request()->hasFile('avatar')){
-            if ($user->avatar !== 'default.svg'){
-                $image = Request()->file('avatar');
+        //save picture
+        $folder = 'users';
+        $img_request = $request->hasFile('avatar');
+        $img = Request()->file('avatar');
+        //check for picture
+        if($img_request){
+            // Delete Images
+            if($user->avatar != 'default.svg'){
                 Storage::delete('public/'. $folder .'/'.$user->avatar);
-                $pics = $this->updateImage($image_request, $image, $folder);
-                $user->avatar = $pics;
             }
+            $picture = $this->updateImage($img_request, $img, $folder);
+            $user->avatar = $picture;
             $user->update();
-        }else
-        $user->update($request->all());
+        }
 
         return back()->withToastSuccess('Profile Updated Successfully!');
     }
@@ -87,5 +75,23 @@ class ProfilesController extends Controller
         }
 
         return redirect(route('welcome'))->withToastSuccess('User Deleted Successfully!');
+    }
+
+    private function validateRequest()
+    {
+        return request()->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+
+            'role_id' => 'sometimes',
+            'birthDate' => 'sometimes',
+            'phones' => 'sometimes',
+            'street' => 'sometimes',
+            'city' => 'sometimes',
+            'state' => 'sometimes',
+            'bio' => 'sometimes',
+            //'avatar' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
+        ]);
     }
 }

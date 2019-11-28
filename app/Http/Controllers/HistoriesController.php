@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\History;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class HistoriesController extends Controller
 {
@@ -26,15 +25,7 @@ class HistoriesController extends Controller
 
     public function store(Request $request)
     {
-        //validation
-        $request->validate([
-            'alav' => 'required',
-            'title' => 'required',
-            'istorija' => 'required',
-            'history' => 'required',
-        ]);
-
-        History::create($request->all());
+        History::create($this->validateRequest());
 
         return redirect(route('history.index'))->withToastSuccess('History Created Successfully!');
     }
@@ -52,15 +43,8 @@ class HistoriesController extends Controller
 
     public function update(Request $request, History $history)
     {
-        $request->validate([
-            'alav' => 'required',
-            'title' => 'required',
-            'istorija' => 'required',
-            'history' => 'required',
-        ]);
-
         //update history
-        $history->update($request->all());
+        $history->update($this->validateRequest());
 
         return redirect(route('history.index'))->withToastSuccess('History Updated Successfully!');
     }
@@ -71,5 +55,15 @@ class HistoriesController extends Controller
         $history->delete();
 
         return redirect(route('history.index'))->withToastSuccess('History Deleted Successfully!');
+    }
+
+    private function validateRequest()
+    {
+        return request()->validate([
+            'alav' => 'required',
+            'title' => 'required',
+            'istorija' => 'required',
+            'history' => 'required',
+        ]);
     }
 }

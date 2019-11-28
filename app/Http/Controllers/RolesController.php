@@ -26,12 +26,7 @@ class RolesController extends Controller
 
     public function store(Request $request)
     {
-        //validation
-        $request->validate([
-            'userLevel' => 'required',
-        ]);
-
-        Role::create($request->all());
+        Role::create($this->validateRequest());
 
         return redirect(route('role.index'))->withToastSuccess('User Level Created Successfully!');
     }
@@ -49,12 +44,8 @@ class RolesController extends Controller
 
     public function update(Request $request, Role $role)
     {
-        $request->validate([
-            'userLevel' => 'required',
-        ]);
-
         //update history
-        $role->update($request->all());
+        $role->update($this->validateRequest());
 
         return redirect(route('role.index'))->withToastSuccess('User Level Updated Successfully!');
     }
@@ -65,5 +56,12 @@ class RolesController extends Controller
         $role->delete();
 
         return redirect(route('role.index'))->withToastSuccess('User Level Deleted Successfully!');
+    }
+
+    private function validateRequest()
+    {
+        return request()->validate([
+            'userLevel' => 'required',
+        ]);
     }
 }

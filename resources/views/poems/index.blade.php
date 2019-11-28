@@ -9,7 +9,7 @@
             <div class="row description js-fullheight align-items-center justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="text">
-                        <h1 class="mb-4"><span>Categories</span></h1>
+                        <h1 class="mb-4"><span>Poems</span></h1>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="mt-3">
-                            @include('categories.modal.add')
+                            @include('poems.modal.add')
                         </div>
                     </div>
                 </div>
@@ -31,22 +31,26 @@
         @endif
     @endauth
 
-    <!-- Category -->
+    <!-- Roles -->
     <section class="ftco-section" id="images">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="heading-section mb-4">Categories</h2>
+                    <h2 class="heading-section mb-4">Poems</h2>
                     <div class="row">
-                        @forelse($categories as $category)
+                        @forelse($poems as $poem)
                             <div class="col-md-4 text-center">
-                                <a href="/category/{!! $category->id !!}">
-                                    <h2 class="heading-section">
-                                        <small>{!! $category->name !!}</small>
-                                    </h2>
-                                    <div class="image-wrap">
-                                        <img src="{!! asset('/storage/categories/'.$category->pics) !!}" alt="{!! $category->name !!}" class="rounded-circle img-fluid image">
+                                <h2 class="heading-section mb-4">
+                                    <small></small>
+                                </h2>
+                                <a href="/poem/{!! $poem->id !!}">
+                                <div class="image-wrap">
+                                    <img src="{!! asset('/storage/poems/'.$poem->pics) !!}" alt="{!! $poem->title !!}" class="img-raised rounded-circle thumbnail img-fluid image">
+                                    <div class="text">
+                                        <div class="img"></div>
+                                        <span class="position">{!! $poem->title !!}</span>
                                     </div>
+                                </div>
                                 </a>
                             </div>
                         @empty
@@ -56,5 +60,6 @@
             </div>
         </div>
     </section>
+
 
 @endsection

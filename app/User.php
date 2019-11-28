@@ -35,11 +35,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-//belongsTo
-    public function role()
-    {
-        return $this->belongsTo(\App\Models\Role::class, 'role_id');
-    }
+
 //check if auth user is Admin
     public function Admin()
     {
@@ -51,4 +47,33 @@ class User extends Authenticatable
         return $this->role()->where('userLevel', 'Moderator')->exists();
     }
 
+    //belongsTo
+    public function role()
+    {
+        return $this->belongsTo(\App\Models\Role::class, 'role_id');
+    }
+
+    //HasMany
+/*    public function albums()
+    {
+        return $this->hasMany(\App\Models\Album::class);
+    }*/
+
+    //HasMany
+/*    public function photos()
+    {
+        return $this->hasMany(\App\Models\Photo::class);
+    }*/
+
+    //HasMany
+    public function poems()
+    {
+        return $this->hasMany(\App\Models\Poem::class);
+    }
+
+    //HasMany
+/*    public function stories()
+    {
+        return $this->hasMany(\App\Models\Story::class);
+    }*/
 }

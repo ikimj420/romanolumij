@@ -46,12 +46,9 @@ class UserLevelsController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findorFail($id);
-        $request->validate([
-            'role_id' => 'required',
-        ]);
 
         //update history
-        $user->update($request->all());
+        $user->update($this->validateRequest());
 
         return redirect(route('userLevel.index'))->withToastSuccess('User Level Updated Successfully!');
     }
@@ -59,5 +56,12 @@ class UserLevelsController extends Controller
     public function destroy()
     {
         return back();
+    }
+
+    private function validateRequest()
+    {
+        return request()->validate([
+            'role_id' => 'required',
+        ]);
     }
 }

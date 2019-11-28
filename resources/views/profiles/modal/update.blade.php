@@ -8,7 +8,7 @@
         <div class="modal-content">
         <form method="post" action="/profile/{!! $user->id !!}" id="update" enctype="multipart/form-data">
             @csrf
-            @method('patch')
+            @method('put')
             <div class="modal-header">
                 <h5 class="modal-title" id="Title">Update Profile</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -52,7 +52,6 @@
                     <label for="bio" class="col-form-label">Biography</label>
                     <textarea name="bio" class="form-control">{!! $user->bio !!}</textarea>
                 </div>
-
                 <div class="form-group">
                     <label for="avatar" class="col-form-label">Avatar</label>
                     <input type="file" name="avatar" class="form-control">

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Friend;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class FriendsController extends Controller
 {
@@ -27,21 +26,13 @@ class FriendsController extends Controller
 
     public function store(Request $request)
     {
-        //validation
-        $request->validate([
-            'alav' => 'required',
-            'title' => 'required',
-            'url' => 'required',
-            'pics' => 'required|image|mimes:jpeg,png,jpg,|max:512',
-        ]);
+        $friend = Friend::create($this->validateRequest());
 
-        $friend = Friend::create($request->all());
-
-        //add pics
         $img_request = $request->hasFile('pics');
         $image = $request->file('pics');
         $folder = 'friends';
-        $pics = $this->imageCreate($img_request, $image, $folder);
+        //add pics
+        $pics = $this->createImage($img_request, $image, $folder);
         $friend->pics = $pics;
 
         $friend->save();
@@ -62,25 +53,19 @@ class FriendsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'alav' => 'required',
-            'title' => 'required',
-            'url' => 'required',
-            'pics' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
-        ]);
         $friend = Friend::findOrFail($id);
         $folder = 'friends';
         $image_request = $request->hasFile('pics');
+        $friend->update($this->validateRequest());
 
         if(Request()->hasFile('pics')){
             $image = Request()->file('pics');
             Storage::delete('public/'. $folder .'/'.$friend->pics);
-            $pics = $this->imageUpdate($image_request, $image, $folder);
+            $pics = $this->updateImage($image_request, $image, $folder);
             $friend->pics = $pics;
 
             $friend->update();
-        }else
-        $friend->update($request->all());
+        }
 
         return redirect(route('friend.index'))->withToastSuccess('Friend Updated Successfully!');
     }
@@ -94,5 +79,16 @@ class FriendsController extends Controller
         Storage::delete('public/friends/'.$friend->pics);
 
         return redirect(route('friend.index'))->withToastSuccess('Friend Deleted Successfully!');
+    }
+
+
+    private function validateRequest()
+    {
+        return request()->validate([
+            'alav' => 'required',
+            'title' => 'required',
+            'url' => 'required',
+            //'pics' => 'required|image|mimes:jpeg,png,jpg,|max:512',
+        ]);
     }
 }

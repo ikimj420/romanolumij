@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoriesController extends Controller
 {
@@ -27,21 +26,13 @@ class CategoriesController extends Controller
 
     public function store(Request $request)
     {
-        //validation
-        $request->validate([
-            'name' => 'required',
-            'varnanipe' => 'required',
-            'desc' => 'required',
-            'pics' => 'required|image|mimes:jpeg,png,jpg,|max:1024',
-        ]);
+        $category = Category::create($this->validateRequest());
 
-        $category = Category::create($request->all());
-
-        //add pics
         $img_request = $request->hasFile('pics');
         $image = $request->file('pics');
-        $folder = 'category';
-        $pics = $this->imageCreate($img_request, $image, $folder);
+        $folder = 'categories';
+        //add pics
+        $pics = $this->createImage($img_request, $image, $folder);
         $category->pics = $pics;
 
         $category->save();
@@ -62,25 +53,22 @@ class CategoriesController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'varnanipe' => 'required',
-            'desc' => 'required',
-            'pics' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
-        ]);
         $category = Category::findOrFail($id);
-        $folder = 'category';
-        $image_request = $request->hasFile('pics');
+        //update
+        $category->update($this->validateRequest());
 
-        if(Request()->hasFile('pics')){
-            $image = Request()->file('pics');
+        //save picture
+        $folder = 'categories';
+        $img_request = $request->hasFile('pics');
+        $img = Request()->file('pics');
+        //check for picture
+        if($img_request){
+            // Delete Images
             Storage::delete('public/'. $folder .'/'.$category->pics);
-            $pics = $this->imageUpdate($image_request, $image, $folder);
-            $category->pics = $pics;
-
+            $picture = $this->updateImage($img_request, $img, $folder);
+            $category->pics = $picture;
             $category->update();
-        }else
-        $category->update($request->all());
+        }
 
         return redirect(route('category.index'))->withToastSuccess('Category Updated Successfully!');
     }
@@ -89,10 +77,19 @@ class CategoriesController extends Controller
     {
         //delete history
         $category->delete();
-
         //
-        Storage::delete('public/category/'.$category->pics);
+        Storage::delete('public/categories/'.$category->pics);
 
         return redirect(route('category.index'))->withToastSuccess('Category Deleted Successfully!');
+    }
+
+    private function validateRequest()
+    {
+        return request()->validate([
+            'name' => 'required',
+            'varnanipe' => 'required',
+            'desc' => 'required',
+            //'pics' => 'sometimes|image|mimes:jpeg,png,jpg,|max:1024',
+        ]);
     }
 }

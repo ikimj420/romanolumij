@@ -15,11 +15,11 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="/history" class="nav-link icon d-flex align-items-center"> @lang('menu.history')</a></li>
-                <li class="nav-item"><a href="/" class="nav-link icon d-flex align-items-center"> @lang('menu.poems')</a></li>
-                <li class="nav-item"><a href="/" class="nav-link icon d-flex align-items-center"> @lang('menu.stories')</a></li>
-                <li class="nav-item"><a href="/" class="nav-link icon d-flex align-items-center"> @lang('menu.albums')</a></li>
-                <li class="nav-item"><a href="/" class="nav-link icon d-flex align-items-center"> @lang('menu.lexicon')</a></li>
-                <li class="nav-item"><a href="/" class="nav-link icon d-flex align-items-center"> @lang('menu.contact')</a></li>
+                <li class="nav-item"><a href="/poem" class="nav-link icon d-flex align-items-center"> @lang('menu.poems')</a></li>
+                <li class="nav-item"><a href="/story" class="nav-link icon d-flex align-items-center"> @lang('menu.stories')</a></li>
+                <li class="nav-item"><a href="/album" class="nav-link icon d-flex align-items-center"> @lang('menu.albums')</a></li>
+                <li class="nav-item"><a href="/lexicon" class="nav-link icon d-flex align-items-center"> @lang('menu.lexicon')</a></li>
+                <li class="nav-item"><a href="/contact" class="nav-link icon d-flex align-items-center"> @lang('menu.contact')</a></li>
                 @auth()
                 <li class="nav-item"><a href="/profile/{!! Auth::id() !!}" class="nav-link icon d-flex align-items-center"> @lang('menu.profile')</a></li>
                 @endauth

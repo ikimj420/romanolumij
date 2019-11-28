@@ -13,23 +13,23 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     // function for create image
-    public function createImage($img_request, $image, $folder){
+    public function createImage($img_request, $img, $folder)
+    {
         if($img_request){
             // Filename with extension
-            $filenameWithExt = $image->getClientOriginalName();
+            $filenameWithExt = $img->getClientOriginalName();
             // Get just filename
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             // Get just extension
-            $extension = $image->getClientOriginalExtension();
+            $extension = $img->getClientOriginalExtension();
             // Filename to store
             $filenameToStor = $filename.'_'.time().'.'.$extension;
             //remove space if exist
             $pics = str_replace(' ','_', $filenameToStor);
             //save in folder
-            $pictures = $image;
-            //create save in app
-            Image::make($pictures)->fit(500, 500)->save( public_path('storage/' . $folder . '/' . $pics ) );
+            $pictures = $img;
             //create Large
+            Image::make($pictures)->fit(640, 480)->save( public_path('storage/' . $folder . '/' . $pics ) );
         }else{
             $pics = 'default.svg';
         }
@@ -37,72 +37,28 @@ class Controller extends BaseController
     }
 
     // function for update images
-    public function updateImage($img_request, $image, $folder){
+    public function updateImage($img_request, $img, $folder)
+    {
         if($img_request){
             // Filename with extension
-            $filenameWithExt = $image->getClientOriginalName();
+            $filenameWithExt = $img->getClientOriginalName();
             // Get just filename
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             // Get just extension
-            $extension = $image->getClientOriginalExtension();
+            $extension = $img->getClientOriginalExtension();
             // Filename to store
             $filenameToStor = $filename.'_'.time().'.'.$extension;
             //remove space if exist
             $pics = str_replace(' ','_', $filenameToStor);
             //save in folder
-            $pictures = $image;
-            //update save in app
-            Image::make($pictures)->fit(500, 500)->save( public_path('storage/' . $folder . '/' . $pics ) );
+            $pictures = $img;
+            //create Large
+            Image::make($pictures)->fit(640, 480)->save( public_path('storage/'.$folder.'/'.$pics ) );
 
-            return $pics;
-        }
-    }
-
-
-    // function for create image
-    public function imageCreate($img_request, $image, $folder){
-        if($img_request){
-            // Filename with extension
-            $filenameWithExt = $image->getClientOriginalName();
-            // Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just extension
-            $extension = $image->getClientOriginalExtension();
-            // Filename to store
-            $filenameToStor = $filename.'_'.time().'.'.$extension;
-            //remove space if exist
-            $pics = str_replace(' ','_', $filenameToStor);
-            //save in folder
-            $pictures = $image;
-            //create save in app
-            Image::make($pictures)->fit(150, 150)->save( public_path('storage/' . $folder . '/' . $pics ) );
         }else{
-            $pics = 'default.svg';
+            $pics = '';
         }
         return $pics;
-    }
-
-    // function for update images
-    public function imageUpdate($img_request, $image, $folder){
-        if($img_request){
-            // Filename with extension
-            $filenameWithExt = $image->getClientOriginalName();
-            // Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just extension
-            $extension = $image->getClientOriginalExtension();
-            // Filename to store
-            $filenameToStor = $filename.'_'.time().'.'.$extension;
-            //remove space if exist
-            $pics = str_replace(' ','_', $filenameToStor);
-            //save in folder
-            $pictures = $image;
-
-            //update save in app
-            Image::make($pictures)->fit(150, 150)->save( public_path('storage/' . $folder . '/' . $pics ) );
-
-            return $pics;
-        }
     }
 
 }
