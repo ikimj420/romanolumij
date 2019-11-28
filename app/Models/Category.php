@@ -9,16 +9,16 @@ class Category extends Model
     protected $guarded = [];
 
     //HasMany
-/*    public function albums()
+    public function albums()
     {
         return $this->hasMany(\App\Models\Album::class);
-    }*/
+    }
 
     //HasMany
-/*    public function lexicons()
+    public function lexicons()
     {
         return $this->hasMany(\App\Models\Lexicon::class);
-    }*/
+    }
 
     //HasMany
     public function poems()
@@ -27,8 +27,8 @@ class Category extends Model
     }
 
     //HasMany
-/*    public function stories()
+    public function stories()
     {
         return $this->hasMany(\App\Models\Story::class);
-    }*/
+    }
 }

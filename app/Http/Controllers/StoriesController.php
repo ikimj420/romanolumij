@@ -16,7 +16,7 @@ class StoriesController extends Controller
 
     public function index()
     {
-        $stories = Story::latest()->get();
+        $stories = Story::latest()->paginate(36);
         $categories = Category::get();
 
         return view('stories.index', compact('stories', 'categories'));

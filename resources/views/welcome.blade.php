@@ -105,22 +105,25 @@
                                 <section class="ftco-section ftco-section-2 bg-light" id="cards">
                                     <div class="container">
                                         <div class="row">
-
+                                            @forelse($lexicons as $lexicon)
                                             <div class="col-md-4 mb-2">
                                                 <div class="card text-center">
                                                     <div class="card-img">
                                                         <div class="image-wrap">
-                                                            <img src="images/bg_3.jpg" alt="Round Image" class="rounded img-fluid image image-2 image-full">
+                                                            <a href="/lexicon/{!! $lexicon->id !!}">
+                                                                <img src="{!! asset('/storage/categories/'.$lexicon->category['pics']) !!}" alt="{!! $lexicon->eng !!}" class="rounded img-fluid image image-2 image-full">
+                                                            </a>
                                                         </div>
                                                     </div>
                                                     <div class="card-body pb-5">
-                                                        <a href="/"><h5 class="card-title mb-0 text-success">Rom</h5></a>
-                                                        <p class="card-text">body</p>
-                                                        <p class="card-text">body</p>
+                                                        <a href="/lexicon/{!! $lexicon->id !!}"><h5 class="card-title mb-0 text-success">{!! $lexicon->rom !!}</h5></a>
+                                                        <p class="card-text">{!! $lexicon->ser !!}</p>
+                                                        <p class="card-text">{!! $lexicon->eng !!}</p>
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            @empty
+                                            @endforelse
                                         </div>
                                     </div>
                                 </section>

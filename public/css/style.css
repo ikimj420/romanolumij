@@ -4014,9 +4014,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #f44336;
-  background-color: #fff;
-  border: 1px solid #dee2e6; }
+  color: #f44336; }
   .page-link:hover {
     z-index: 2;
     color: #d2190b;
@@ -4048,7 +4046,6 @@ input[type="button"].btn-block {
   color: #6c757d;
   pointer-events: none;
   cursor: auto;
-  background-color: #fff;
   border-color: #dee2e6; }
 
 .pagination-lg .page-link {
@@ -8859,8 +8856,6 @@ h1, h2, h3, h4, h5,
     display: inline-block;
     width: 40px;
     height: 40px;
-    line-height: 40px;
-    border-radius: 50%;
     color: rgba(0, 0, 0, 0.4);
     background: transparent;
     border: 2px solid #f44336;

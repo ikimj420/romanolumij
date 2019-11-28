@@ -16,7 +16,7 @@ class PoemsController extends Controller
 
     public function index()
     {
-        $poems = Poem::latest()->get();
+        $poems = Poem::latest()->paginate(36);
         $categories = Category::get();
 
         return view('poems.index', compact('poems', 'categories'));

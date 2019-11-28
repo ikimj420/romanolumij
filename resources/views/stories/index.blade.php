@@ -56,6 +56,7 @@
                         @empty
                         @endforelse
                     </div>
+                    {!! $stories->onEachSide(1)->links() !!}
                 </div>
             </div>
         </div>

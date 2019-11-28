@@ -21,6 +21,8 @@ Route::resource('/profile', 'ProfilesController');
 Route::resource('/poem', 'PoemsController');
 //Story
 Route::resource('/story', 'StoriesController');
+//Lexicon
+Route::resource('/lexicon', 'LexiconsController');
 
 
 
