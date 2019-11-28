@@ -37,6 +37,7 @@ class PoemsController extends Controller
         $folder = 'poems';
         $pics = $this->createImage($img_request, $image, $folder);
         $poem->pics = $pics;
+        $poem->user_id = Auth::id();
 
         $poem->save();
 

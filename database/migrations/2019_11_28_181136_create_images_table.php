@@ -17,7 +17,7 @@ class CreateImagesTable extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('albums_id')->nullable();
+            $table->unsignedBigInteger('album_id')->nullable();
             $table->string('name');
             $table->text('desc');
             $table->string('pics')->default('default.svg');
@@ -27,7 +27,7 @@ class CreateImagesTable extends Migration
                 ->references('id')->on('users')
                 ->onDelete('cascade');
 
-            $table->foreign('albums_id')
+            $table->foreign('album_id')
                 ->references('id')->on('albums')
                 ->onDelete('cascade');
         });

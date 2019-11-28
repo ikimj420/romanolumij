@@ -70,7 +70,6 @@
                         </div>
                     @endif
                 </div>
-                <input type="hidden" name="user_id" value="{!! Auth::user()->id !!}">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close <i class="ion-ios-close"></i></button>

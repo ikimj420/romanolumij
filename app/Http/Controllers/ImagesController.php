@@ -2,84 +2,99 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ImagesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except( 'show');
+    }
+
     public function index()
     {
-        //
+        return back();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+
+        $image = Image::create($this->validateRequest());
+        //add pics
+        $img_request = $request->hasFile('pics');
+        $img = $request->file('pics');
+        $folder = 'images';
+        $pics = $this->createImage($img_request, $img, $folder);
+        $image->pics = $pics;
+        $image->album_id = $id;
+        $image->user_id = Auth::id();
+
+        $image->save();
+
+        return back()->withToastSuccess('Image Created Successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Image  $image
-     * @return \Illuminate\Http\Response
-     */
     public function show(Image $image)
     {
-        //
+        return view('images.show', compact('image'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Image  $image
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Image $image)
+    public function edit()
     {
-        //
+        return back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Image  $image
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Image $image)
+    public function update(Request $request, $id)
     {
-        //
+        $image = Image::findOrFail($id);
+
+        $image->update($this->validateRequest());
+
+        $folder = 'images';
+        $image_request = $request->hasFile('pics');
+        $img = Request()->file('pics');
+        if(Request()->hasFile('pics')){
+
+            Storage::delete('public/'. $folder .'/'.$image->pics);
+
+            $pics = $this->updateImage($image_request, $img, $folder);
+            $image->pics = $pics;
+            $image->update();
+        }
+
+
+        return back()->withToastSuccess('Image Updated Successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Image  $image
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Image $image)
+    public function destroy($id)
     {
-        //
+        $image = Image::findOrFail($id);
+        //delete history
+        $image->delete();
+
+        Storage::delete('public/images/'.$image->pics);
+
+        return redirect(route('album.index'))->withToastSuccess('Image Deleted Successfully!');
+    }
+
+    private function validateRequest()
+    {
+        return request()->validate([
+            'name' => 'required',
+            'desc' => 'required',
+
+            'user_id' => 'sometimes',
+            'category_id' => 'sometimes',
+            //'pics' => 'sometimes|image|mimes:jpeg,png,jpg,|max:1024',
+        ]);
     }
 }

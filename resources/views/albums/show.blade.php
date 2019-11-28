@@ -34,7 +34,7 @@
         @endif
     @endauth
 
-    <!-- Friends -->
+    <!-- Albums -->
     <section class="ftco-section" id="typography">
         <div class="container">
             <div class="row">
@@ -80,6 +80,57 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Add Button -->
+    @auth
+        @if(Auth::user()->Admin())
+            <section class="ftco-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="mt-3">
+                            @include('images.modal.add')
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endif
+    @endauth
+
+    <!-- Images -->
+    <section class="ftco-section" id="typography">
+        <div class="container">
+            @forelse($album->images as $image)
+                <div class="row">
+                <div class="col-md-4 text-center">
+                    <div class="image-wrap">
+                        <a href="/image/{!! $image->id !!}">
+                            <img src="{!! asset('/storage/images/'.$image->pics) !!}" alt="{!! $image->name !!}" class="rounded img-fluid image image-2">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="typo">
+                        <span class="typo-note">Image Name</span>
+                        <div class="blockquote">
+                            <p>
+                                {!! $image->name !!}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="typo">
+                        <span class="typo-note">Description</span>
+                        <div class="blockquote">
+                            <p>
+                                {!! $image->desc !!}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @empty
+            @endforelse
         </div>
     </section>
 

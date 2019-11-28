@@ -25,6 +25,11 @@ Route::resource('/story', 'StoriesController');
 Route::resource('/lexicon', 'LexiconsController');
 //Albums
 Route::resource('/album', 'AlbumsController');
+//Add Image
+Route::post('/album/{album}', 'ImagesController@store');
+//Images
+Route::resource('/image', 'ImagesController');
+
 
 
 

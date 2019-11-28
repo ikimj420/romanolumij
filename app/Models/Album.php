@@ -21,7 +21,7 @@ class Album extends Model
     }
 
     //HasMany
-    public function photos()
+    public function images()
     {
         return $this->hasMany(\App\Models\Image::class);
     }

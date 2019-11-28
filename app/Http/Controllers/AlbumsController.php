@@ -34,10 +34,11 @@ class AlbumsController extends Controller
         $album = Album::create($this->validateRequest());
         //add pics
         $img_request = $request->hasFile('pics');
-        $image = $request->file('pics');
+        $img = $request->file('pics');
         $folder = 'albums';
-        $pics = $this->createImage($img_request, $image, $folder);
+        $pics = $this->createImage($img_request, $img, $folder);
         $album->pics = $pics;
+        $album->user_id = Auth::id();
 
         $album->save();
 
@@ -64,12 +65,12 @@ class AlbumsController extends Controller
 
         $folder = 'albums';
         $image_request = $request->hasFile('pics');
-        $image = Request()->file('pics');
+        $img = Request()->file('pics');
         if(Request()->hasFile('pics')){
 
             Storage::delete('public/'. $folder .'/'.$album->pics);
 
-            $pics = $this->updateImage($image_request, $image, $folder);
+            $pics = $this->updateImage($image_request, $img, $folder);
             $album->pics = $pics;
             $album->update();
         }
@@ -81,7 +82,7 @@ class AlbumsController extends Controller
     public function destroy($id)
     {
         $album = Album::findOrFail($id);
-        $images = Image::where('albums_id', '=', $id)->get();
+        $images = Image::where('album_id', '=', $id)->get();
         //delete history
         $album->delete();
 

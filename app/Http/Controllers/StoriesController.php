@@ -37,6 +37,7 @@ class StoriesController extends Controller
         $folder = 'stories';
         $pics = $this->createImage($img_request, $image, $folder);
         $story->pics = $pics;
+        $story->user_id = Auth::id();
 
         $story->save();
 
