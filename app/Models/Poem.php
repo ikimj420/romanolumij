@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentTaggable\Taggable;
 
 class Poem extends Model
 {
+    use Taggable;
+
     protected $guarded = [];
 
 

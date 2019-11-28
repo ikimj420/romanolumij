@@ -29,7 +29,8 @@ class StoriesController extends Controller
 
     public function store(Request $request)
     {
-
+        //explode tags by ,
+        $tags = explode(',', $request->story_tag);
         $story = Story::create($this->validateRequest());
         //add pics
         $img_request = $request->hasFile('pics');
@@ -38,7 +39,8 @@ class StoriesController extends Controller
         $pics = $this->createImage($img_request, $image, $folder);
         $story->pics = $pics;
         $story->user_id = Auth::id();
-
+        //add tags
+        $story->tag($tags);
         $story->save();
 
         return redirect(route('story.index'))->withToastSuccess('Story Created Successfully!');
@@ -59,6 +61,8 @@ class StoriesController extends Controller
     public function update(Request $request, $id)
     {
         $story = Story::findOrFail($id);
+        //explode tags by ,
+        $tags = explode(',', $request->story_tag);
 
         $story->update($this->validateRequest());
 
@@ -73,6 +77,8 @@ class StoriesController extends Controller
             $story->pics = $pics;
             $story->update();
         }
+        //retag
+        $story->retag($tags);
 
 
         return redirect(route('story.index'))->withToastSuccess('Story Updated Successfully!');
@@ -106,6 +112,7 @@ class StoriesController extends Controller
             'description' => 'sometimes',
             'user_id' => 'sometimes',
             'category_id' => 'sometimes',
+            'story_tag' => 'sometimes',
             //'pics' => 'sometimes|image|mimes:jpeg,png,jpg,|max:1024',
         ]);
     }

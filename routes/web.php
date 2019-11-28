@@ -29,6 +29,8 @@ Route::resource('/album', 'AlbumsController');
 Route::post('/album/{album}', 'ImagesController@store');
 //Images
 Route::resource('/image', 'ImagesController');
+//Show Group Of Tags
+Route::get('/tag/tags/{tag}', 'TagsController@index');
 
 
 

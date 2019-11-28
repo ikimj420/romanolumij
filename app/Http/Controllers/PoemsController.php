@@ -29,7 +29,8 @@ class PoemsController extends Controller
 
     public function store(Request $request)
     {
-
+        //explode tags by ,
+        $tags = explode(',', $request->poem_tag);
         $poem = Poem::create($this->validateRequest());
         //add pics
         $img_request = $request->hasFile('pics');
@@ -38,7 +39,8 @@ class PoemsController extends Controller
         $pics = $this->createImage($img_request, $image, $folder);
         $poem->pics = $pics;
         $poem->user_id = Auth::id();
-
+        //add tags
+        $poem->tag($tags);
         $poem->save();
 
         return redirect(route('poem.index'))->withToastSuccess('Poem Created Successfully!');
@@ -59,6 +61,8 @@ class PoemsController extends Controller
     public function update(Request $request, $id)
     {
         $poem = Poem::findOrFail($id);
+        //explode tags by ,
+        $tags = explode(',', $request->poem_tag);
 
         $poem->update($this->validateRequest());
 
@@ -73,6 +77,8 @@ class PoemsController extends Controller
             $poem->pics = $pics;
             $poem->update();
         }
+        //retag
+        $poem->retag($tags);
 
 
         return redirect(route('poem.index'))->withToastSuccess('Poem Updated Successfully!');
@@ -106,6 +112,7 @@ class PoemsController extends Controller
             'description' => 'sometimes',
             'user_id' => 'sometimes',
             'category_id' => 'sometimes',
+            'poem_tag' => 'sometimes',
             //'pics' => 'sometimes|image|mimes:jpeg,png,jpg,|max:1024',
         ]);
     }

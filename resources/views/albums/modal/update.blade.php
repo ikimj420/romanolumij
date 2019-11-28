@@ -38,6 +38,10 @@
                     <textarea name="desc" class="form-control">{!! $album->desc !!}</textarea>
                 </div>
                 <div class="form-group">
+                    <label for="album_tag" class="col-form-label">Tags</label>
+                    <input type="text" placeholder="{!! $album->tagList !!}" name="album_tag" class="form-control">
+                </div>
+                <div class="form-group">
                     <label for="pics" class="col-form-label">Image</label>
                     <input type="file" name="pics" class="form-control">
                     @if(!empty($album->pics))

@@ -75,7 +75,13 @@
                     <div class="typo">
                         <span class="typo-note">Tags</span>
                         <div class="blockquote">
-                            <span>#tag</span>
+                            @forelse($album->tags as $tag)
+                                <a href="/tag/tags/{{ $tag }}">
+                                    <span>#{!! $tag->normalized !!} </span>
+                                </a>
+                            @empty
+                                <span> #</span>
+                            @endforelse
                         </div>
                     </div>
                 </div>

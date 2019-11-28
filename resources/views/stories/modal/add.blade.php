@@ -57,6 +57,10 @@
                     <textarea name="description" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
+                    <label for="story_tag" class="col-form-label">Tags</label>
+                    <input type="text" placeholder="After Each Tag Comma Is Required" name="story_tag" class="form-control">
+                </div>
+                <div class="form-group">
                     <label for="pics" class="col-form-label">Image</label>
                     <input type="file" name="pics" class="form-control">
                 </div>

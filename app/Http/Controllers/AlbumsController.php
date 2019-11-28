@@ -30,7 +30,8 @@ class AlbumsController extends Controller
 
     public function store(Request $request)
     {
-
+        //explode tags by ,
+        $tags = explode(',', $request->album_tag);
         $album = Album::create($this->validateRequest());
         //add pics
         $img_request = $request->hasFile('pics');
@@ -39,7 +40,8 @@ class AlbumsController extends Controller
         $pics = $this->createImage($img_request, $img, $folder);
         $album->pics = $pics;
         $album->user_id = Auth::id();
-
+        //add tags
+        $album->tag($tags);
         $album->save();
 
         return redirect(route('album.index'))->withToastSuccess('Album Created Successfully!');
@@ -60,6 +62,8 @@ class AlbumsController extends Controller
     public function update(Request $request, $id)
     {
         $album = Album::findOrFail($id);
+        //explode tags by ,
+        $tags = explode(',', $request->album_tag);
 
         $album->update($this->validateRequest());
 
@@ -74,6 +78,8 @@ class AlbumsController extends Controller
             $album->pics = $pics;
             $album->update();
         }
+        //retag
+        $album->retag($tags);
 
 
         return redirect(route('album.index'))->withToastSuccess('Album Updated Successfully!');
@@ -106,6 +112,7 @@ class AlbumsController extends Controller
 
             'user_id' => 'sometimes',
             'category_id' => 'sometimes',
+            'album_tag' => 'sometimes',
             //'pics' => 'sometimes|image|mimes:jpeg,png,jpg,|max:1024',
         ]);
     }

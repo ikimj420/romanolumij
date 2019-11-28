@@ -62,6 +62,10 @@
                     <textarea name="description" class="form-control">{!! $story->description !!}</textarea>
                 </div>
                 <div class="form-group">
+                    <label for="story_tag" class="col-form-label">Tags</label>
+                    <input type="text" placeholder="{!! $story->tagList !!}" name="story_tag" class="form-control">
+                </div>
+                <div class="form-group">
                     <label for="pics" class="col-form-label">Image</label>
                     <input type="file" name="pics" class="form-control">
                     @if(!empty($story->pics))
