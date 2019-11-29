@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#update">
-    Update Album
+    {{ __('button.updateA') }}
 </button>
 <!-- Modal -->
 <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="Title" aria-hidden="true">
@@ -10,7 +10,7 @@
             @csrf
             @method('patch')
             <div class="modal-header">
-                <h5 class="modal-title" id="Title">Update Album</h5>
+                <h5 class="modal-title" id="Title">{{ __('button.updateA') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -42,7 +42,7 @@
                     <input type="text" placeholder="{!! $album->tagList !!}" name="album_tag" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="pics" class="col-form-label">Image</label>
+                    <label for="pics" class="col-form-label">Album Cover Image</label>
                     <input type="file" name="pics" class="form-control">
                     @if(!empty($album->pics))
                         <div class="image-wrap">
@@ -52,8 +52,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close <i class="ion-ios-close"></i></button>
-                <button type="submit" class="btn btn-success">Update <i class="ion-ios-save"></i></button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __('button.close') }} <i class="ion-ios-close"></i></button>
+                <button type="submit" class="btn btn-success">{{ __('button.updateA') }} <i class="ion-ios-save"></i></button>
             </div>
         </form>
         </div>

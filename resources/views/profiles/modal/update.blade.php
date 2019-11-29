@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#update">
-    Update Profile
+    {{ __('button.updateU') }}
 </button>
 <!-- Modal -->
 <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="Title" aria-hidden="true">
@@ -10,7 +10,7 @@
             @csrf
             @method('put')
             <div class="modal-header">
-                <h5 class="modal-title" id="Title">Update Profile</h5>
+                <h5 class="modal-title" id="Title">{{ __('button.updateU') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -67,8 +67,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close <i class="ion-ios-close"></i></button>
-                <button type="submit" class="btn btn-success">Update <i class="ion-ios-save"></i></button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __('button.close') }} <i class="ion-ios-close"></i></button>
+                <button type="submit" class="btn btn-success">{{ __('button.updateU') }} <i class="ion-ios-save"></i></button>
             </div>
         </form>
         </div>

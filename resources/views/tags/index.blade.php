@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="heading-section mb-3s">Albums</h2>
+                    <h2 class="heading-section mb-3s">{{ __('button.albums') }}</h2>
                     <div class="row">
                         @forelse($albums as $album)
                             <div class="col-md-4 text-center mb-3">
@@ -51,7 +51,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="heading-section mb-3s">Poems</h2>
+                    <h2 class="heading-section mb-3s">{{ __('button.poems') }}</h2>
                     <div class="row">
                         @forelse($poems as $poem)
                             <div class="col-md-4 text-center mb-3">
@@ -81,7 +81,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="heading-section mb-3s">Stories</h2>
+                    <h2 class="heading-section mb-3s">{{ __('button.stories') }}</h2>
                     <div class="row">
                         @forelse($stories as $story)
                             <div class="col-md-4 text-center mb-3">

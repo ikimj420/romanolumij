@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add">
-    Add Story
+    {{ __('button.addS') }}
 </button>
 <!-- Modal -->
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="Title" aria-hidden="true">
@@ -9,7 +9,7 @@
         <form method="post" action="{{ action('StoriesController@store') }}" id="add" enctype="multipart/form-data">
             @csrf
             <div class="modal-header">
-                <h5 class="modal-title" id="Title">Add Story</h5>
+                <h5 class="modal-title" id="Title">{{ __('button.addS') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -61,13 +61,13 @@
                     <input type="text" placeholder="After Each Tag Comma Is Required" name="story_tag" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="pics" class="col-form-label">Image</label>
+                    <label for="pics" class="col-form-label">Image-Pinta</label>
                     <input type="file" name="pics" class="form-control">
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close <i class="ion-ios-close"></i></button>
-                <button type="submit" class="btn btn-success">Create <i class="ion-ios-save"></i></button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __('button.close') }} <i class="ion-ios-close"></i></button>
+                <button type="submit" class="btn btn-success">{{ __('button.addS') }} <i class="ion-ios-save"></i></button>
             </div>
         </form>
         </div>

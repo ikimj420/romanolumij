@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add">
-    Add New
+    {{ __('button.addH') }}
 </button>
 <!-- Modal -->
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="Title" aria-hidden="true">
@@ -9,7 +9,7 @@
         <form method="post" action="{{ action('HistoriesController@store') }}" id="add" enctype="multipart/form-data">
             @csrf
             <div class="modal-header">
-                <h5 class="modal-title" id="Title">Add History</h5>
+                <h5 class="modal-title" id="Title">{{ __('button.addH') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -36,8 +36,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close <i class="ion-ios-close"></i></button>
-                <button type="submit" class="btn btn-success">Create <i class="ion-ios-save"></i></button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __('button.close') }} <i class="ion-ios-close"></i></button>
+                <button type="submit" class="btn btn-success">{{ __('button.addH') }} <i class="ion-ios-save"></i></button>
             </div>
         </form>
         </div>
