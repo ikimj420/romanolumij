@@ -21,4 +21,10 @@ return[
     'fresh' => 'A fresh verification link has been sent to your email address.',
     'verify' => 'Verify Your Email Address',
     'another' => 'click here to request another',
+
+    'psd' => 'Poems Stories Dictionary',
+    'poem' => 'Poems',
+    'story' => 'Stories',
+    'lexicon' => 'Dictionary',
+    'album' => 'Albums',
 ];
