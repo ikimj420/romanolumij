@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Poem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class PoemsController extends Controller
 {
@@ -112,7 +113,7 @@ class PoemsController extends Controller
             'description' => 'sometimes',
             'user_id' => 'sometimes',
             'category_id' => 'sometimes',
-            'poem_tag' => 'sometimes',
+            'tags' => 'sometimes',
             //'pics' => 'sometimes|image|mimes:jpeg,png,jpg,|max:1024',
         ]);
     }

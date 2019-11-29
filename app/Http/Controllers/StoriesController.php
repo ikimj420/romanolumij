@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Story;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class StoriesController extends Controller
 {
@@ -112,7 +113,7 @@ class StoriesController extends Controller
             'description' => 'sometimes',
             'user_id' => 'sometimes',
             'category_id' => 'sometimes',
-            'story_tag' => 'sometimes',
+            'tags' => 'sometimes',
             //'pics' => 'sometimes|image|mimes:jpeg,png,jpg,|max:1024',
         ]);
     }

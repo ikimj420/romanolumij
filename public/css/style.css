@@ -3778,7 +3778,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
@@ -9579,3 +9579,8 @@ h1, h2, h3, h4, h5,
 .navbar-brand {
   font-weight: 700;
   font-size: 22px; }
+
+.avatar
+{
+  height: 50px;
+}

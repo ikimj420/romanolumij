@@ -7,6 +7,7 @@ use App\Models\Album;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class AlbumsController extends Controller
 {
@@ -112,7 +113,7 @@ class AlbumsController extends Controller
 
             'user_id' => 'sometimes',
             'category_id' => 'sometimes',
-            'album_tag' => 'sometimes',
+            'tags' => 'sometimes',
             //'pics' => 'sometimes|image|mimes:jpeg,png,jpg,|max:1024',
         ]);
     }

@@ -87,6 +87,12 @@
                             @endforelse
                         </div>
                     </div>
+                    <div class="typo">
+                        <span class="typo-note">Comment</span>
+                        <div class="blockquote">
+                            @comments(['model' => $poem])
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

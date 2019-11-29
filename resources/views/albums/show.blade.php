@@ -84,6 +84,12 @@
                             @endforelse
                         </div>
                     </div>
+                    <div class="typo">
+                        <span class="typo-note">Comment</span>
+                        <div class="blockquote">
+                            @comments(['model' => $album])
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

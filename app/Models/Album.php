@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentTaggable\Taggable;
+use Laravelista\Comments\Commentable;
 
 class Album extends Model
 {
     use Taggable;
+    use Commentable;
 
     protected $guarded = [];
 
