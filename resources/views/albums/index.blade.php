@@ -31,32 +31,33 @@
         @endif
     @endauth
 
-    <!-- Roles -->
+    <!-- Images -->
     <section class="ftco-section" id="images">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="heading-section mb-4">Albums</h2>
+                    <h2 class="heading-section mb-4"> Albums</h2>
                     <div class="row">
                         @forelse($albums as $album)
                             <div class="col-md-4 text-center">
                                 <h2 class="heading-section mb-4">
-                                    <small></small>
+                                    <small>{!! $album->name !!}</small>
                                 </h2>
-                                <a href="/album/{!! $album->id !!}">
                                 <div class="image-wrap">
-                                    <img src="{!! asset('/storage/albums/'.$album->pics) !!}" alt="{!! $album->name !!}" class="img-raised rounded-circle thumbnail img-fluid image">
+                                    <a href="/album/{!! $album->id !!}">
+                                        <img src="{!! asset('/storage/albums/'.$album->pics) !!}" alt="{!! $album->name !!}" class="rounded img-fluid image image-2">
+                                    </a>
                                     <div class="text">
-                                        <div class="img"></div>
-                                        <span class="position">{!! $album->name !!}</span>
+                                        <a href="/profile/{!! $album->user['id'] !!}">
+                                            <div class="img" style="background-image: url({!! '/storage/users/'.$album->user['avatar'] !!});"></div>
+                                            <span class="position">{!! $album->user['username'] !!}</span>
+                                        </a>
                                     </div>
                                 </div>
-                                </a>
                             </div>
                         @empty
                         @endforelse
                     </div>
-                    {!! $albums->onEachSide(1)->links() !!}
                 </div>
             </div>
         </div>

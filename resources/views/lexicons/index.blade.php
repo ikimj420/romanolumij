@@ -31,36 +31,31 @@
         @endif
     @endauth
 
-    <!-- Roles -->
-    <section class="ftco-section" id="images">
+    <!-- Lexicons -->
+    <section class="ftco-section ftco-section-2 bg-light" id="cards">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h2 class="heading-section mb-3s">Lexicons</h2>
-                    <div class="row">
-                        @forelse($lexicons as $lexicon)
-                            <div class="col-md-4 text-center mb-3">
-                                <h2 class="heading-section mb-4">
-                                    <small></small>
-                                </h2>
-                                <a href="/lexicon/{!! $lexicon->id !!}">
+                @forelse($lexicons as $lexicon)
+                    <div class="col-md-3 mb-2">
+                        <div class="card text-center">
+                            <div class="card-img">
                                 <div class="image-wrap">
-                                    <img src="{!! asset('/storage/categories/'.$lexicon->category['pics']) !!}" alt="{!! $lexicon->eng !!}" class="img-raised rounded-circle thumbnail img-fluid image">
-                                    <div class="text">
-                                        <div class="img"></div>
-                                        <span class="position">{!! $lexicon->rom !!}</span>
-                                        <span class="position">{!! $lexicon->ser !!}</span>
-                                        <span class="position">{!! $lexicon->eng !!}</span>
-                                    </div>
+                                    <a href="/lexicon/{!! $lexicon->id !!}">
+                                        <img src="{!! asset('/storage/categories/'.$lexicon->category['pics']) !!}" alt="{!! $lexicon->eng !!}" class="rounded img-fluid image image-2 image-full">
+                                    </a>
                                 </div>
-                                </a>
                             </div>
-                        @empty
-                        @endforelse
+                            <div class="card-body pb-5">
+                                <a href="/lexicon/{!! $lexicon->id !!}"><h5 class="card-title mb-0 text-success">{!! $lexicon->rom !!}</h5></a>
+                                <p class="card-text">{!! $lexicon->ser !!}</p>
+                                <p class="card-text">{!! $lexicon->eng !!}</p>
+                            </div>
+                        </div>
                     </div>
-                    {!! $lexicons->onEachSide(1)->links() !!}
-                </div>
+                @empty
+                @endforelse
             </div>
+            {!! $lexicons->onEachSide(1)->links() !!}
         </div>
     </section>
 
