@@ -32,4 +32,5 @@ return[
     'albums' => 'Album',
     'poems' => 'Djila',
     'stories' => 'Paramiće',
+    'blogs' => 'Hramisardan',
 ];

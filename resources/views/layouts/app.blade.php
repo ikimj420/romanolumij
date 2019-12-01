@@ -51,6 +51,8 @@
         <!-- Loader -->
         @include('include.loader')
 
+        <!-- Script Search -->
+        {{--@include('include.scriptSearch')--}}
     <!-- Script -->
     <script src="{!! asset('js/jquery.min.js') !!}"></script>
     <script src="{!! asset('js/jquery-migrate-3.0.1.min.js') !!}"></script>

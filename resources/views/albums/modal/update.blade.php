@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <label for="album_tag" class="col-form-label">Tags</label>
-                    <input type="text" placeholder="{!! $album->tagList !!}" name="album_tag" class="form-control">
+                    <input type="text" value="{!! $album->tagList !!}" name="album_tag" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="pics" class="col-form-label">Album Cover Image</label>

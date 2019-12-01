@@ -60,7 +60,7 @@
                                 </h2>
                                 <a href="/poem/{!! $poem->id !!}">
                                     <div class="image-wrap">
-                                        <img src="{!! asset('/storage/poem/'.$poem->alav ) !!}" alt="{!! $poem->title !!}" class="img-raised rounded-circle thumbnail img-fluid image">
+                                        <img src="{!! asset('/storage/poems/'.$poem->pics ) !!}" alt="{!! $poem->title !!}" class="img-raised rounded-circle thumbnail img-fluid image">
                                         <div class="text">
                                             <div class="img"></div>
                                             <span class="position">{!! $poem->alav !!}</span>
@@ -94,6 +94,36 @@
                                         <div class="text">
                                             <div class="img"></div>
                                             <span class="position">{!! $story->alav !!}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        @empty
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blogs -->
+    <section class="ftco-section" id="images">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="heading-section mb-3s">{{ __('button.blogs') }}</h2>
+                    <div class="row">
+                        @forelse($blogs as $blog)
+                            <div class="col-md-4 text-center mb-3">
+                                <h2 class="heading-section mb-4">
+                                    <small></small>
+                                </h2>
+                                <a href="/blog/{!! $blog->id !!}">
+                                    <div class="image-wrap">
+                                        <img src="{!! asset('/storage/blogs/'.$blog->pics ) !!}" alt="{!! $blog->title !!}" class="img-raised rounded-circle thumbnail img-fluid image">
+                                        <div class="text">
+                                            <div class="img"></div>
+                                            <span class="position">{!! $blog->title !!}</span>
                                         </div>
                                     </div>
                                 </a>

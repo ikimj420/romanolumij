@@ -32,4 +32,5 @@ return[
     'albums' => 'Albums',
     'poems' => 'Poems',
     'stories' => 'Stories',
+    'blogs' => 'You Write',
 ];

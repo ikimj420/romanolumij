@@ -7,10 +7,10 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="/locale/en" class="nav-link icon d-flex align-items-center"> English</a>
+                    <a href="/locale/en" class="nav-link icon d-flex align-items-center"><img src="{!! asset('/storage/images/eng.png') !!}" alt="English"></a>
                 </li>
                 <li class="nav-item">
-                    <a href="/locale/rom" class="nav-link icon d-flex align-items-center"> Romane</a>
+                    <a href="/locale/rom" class="nav-link icon d-flex align-items-center"><img src="{!! asset('/storage/images/rom.png') !!}" alt="Romane"></a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -19,6 +19,7 @@
                 <li class="nav-item"><a href="/story" class="nav-link icon d-flex align-items-center"> @lang('menu.stories')</a></li>
                 <li class="nav-item"><a href="/album" class="nav-link icon d-flex align-items-center"> @lang('menu.albums')</a></li>
                 <li class="nav-item"><a href="/lexicon" class="nav-link icon d-flex align-items-center"> @lang('menu.lexicon')</a></li>
+                <li class="nav-item"><a href="/blog" class="nav-link icon d-flex align-items-center"> @lang('menu.blogs')</a></li>
                 <li class="nav-item"><a href="/contact" class="nav-link icon d-flex align-items-center"> @lang('menu.contact')</a></li>
                 @auth()
                 <li class="nav-item"><a href="/profile/{!! Auth::id() !!}" class="nav-link icon d-flex align-items-center"> @lang('menu.profile')</a></li>

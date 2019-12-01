@@ -12,6 +12,7 @@ return[
     'stories' => 'Stories',
     'lexicon' => 'Lexicons',
     'albums' => 'Albums',
+    'blogs' => 'Write',
     'contact' => 'Contact',
     'profile' => 'Profile',
 

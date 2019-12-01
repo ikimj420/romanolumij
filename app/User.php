@@ -77,4 +77,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Models\Story::class);
     }
+
+    //HasMany
+    public function blogs()
+    {
+        return $this->hasMany(\App\Models\Blog::class);
+    }
 }

@@ -12,6 +12,7 @@ return[
     'stories' => 'Paramiće',
     'lexicon' => 'Alavari',
     'albums' => 'Album',
+    'blogs' => 'Hrami',
     'contact' => 'Akhar',
     'profile' => 'Pofil',
 

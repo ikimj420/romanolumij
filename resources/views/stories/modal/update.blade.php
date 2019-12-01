@@ -63,7 +63,7 @@
                 </div>
                 <div class="form-group">
                     <label for="story_tag" class="col-form-label">Tags</label>
-                    <input type="text" placeholder="{!! $story->tagList !!}" name="story_tag" class="form-control">
+                    <input type="text" value="{!! $story->tagList !!}" name="story_tag" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="pics" class="col-form-label">Image-Pinta</label>
