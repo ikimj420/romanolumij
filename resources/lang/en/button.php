@@ -33,6 +33,9 @@ return[
     'updateB' => 'Update What You Wrote',
     'deleteB' => 'Delete What You Wrote',
 
+    'addC' => 'Compose Email',
+    'sendC' => 'Send Email',
+
     'albums' => 'Albums',
     'poems' => 'Poems',
     'stories' => 'Stories',

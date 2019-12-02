@@ -33,6 +33,9 @@ return[
     'updateB' => 'Laćhar So Hramidan',
     'deleteB' => 'Khos So Hramidan',
 
+    'addC' => 'Hrami Email',
+    'sendC' => 'Hrami Email',
+
     'albums' => 'Album',
     'poems' => 'Djila',
     'stories' => 'Paramiće',

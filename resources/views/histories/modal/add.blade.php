@@ -43,3 +43,8 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'istorija' );
+    CKEDITOR.replace( 'history' );
+</script>

@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label for="djili" class="col-form-label">Djili</label>
-                    <textarea name="djili" class="form-control" required></textarea>
+                    <textarea name="djili" class="form-control" required ></textarea>
                 </div>
                 <div class="form-group">
                     <label for="poem" class="col-form-label">Poem</label>
@@ -73,3 +73,10 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'djili' );
+    CKEDITOR.replace( 'poem' );
+    CKEDITOR.replace( 'varnanipe' );
+    CKEDITOR.replace( 'description' );
+</script>
