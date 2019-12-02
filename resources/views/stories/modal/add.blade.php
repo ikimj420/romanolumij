@@ -17,7 +17,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="category_id" class="col-form-label">Category</label>
-                    <select name="category_id" class="form-control">
+                    <select name="category_id" class="form-control" required>
                         <option value="">Select</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{!! $category->name !!}</option>
@@ -26,35 +26,35 @@
                 </div>
                 <div class="form-group">
                     <label for="alav" class="col-form-label">Alav</label>
-                    <input type="text" name="alav" class="form-control">
+                    <input type="text" name="alav" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="title" class="col-form-label">Title</label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="autori" class="col-form-label">Hramisarda Autori</label>
-                    <input type="text" name="autori" class="form-control">
+                    <input type="text" name="autori" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="author" class="col-form-label">Author</label>
-                    <input type="text" name="author" class="form-control">
+                    <input type="text" name="author" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="paramica" class="col-form-label">Paramića</label>
-                    <textarea name="paramica" class="form-control"></textarea>
+                    <textarea name="paramica" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="story" class="col-form-label">Story</label>
-                    <textarea name="story" class="form-control"></textarea>
+                    <textarea name="story" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="varnanipe" class="col-form-label">Varnanipe</label>
-                    <textarea name="varnanipe" class="form-control"></textarea>
+                    <textarea name="varnanipe" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="description" class="col-form-label">Description</label>
-                    <textarea name="description" class="form-control"></textarea>
+                    <textarea name="description" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="story_tag" class="col-form-label">Tags</label>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="form-group">
                     <label for="pics" class="col-form-label">Image-Pinta</label>
-                    <input type="file" name="pics" class="form-control">
+                    <input type="file" name="pics" class="form-control" required>
                 </div>
             </div>
             <div class="modal-footer">

@@ -17,7 +17,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="userLevel" class="col-form-label">User Level</label>
-                    <input type="text" name="userLevel" class="form-control">
+                    <input type="text" name="userLevel" class="form-control" required>
                 </div>
             </div>
             <div class="modal-footer">

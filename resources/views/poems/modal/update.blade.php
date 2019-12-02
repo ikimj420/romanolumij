@@ -18,7 +18,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="category_id" class="col-form-label">Category</label>
-                    <select name="category_id" class="form-control">
+                    <select name="category_id" class="form-control" required>
                         <option value="">Select</option>
                         @foreach ($categories as $category)
                             @isset($poem->category_id)
@@ -31,35 +31,35 @@
                 </div>
                 <div class="form-group">
                     <label for="alav" class="col-form-label">Alav</label>
-                    <input type="text" name="alav" class="form-control" value="{!! $poem->alav !!}">
+                    <input type="text" name="alav" class="form-control" required value="{!! $poem->alav !!}">
                 </div>
                 <div class="form-group">
                     <label for="title" class="col-form-label">Title</label>
-                    <input type="text" name="title" class="form-control" value="{!! $poem->title !!}">
+                    <input type="text" name="title" class="form-control" required value="{!! $poem->title !!}">
                 </div>
                 <div class="form-group">
                     <label for="autori" class="col-form-label">Hramisarda Autori</label>
-                    <input type="text" name="autori" class="form-control" value="{!! $poem->autori !!}">
+                    <input type="text" name="autori" class="form-control" required value="{!! $poem->autori !!}">
                 </div>
                 <div class="form-group">
                     <label for="author" class="col-form-label">Author</label>
-                    <input type="text" name="author" class="form-control" value="{!! $poem->author !!}">
+                    <input type="text" name="author" class="form-control" required value="{!! $poem->author !!}">
                 </div>
                 <div class="form-group">
                     <label for="djili" class="col-form-label">Djili</label>
-                    <textarea name="djili" class="form-control">{!! $poem->djili !!}</textarea>
+                    <textarea name="djili" class="form-control" required>{!! $poem->djili !!}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="poem" class="col-form-label">Poem</label>
-                    <textarea name="poem" class="form-control">{!! $poem->poem !!}</textarea>
+                    <textarea name="poem" class="form-control" required>{!! $poem->poem !!}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="varnanipe" class="col-form-label">Varnanipe</label>
-                    <textarea name="varnanipe" class="form-control">{!! $poem->varnanipe !!}</textarea>
+                    <textarea name="varnanipe" class="form-control" required>{!! $poem->varnanipe !!}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="description" class="col-form-label">Description</label>
-                    <textarea name="description" class="form-control">{!! $poem->description !!}</textarea>
+                    <textarea name="description" class="form-control" required>{!! $poem->description !!}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="poem_tag" class="col-form-label">Tags</label>

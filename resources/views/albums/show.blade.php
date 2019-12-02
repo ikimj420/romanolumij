@@ -118,7 +118,7 @@
                 <div class="col-md-4 text-center">
                     <div class="image-wrap">
                         <a href="/image/{!! $image->id !!}">
-                            <img src="{!! asset('/storage/images/'.$image->pics) !!}" alt="{!! $image->name !!}" class="rounded img-fluid image image-2">
+                            <img src="{!! asset('/storage/photos/'.$image->pics) !!}" alt="{!! $image->name !!}" class="rounded img-fluid image image-2">
                         </a>
                     </div>
                 </div>

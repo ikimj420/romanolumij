@@ -17,19 +17,19 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="alav" class="col-form-label">Alav</label>
-                    <input type="text" name="alav" class="form-control">
+                    <input type="text" name="alav" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="title" class="col-form-label">Title</label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="url" class="col-form-label">URL Site</label>
-                    <input type="text" name="url" class="form-control">
+                    <input type="text" name="url" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="pics" class="col-form-label">Image</label>
-                    <input type="file" name="pics" class="form-control">
+                    <input type="file" name="pics" class="form-control" required>
                 </div>
             </div>
             <div class="modal-footer">

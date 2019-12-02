@@ -29,6 +29,10 @@ return[
     'updateU' => 'Update Profile',
     'deleteU' => 'Delete Profile',
 
+    'addB' => 'Write',
+    'updateB' => 'Update What You Wrote',
+    'deleteB' => 'Delete What You Wrote',
+
     'albums' => 'Albums',
     'poems' => 'Poems',
     'stories' => 'Stories',

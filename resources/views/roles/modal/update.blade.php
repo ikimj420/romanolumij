@@ -18,7 +18,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="userLevel" class="col-form-label">User Level</label>
-                    <input type="text" name="userLevel" class="form-control" value="{!! $role->userLevel !!}">
+                    <input type="text" name="userLevel" class="form-control" required value="{!! $role->userLevel !!}">
                 </div>
             </div>
             <div class="modal-footer">

@@ -18,7 +18,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="category_id" class="col-form-label">Category</label>
-                    <select name="category_id" class="form-control">
+                    <select name="category_id" class="form-control" required>
                         <option value="">Select</option>
                         @foreach ($categories as $category)
                             @isset($lexicon->category_id)
@@ -31,15 +31,15 @@
                 </div>
                 <div class="form-group">
                     <label for="rom" class="col-form-label">Romano Lafi</label>
-                    <input type="text" name="rom" class="form-control" value="{!! $lexicon->rom !!}">
+                    <input type="text" name="rom" class="form-control" required value="{!! $lexicon->rom !!}">
                 </div>
                 <div class="form-group">
                     <label for="ser" class="col-form-label">Srpska Reč</label>
-                    <input type="text" name="ser" class="form-control" value="{!! $lexicon->ser !!}">
+                    <input type="text" name="ser" class="form-control" required value="{!! $lexicon->ser !!}">
                 </div>
                 <div class="form-group">
                     <label for="eng" class="col-form-label">Word English</label>
-                    <input type="text" name="eng" class="form-control" value="{!! $lexicon->eng !!}">
+                    <input type="text" name="eng" class="form-control" required value="{!! $lexicon->eng !!}">
                 </div>
             </div>
             <div class="modal-footer">

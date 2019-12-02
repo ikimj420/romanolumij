@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('street')->nullable()->default('-');
             $table->string('city')->nullable()->default('-');
             $table->string('state')->nullable()->default('-');
-            $table->mediumText('bio')->nullable()->default('-');
+            $table->mediumText('bio')->nullable();
             $table->string('avatar')->default('default.svg');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

@@ -18,15 +18,15 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="name" class="col-form-label">Name</label>
-                    <input type="text" name="name" class="form-control" value="{!! $category->name !!}">
+                    <input type="text" name="name" class="form-control" required value="{!! $category->name !!}">
                 </div>
                 <div class="form-group">
                     <label for="varnanipe" class="col-form-label">Varnanipe</label>
-                    <input type="text" name="varnanipe" class="form-control" value="{!! $category->varnanipe !!}">
+                    <input type="text" name="varnanipe" class="form-control" required value="{!! $category->varnanipe !!}">
                 </div>
                 <div class="form-group">
                     <label for="desc" class="col-form-label">Description</label>
-                    <input type="text" name="desc" class="form-control" value="{!! $category->desc !!}">
+                    <input type="text" name="desc" class="form-control" required value="{!! $category->desc !!}">
                 </div>
                 <div class="form-group">
                     <label for="pics" class="col-form-label">Cover Image</label>

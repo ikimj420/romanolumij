@@ -18,7 +18,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="role_id" class="col-form-label">User Level</label>
-                    <select name="role_id" class="form-control">
+                    <select name="role_id" class="form-control" required>
                         <option value="">Select</option>
                         @foreach ($roles as $role)
                             @isset($user->role_id)

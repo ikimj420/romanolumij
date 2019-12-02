@@ -45,7 +45,7 @@
                                         <small>{!! $category->name !!}</small>
                                     </h2>
                                     <div class="image-wrap">
-                                        <img src="{!! asset('/storage/categories/'.$category->pics) !!}" alt="{!! $category->name !!}" class="rounded-circle img-fluid image">
+                                        <img src="{!! asset('/storage/categories/'.$category->pics) !!}" alt="{!! $category->name !!}" class="rounded img-fluid image image-2">
                                     </div>
                                 </a>
                             </div>

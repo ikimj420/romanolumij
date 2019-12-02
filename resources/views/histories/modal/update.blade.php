@@ -18,22 +18,22 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="alav" class="col-form-label">Alav</label>
-                    <input type="text" name="alav" class="form-control" value="{!! $history->alav !!}">
+                    <input type="text" name="alav" class="form-control" required value="{!! $history->alav !!}">
                 </div>
 
                 <div class="form-group">
                     <label for="title" class="col-form-label">Title</label>
-                    <input type="text" name="title" class="form-control" value="{!! $history->title !!}">
+                    <input type="text" name="title" class="form-control" required value="{!! $history->title !!}">
                 </div>
 
                 <div class="form-group">
                     <label for="title" class="col-form-label">Istorija</label>
-                    <textarea name="istorija" class="form-control">{!! $history->istorija !!}</textarea>
+                    <textarea name="istorija" class="form-control" required>{!! $history->istorija !!}</textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="title" class="col-form-label">History</label>
-                    <textarea name="history" class="form-control">{!! $history->history !!}</textarea>
+                    <textarea name="history" class="form-control" required>{!! $history->history !!}</textarea>
                 </div>
 
             </div>

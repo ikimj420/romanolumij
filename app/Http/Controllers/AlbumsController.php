@@ -98,7 +98,7 @@ class AlbumsController extends Controller
         Storage::delete('public/albums/'.$album->pics);
         // Delete Images when del albums in app and db
         foreach ($images as $image){
-            Storage::delete('public/images/'.$image->pics);
+            Storage::delete('public/photos/'.$image->pics);
             $image->delete();
         }
 

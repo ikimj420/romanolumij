@@ -32,7 +32,7 @@ class ImagesController extends Controller
         //add pics
         $img_request = $request->hasFile('pics');
         $img = $request->file('pics');
-        $folder = 'images';
+        $folder = 'photos';
         $pics = $this->createImage($img_request, $img, $folder);
         $image->pics = $pics;
         $image->album_id = $id;
@@ -59,7 +59,7 @@ class ImagesController extends Controller
 
         $image->update($this->validateRequest());
 
-        $folder = 'images';
+        $folder = 'photos';
         $image_request = $request->hasFile('pics');
         $img = Request()->file('pics');
         if(Request()->hasFile('pics')){
@@ -81,7 +81,7 @@ class ImagesController extends Controller
         //delete history
         $image->delete();
 
-        Storage::delete('public/images/'.$image->pics);
+        Storage::delete('public/photos/'.$image->pics);
 
         return redirect(route('album.index'))->withToastSuccess('Image Deleted Successfully!');
     }

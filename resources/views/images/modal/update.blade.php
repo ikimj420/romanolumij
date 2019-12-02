@@ -18,7 +18,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="name" class="col-form-label">Image Name</label>
-                    <input type="text" name="name" class="form-control" value="{!! $image->name !!}">
+                    <input type="text" name="name" class="form-control" required value="{!! $image->name !!}">
                 </div>
                 <div class="form-group">
                     <label for="desc" class="col-form-label">Description</label>
@@ -29,7 +29,7 @@
                     <input type="file" name="pics" class="form-control">
                     @if(!empty($image->pics))
                         <div class="image-wrap">
-                            <img src="{!! asset('/storage/images/'.$image->pics) !!}" alt="{!! $image->name !!}" class="img-raised rounded-circle thumbnail img-fluid image" style="width: 15%;">
+                            <img src="{!! asset('/storage/photos/'.$image->pics) !!}" alt="{!! $image->name !!}" class="img-raised rounded-circle thumbnail img-fluid image" style="width: 15%;">
                         </div>
                     @endif
                 </div>

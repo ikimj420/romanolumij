@@ -17,22 +17,22 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="alav" class="col-form-label">Alav</label>
-                    <input type="text" name="alav" class="form-control">
+                    <input type="text" name="alav" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label for="title" class="col-form-label">Title</label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label for="istorija" class="col-form-label">Istorija</label>
-                    <textarea name="istorija" class="form-control"></textarea>
+                    <textarea name="istorija" class="form-control" required></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="history" class="col-form-label">History</label>
-                    <textarea name="history" class="form-control"></textarea>
+                    <textarea name="history" class="form-control" required></textarea>
                 </div>
             </div>
             <div class="modal-footer">

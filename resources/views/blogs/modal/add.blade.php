@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add">
-    Add New Blog
+    {{ __('button.addB') }}
 </button>
 <!-- Modal -->
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="Title" aria-hidden="true">
@@ -9,7 +9,7 @@
         <form method="post" action="{{ action('BlogsController@store') }}" id="add" enctype="multipart/form-data">
             @csrf
             <div class="modal-header">
-                <h5 class="modal-title" id="Title">Add Blogs</h5>
+                <h5 class="modal-title" id="Title">{{ __('button.addB') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -17,11 +17,11 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="title" class="col-form-label">Title</label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="body" class="col-form-label">Write Here</label>
-                    <textarea name="body" class="form-control"></textarea>
+                    <textarea name="body" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="blog_tag" class="col-form-label">Tags</label>
@@ -33,8 +33,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close <i class="ion-ios-close"></i></button>
-                <button type="submit" class="btn btn-success">Create <i class="ion-ios-save"></i></button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __('button.close') }} <i class="ion-ios-close"></i></button>
+                <button type="submit" class="btn btn-success">{{ __('button.addB') }} <i class="ion-ios-save"></i></button>
             </div>
         </form>
         </div>

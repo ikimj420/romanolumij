@@ -5,7 +5,7 @@
             <div class="col-md-8 text-center">
                 <div class="text mb-5"></div>
                 <div class="text">
-                    <h4 class="mb-5 mt-2">Lache Arahlemtut @auth{!! Auth::user()->name !!}@endauth</h4>
+                    <h4 class="mb-5 mt-2">{{ __('app.welcome') }}@auth{!! Auth::user()->name !!}@endauth</h4>
                 </div>
             </div>
         </div>

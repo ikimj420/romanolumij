@@ -18,11 +18,11 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="alav" class="col-form-label">Alav</label>
-                    <input type="text" name="alav" class="form-control" value="{!! $friend->alav !!}">
+                    <input type="text" name="alav" class="form-control" required value="{!! $friend->alav !!}">
                 </div>
                 <div class="form-group">
                     <label for="title" class="col-form-label">Title</label>
-                    <input type="text" name="title" class="form-control" value="{!! $friend->title !!}">
+                    <input type="text" name="title" class="form-control" required value="{!! $friend->title !!}">
                 </div>
                 <div class="form-group">
                     <label for="url" class="col-form-label">URL Site</label>

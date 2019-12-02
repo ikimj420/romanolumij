@@ -29,6 +29,10 @@ return[
     'updateU' => 'Laćhar Ćo Profil',
     'deleteU' => 'Khos Ćo Pfofil',
 
+    'addB' => 'Hrami',
+    'updateB' => 'Laćhar So Hramidan',
+    'deleteB' => 'Khos So Hramidan',
+
     'albums' => 'Album',
     'poems' => 'Djila',
     'stories' => 'Paramiće',

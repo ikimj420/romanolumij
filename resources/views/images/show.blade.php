@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-md-4 text-center">
                     <div class="image-wrap">
-                        <img src="{!! asset('/storage/images/'.$image->pics) !!}" alt="{!! $image->name !!}" class="rounded img-fluid image image-2">
+                        <img src="{!! asset('/storage/photos/'.$image->pics) !!}" alt="{!! $image->name !!}" class="rounded img-fluid image image-2">
                         <div class="text">
                             <div class="img" style="background-image: url({!! asset('/storage/users/'.$image->user['avatar']) !!});"></div>
                             <span class="position"><a href="/profile/{!! $image->user['id'] !!}">{!! $image->user['username'] !!}</a></span>

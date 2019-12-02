@@ -23,8 +23,12 @@ return[
     'another' => 'click here to request another',
 
     'psd' => 'Djilja Paramiće Alavari',
+    'welcome' => 'Lache Arahlemtut ',
+    'history' => 'Istorija',
     'poem' => 'Djilja',
     'story' => 'Paramiće',
-    'lexicon' => 'Alavari',
     'album' => 'Album',
+    'lexicon' => 'Alavari',
+    'contact' => 'Kontakt',
+    'blog' => 'Tumen Hramiden',
 ];

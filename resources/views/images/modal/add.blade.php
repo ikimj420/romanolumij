@@ -17,15 +17,15 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="name" class="col-form-label">Image Name</label>
-                    <input type="text" name="name" class="form-control">
+                    <input type="text" name="name" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="desc" class="col-form-label">Description</label>
-                    <textarea name="desc" class="form-control"></textarea>
+                    <textarea name="desc" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="pics" class="col-form-label">Image-Pinta</label>
-                    <input type="file" name="pics" class="form-control">
+                    <input type="file" name="pics" class="form-control" required>
                 </div>
             </div>
             <div class="modal-footer">

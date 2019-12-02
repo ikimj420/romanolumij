@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('varnanipe')->nullable();
             $table->string('desc')->nullable();
-            $table->string('pics');
+            $table->string('pics')->nullable();
             $table->timestamps();
         });
     }

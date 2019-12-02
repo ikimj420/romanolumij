@@ -14,6 +14,6 @@ return[
     'albums' => 'Album',
     'blogs' => 'Hrami',
     'contact' => 'Akhar',
-    'profile' => 'Pofil',
+    'profile' => 'Profil',
 
 ];

@@ -18,7 +18,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="category_id" class="col-form-label">Category</label>
-                    <select name="category_id" class="form-control">
+                    <select name="category_id" class="form-control" required>
                         <option value="">Select</option>
                         @foreach ($categories as $category)
                             @isset($album->category_id)
@@ -31,11 +31,11 @@
                 </div>
                 <div class="form-group">
                     <label for="name" class="col-form-label">Album Name</label>
-                    <input type="text" name="name" class="form-control" value="{!! $album->name !!}">
+                    <input type="text" name="name" class="form-control" required value="{!! $album->name !!}">
                 </div>
                 <div class="form-group">
                     <label for="desc" class="col-form-label">Description</label>
-                    <textarea name="desc" class="form-control">{!! $album->desc !!}</textarea>
+                    <textarea name="desc" class="form-control" required>{!! $album->desc !!}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="album_tag" class="col-form-label">Tags</label>

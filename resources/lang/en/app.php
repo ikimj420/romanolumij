@@ -23,8 +23,12 @@ return[
     'another' => 'click here to request another',
 
     'psd' => 'Poems Stories Dictionary',
+    'welcome' => 'Welcome ',
+    'history' => 'History',
     'poem' => 'Poems',
     'story' => 'Stories',
-    'lexicon' => 'Dictionary',
     'album' => 'Albums',
+    'lexicon' => 'Dictionary',
+    'contact' => 'Contact',
+    'blog' => 'Yours Comments',
 ];

@@ -17,7 +17,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="category_id" class="col-form-label">Category</label>
-                    <select name="category_id" class="form-control">
+                    <select name="category_id" class="form-control" required>
                         <option value="">Select</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{!! $category->name !!}</option>
@@ -26,11 +26,11 @@
                 </div>
                 <div class="form-group">
                     <label for="name" class="col-form-label">Album Name</label>
-                    <input type="text" name="name" class="form-control">
+                    <input type="text" name="name" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="desc" class="col-form-label">Description</label>
-                    <textarea name="desc" class="form-control"></textarea>
+                    <textarea name="desc" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="album_tag" class="col-form-label">Tags</label>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label for="pics" class="col-form-label">Album Cover Image</label>
-                    <input type="file" name="pics" class="form-control">
+                    <input type="file" name="pics" class="form-control" required>
                 </div>
             </div>
             <div class="modal-footer">

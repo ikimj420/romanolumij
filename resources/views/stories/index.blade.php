@@ -9,7 +9,7 @@
             <div class="row description js-fullheight align-items-center justify-content-center">
                 <div class="col-md-8 text-center">
                     <div class="text">
-                        <h1 class="mb-4"><span>Stories</span></h1>
+                        <h1 class="mb-4"><span>{{ __('app.story') }}</span></h1>
                     </div>
                 </div>
             </div>

@@ -17,7 +17,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="category_id" class="col-form-label">Category</label>
-                    <select name="category_id" class="form-control">
+                    <select name="category_id" class="form-control" required>
                         <option value="">Select</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{!! $category->name !!}</option>
@@ -26,15 +26,15 @@
                 </div>
                 <div class="form-group">
                     <label for="rom" class="col-form-label">Romano Lafi</label>
-                    <input type="text" name="rom" class="form-control">
+                    <input type="text" name="rom" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="ser" class="col-form-label">Srpska Reč</label>
-                    <input type="text" name="ser" class="form-control">
+                    <input type="text" name="ser" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="eng" class="col-form-label">Word English</label>
-                    <input type="text" name="eng" class="form-control">
+                    <input type="text" name="eng" class="form-control" required>
                 </div>
             </div>
             <div class="modal-footer">

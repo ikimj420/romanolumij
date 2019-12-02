@@ -31,6 +31,9 @@ Route::resource('/album', 'AlbumsController');
 Route::post('/album/{album}', 'ImagesController@store');
 //Images
 Route::resource('/image', 'ImagesController');
+//Contact Send Mail
+Route::get('/contact', 'ContactsController@index');
+Route::post('/contact', 'ContactsController@store');
 //Show Group Of Tags
 Route::get('/tag/tags/{tag}', 'TagsController@index');
 
