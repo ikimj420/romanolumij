@@ -38,18 +38,18 @@
                 @forelse($lexicons as $lexicon)
                     <div class="col-md-3 mb-2">
                         <div class="card text-center">
-                            <div class="card-img">
-                                <div class="image-wrap">
-                                    <a href="/lexicon/{!! $lexicon->id !!}">
+                            <a href="/lexicon/{!! $lexicon->id !!}-{!! \Illuminate\Support\Str::slug($lexicon->rom.'_'.$lexicon->ser.'_'.$lexicon->eng, '_') !!}">
+                                <div class="card-img">
+                                    <div class="image-wrap">
                                         <img src="{!! asset('/storage/categories/'.$lexicon->category['pics']) !!}" alt="{!! $lexicon->eng !!}" class="rounded img-fluid image image-2 image-full">
-                                    </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-body pb-5">
-                                <a href="/lexicon/{!! $lexicon->id !!}"><h5 class="card-title mb-0 text-success">{!! $lexicon->rom !!}</h5></a>
-                                <p class="card-text">{!! $lexicon->ser !!}</p>
-                                <p class="card-text">{!! $lexicon->eng !!}</p>
-                            </div>
+                                <div class="card-body pb-5">
+                                    <h5 class="card-title mb-0 text-success">{!! $lexicon->rom !!}</h5>
+                                    <p class="card-text">{!! $lexicon->ser !!}</p>
+                                    <p class="card-text">{!! $lexicon->eng !!}</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 @empty

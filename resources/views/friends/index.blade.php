@@ -43,7 +43,7 @@
                                 <h2 class="heading-section mb-4">
                                     <small></small>
                                 </h2>
-                                <a href="/friend/{!! $friend->id !!}">
+                                <a href="/friend/{!! $friend->id !!}-{!! \Illuminate\Support\Str::slug($friend->title, '_') !!}">
                                 <div class="image-wrap">
                                     <img src="{!! asset('/storage/friends/'.$friend->pics) !!}" alt="{!! $friend->title !!}" class="img-raised rounded-circle thumbnail img-fluid image">
                                     <div class="text">

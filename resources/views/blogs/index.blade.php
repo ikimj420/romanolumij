@@ -40,19 +40,21 @@
                         <div class="card text-center">
                             <div class="card-img">
                                 <div class="image-wrap">
-                                    <img src="{!! asset('/storage/blogs/'.$blog->pics) !!}" alt="{!! $blog->title !!}" class="rounded img-fluid image image-2 image-full">
+                                    <a href="/blog/{!! $blog->id !!}-{!! \Illuminate\Support\Str::slug($blog->title, '_') !!}">
+                                        <img src="{!! asset('/storage/blogs/'.$blog->pics) !!}" alt="{!! $blog->title !!}" class="rounded img-fluid image image-2 image-full">
+                                    </a>
                                     <div class="text">
-                                        <a href="/profile/{!! $blog->user['id'] !!}">
+                                        <a href="/profile/{!! $blog->user['id'] !!}-{!! \Illuminate\Support\Str::slug( $blog->user['username'], '_') !!}">
                                             <div class="img img-2 round-circle" style="background-image: url({!! asset('/storage/users/'.$blog->user['avatar']) !!});"></div>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body pb-5">
-                                <a href="/profile/{!! $blog->user['id'] !!}">
+                                <a href="/profile/{!! $blog->user['id'] !!}-{!! \Illuminate\Support\Str::slug( $blog->user['username'], '_') !!}">
                                     <h5 class="card-title mb-0 text-success">{!! $blog->user['username'] !!}</h5>
                                 </a>
-                                <a href="/blog/{!! $blog->id !!}">
+                                <a href="/blog/{!! $blog->id !!}-{!! \Illuminate\Support\Str::slug($blog->title, '_') !!}">
                                     <span class="position d-block mb-4">{!! $blog->title !!}</span>
                                     <p class="card-text">{!! Str::words($blog->body, 9, ' ...') !!}</p>
                                 </a>

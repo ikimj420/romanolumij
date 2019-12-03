@@ -17,7 +17,7 @@ class CreateBlogsTable extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('title')->nullable();
+            $table->string('title');
             $table->longText('body');
             $table->string('pics')->nullable()->default('default.svg');
             $table->timestamps();

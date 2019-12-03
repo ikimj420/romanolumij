@@ -70,7 +70,7 @@
                     <input type="file" name="pics" class="form-control">
                     @if(!empty($poem->pics))
                         <div class="image-wrap">
-                            <img src="{!! asset('/storage/poems/'.$poem->pics) !!}" alt="{!! $poem->title !!}" class="img-raised rounded-circle thumbnail img-fluid image" style="width: 15%;">
+                            <img src="{!! asset('/storage/poems/'.$poem->pics) !!}" alt="{!! $poem->title !!}" class="rounded img-fluid image image-2 image-full" style="width: 15%;">
                         </div>
                     @endif
                 </div>

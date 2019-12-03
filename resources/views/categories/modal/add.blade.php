@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="pics" class="col-form-label">Cover Image</label>
+                    <label for="pics" class="col-form-label">Cover Image-Pinta</label>
                     <input type="file" name="pics" class="form-control" required>
                 </div>
             </div>

@@ -40,7 +40,7 @@
                     <div class="row">
                         @forelse($categories as $category)
                             <div class="col-md-4 text-center">
-                                <a href="/category/{!! $category->id !!}">
+                                <a href="/category/{!! $category->id !!}-{!! \Illuminate\Support\Str::slug($category->name, '_') !!}">
                                     <h2 class="heading-section">
                                         <small>{!! $category->name !!}</small>
                                     </h2>

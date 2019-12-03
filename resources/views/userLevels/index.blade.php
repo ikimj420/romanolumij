@@ -28,9 +28,9 @@
                                 <h2 class="heading-section mb-4">
                                     <small></small>
                                 </h2>
-                                <a href="/userLevel/{!! $user->id !!}">
+                                <a href="/userLevel/{!! $user->id !!}-{!! \Illuminate\Support\Str::slug($user->username, '_') !!}">
                                     <div class="image-wrap">
-                                        <img src="{!! asset('/storage/users/'.$user->avatar) !!}" alt="Thumbnail Image" class="img-raised rounded-circle thumbnail img-fluid image">
+                                        <img src="{!! asset('/storage/users/'.$user->avatar) !!}" alt="{!! $user->username !!}" class="rounded img-fluid image image-2 image-full">
                                         <div class="text">
                                             <div class="img"></div>
                                             <span class="position">{!! $user->username !!}</span>

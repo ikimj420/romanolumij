@@ -30,7 +30,7 @@
                                 </h2>
                                 <a href="/album/{!! $album->id !!}">
                                     <div class="image-wrap">
-                                        <img src="{!! asset('/storage/albums/'.$album->pics ) !!}" alt="{!! $album->name !!}" class="img-raised rounded-circle thumbnail img-fluid image">
+                                        <img src="{!! asset('/storage/albums/'.$album->pics ) !!}" alt="{!! $album->name !!}" class="rounded img-fluid image image-2 image-full">
                                         <div class="text">
                                             <div class="img"></div>
                                             <span class="position">{!! $album->name !!}</span>
@@ -60,7 +60,7 @@
                                 </h2>
                                 <a href="/poem/{!! $poem->id !!}">
                                     <div class="image-wrap">
-                                        <img src="{!! asset('/storage/poems/'.$poem->pics ) !!}" alt="{!! $poem->title !!}" class="img-raised rounded-circle thumbnail img-fluid image">
+                                        <img src="{!! asset('/storage/poems/'.$poem->pics ) !!}" alt="{!! $poem->title !!}" class="rounded img-fluid image image-2 image-full">
                                         <div class="text">
                                             <div class="img"></div>
                                             <span class="position">{!! $poem->alav !!}</span>
@@ -90,7 +90,7 @@
                                 </h2>
                                 <a href="/story/{!! $story->id !!}">
                                     <div class="image-wrap">
-                                        <img src="{!! asset('/storage/stories/'.$story->pics ) !!}" alt="{!! $story->title !!}" class="img-raised rounded-circle thumbnail img-fluid image">
+                                        <img src="{!! asset('/storage/stories/'.$story->pics ) !!}" alt="{!! $story->title !!}" class="rounded img-fluid image image-2 image-full">
                                         <div class="text">
                                             <div class="img"></div>
                                             <span class="position">{!! $story->alav !!}</span>
@@ -120,7 +120,7 @@
                                 </h2>
                                 <a href="/blog/{!! $blog->id !!}">
                                     <div class="image-wrap">
-                                        <img src="{!! asset('/storage/blogs/'.$blog->pics ) !!}" alt="{!! $blog->title !!}" class="img-raised rounded-circle thumbnail img-fluid image">
+                                        <img src="{!! asset('/storage/blogs/'.$blog->pics ) !!}" alt="{!! $blog->title !!}" class="rounded img-fluid image image-2 image-full">
                                         <div class="text">
                                             <div class="img"></div>
                                             <span class="position">{!! $blog->title !!}</span>

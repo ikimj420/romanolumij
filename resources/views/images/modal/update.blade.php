@@ -29,7 +29,7 @@
                     <input type="file" name="pics" class="form-control">
                     @if(!empty($image->pics))
                         <div class="image-wrap">
-                            <img src="{!! asset('/storage/photos/'.$image->pics) !!}" alt="{!! $image->name !!}" class="img-raised rounded-circle thumbnail img-fluid image" style="width: 15%;">
+                            <img src="{!! asset('/storage/photos/'.$image->pics) !!}" alt="{!! $image->name !!}" class="rounded img-fluid image image-2 image-full" style="width: 15%;">
                         </div>
                     @endif
                 </div>

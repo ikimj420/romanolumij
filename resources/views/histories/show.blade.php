@@ -40,9 +40,9 @@
             <div class="row">
                 <div class="col-md-12">
                     @if (App::isLocale('rom'))
-                        @include('histories.include.romS')
+                        @include('histories.history.romS')
                     @else
-                        @include('histories.include.engS')
+                        @include('histories.history.engS')
                     @endif
                 </div>
             </div>

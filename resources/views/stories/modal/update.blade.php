@@ -67,10 +67,10 @@
                 </div>
                 <div class="form-group">
                     <label for="pics" class="col-form-label">Image-Pinta</label>
-                    <input type="file" name="pics" class="form-control" required>
+                    <input type="file" name="pics" class="form-control">
                     @if(!empty($story->pics))
                         <div class="image-wrap">
-                            <img src="{!! asset('/storage/stories/'.$story->pics) !!}" alt="{!! $story->title !!}" class="img-raised rounded-circle thumbnail img-fluid image" style="width: 15%;">
+                            <img src="{!! asset('/storage/stories/'.$story->pics) !!}" alt="{!! $story->title !!}" class="rounded img-fluid image image-2 image-full" style="width: 15%;">
                         </div>
                     @endif
                 </div>

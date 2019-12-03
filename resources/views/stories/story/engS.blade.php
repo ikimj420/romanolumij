@@ -6,8 +6,10 @@
         <div class="image-wrap">
             <img src="{!! asset('/storage/stories/'.$story->pics) !!}" alt="{!! $story->title !!}" class="rounded img-fluid image image-2">
             <div class="text">
-                <div class="img" style="background-image: url({!! asset('/storage/users/'.$story->user['avatar']) !!});"></div>
-                <span class="position"><a href="/profile/{!! $story->user['id'] !!}">{!! $story->user['username'] !!}</a></span>
+                <a href="/profile/{!! $story->user['id'] !!}-{!! \Illuminate\Support\Str::slug( $story->user['username'], '_') !!}">
+                    <div class="img" style="background-image: url({!! asset('/storage/users/'.$story->user['avatar']) !!});"></div>
+                    <span class="position">{!! $story->user['username'] !!}</span>
+                </a>
             </div>
         </div>
     </div>

@@ -37,7 +37,7 @@
                     <input type="text" placeholder="After Each Tag Comma Is Required" name="album_tag" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="pics" class="col-form-label">Album Cover Image</label>
+                    <label for="pics" class="col-form-label">Album Cover Image-Pinta</label>
                     <input type="file" name="pics" class="form-control" required>
                 </div>
             </div>
