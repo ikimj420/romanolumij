@@ -26,35 +26,35 @@
                 </div>
                 <div class="form-group">
                     <label for="alav" class="col-form-label">Alav</label>
-                    <input type="text" name="alav" class="form-control" required>
+                    <input type="text" name="alav" class="form-control" required autocomplete="alav" autofocus>
                 </div>
                 <div class="form-group">
                     <label for="title" class="col-form-label">Title</label>
-                    <input type="text" name="title" class="form-control" required>
+                    <input type="text" name="title" class="form-control" required autocomplete="title" autofocus>
                 </div>
                 <div class="form-group">
                     <label for="autori" class="col-form-label">Hramisarda Autori</label>
-                    <input type="text" name="autori" class="form-control" required>
+                    <input type="text" name="autori" class="form-control" required autocomplete="autori" autofocus>
                 </div>
                 <div class="form-group">
                     <label for="author" class="col-form-label">Author</label>
-                    <input type="text" name="author" class="form-control" required>
+                    <input type="text" name="author" class="form-control" required autocomplete="author" autofocus>
                 </div>
                 <div class="form-group">
                     <label for="djili" class="col-form-label">Djili</label>
-                    <textarea name="djili" class="form-control" required ></textarea>
+                    <textarea class="form-control" name="djili" required autocomplete="djili" autofocus></textarea>
                 </div>
                 <div class="form-group">
                     <label for="poem" class="col-form-label">Poem</label>
-                    <textarea name="poem" class="form-control" required></textarea>
+                    <textarea name="poem" class="form-control" required autocomplete="poem" autofocus></textarea>
                 </div>
                 <div class="form-group">
                     <label for="varnanipe" class="col-form-label">Varnanipe</label>
-                    <textarea name="varnanipe" class="form-control" required></textarea>
+                    <textarea name="varnanipe" class="form-control" required autocomplete="varnanipe" autofocus></textarea>
                 </div>
                 <div class="form-group">
                     <label for="description" class="col-form-label">Description</label>
-                    <textarea name="description" class="form-control" required></textarea>
+                    <textarea name="description" class="form-control" required autocomplete="description" autofocus></textarea>
                 </div>
                 <div class="form-group">
                     <label for="poem_tag" class="col-form-label">Tags</label>

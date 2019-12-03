@@ -66,8 +66,8 @@
                                   </span>
                                 </div>
 
-                                <input id="password-confirm" type="password" placeholder="{{ __('app.confPassword') }}" class="form-control"
-                                    @error('password-confirm') is-invalid @enderror
+                                <input id="password-confirm" type="password" placeholder="{{ __('app.confPassword') }}" class="form-control
+                                    @error('password-confirm') is-invalid @enderror"
                                        name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
