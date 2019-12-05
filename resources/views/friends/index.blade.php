@@ -36,21 +36,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="heading-section mb-4">Friends</h2>
+                    <h2 class="heading-section mb-4"></h2>
                     <div class="row">
                         @forelse($friends as $friend)
                             <div class="col-md-4 text-center">
                                 <h2 class="heading-section mb-4">
                                     <small></small>
                                 </h2>
-                                <a href="/friend/{!! $friend->id !!}-{!! \Illuminate\Support\Str::slug($friend->title, '_') !!}">
-                                <div class="image-wrap">
-                                    <img src="{!! asset('/storage/friends/'.$friend->pics) !!}" alt="{!! $friend->title !!}" class="img-raised rounded-circle thumbnail img-fluid image">
-                                    <div class="text">
-                                        <div class="img"></div>
-                                        <span class="position">{!! $friend->title !!}</span>
+                                <a href="{!! $friend->pathTitle() !!}">
+                                    <div class="image-wrap">
+                                        <img src="{!! $friend->friendPics() !!}" alt="{!! $friend->title !!}" class="rounded img-fluid image image-2 image-full">
+                                        <div class="text">
+                                            <div class="img"></div>
+                                            <span class="position">{!! $friend->title !!}</span>
+                                        </div>
                                     </div>
-                                </div>
                                 </a>
                             </div>
                         @empty

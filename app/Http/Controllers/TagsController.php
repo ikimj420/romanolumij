@@ -12,6 +12,9 @@ class TagsController extends Controller
 {
     public function index($tag)
     {
+        //SEO
+        $this->setSeo('Tags', 'Tags Page Tags Album Poem Story Blog');
+
         //get all tag for album
         $albums = Album::withAllTags([$tag])->get();
         //get all tag for poem

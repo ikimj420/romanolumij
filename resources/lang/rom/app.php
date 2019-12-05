@@ -30,5 +30,7 @@ return[
     'album' => 'Album',
     'lexicon' => 'Alavari',
     'contact' => 'Kontakt',
-    'blog' => 'Tumen Hramiden',
+    'blog' => 'Hrami Kate',
+    'category' => 'Kategorije',
+    'friend' => 'Amala',
 ];

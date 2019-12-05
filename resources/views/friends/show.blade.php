@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-md-4 text-center">
                     <div class="image-wrap">
-                        <img src="{!! asset('/storage/friends/'.$friend->pics) !!}" alt="{!! $friend->title !!}" class="img-raised rounded-circle thumbnail img-fluid image">
+                        <img src="{!! $friend->friendPics() !!}" alt="{!! $friend->title !!}" class="rounded img-fluid image image-2 image-full">
                     </div>
                 </div>
                 <div class="col-md-12">

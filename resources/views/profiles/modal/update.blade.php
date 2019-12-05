@@ -61,7 +61,7 @@
                     <input type="file" name="avatar" class="form-control">
                     @if(!empty($user->avatar))
                         <div class="image-wrap">
-                            <img src="{!! asset('/storage/users/'.$user->avatar) !!}" alt="{!! $user->name !!}" class="rounded img-fluid image image-2 image-full" style="width: 15%;">
+                            <img src="{!! $user->userPics() !!}" alt="{!! $user->name !!}" class="rounded img-fluid image image-2 image-full" style="width: 15%;">
                         </div>
                     @endif
                 </div>

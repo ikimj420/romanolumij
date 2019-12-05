@@ -40,10 +40,10 @@
             <div class="row">
                 <div class="col-md-4 text-center">
                     <div class="image-wrap">
-                        <img src="{!! asset('/storage/albums/'.$album->pics) !!}" alt="{!! $album->name !!}" class="rounded img-fluid image image-2 image-full">
+                        <img src="{!! $album->albumPics() !!}" alt="{!! $album->name !!}" class="rounded img-fluid image image-2 image-full">
                         <div class="text">
-                            <a href="/profile/{!! $album->user['id'] !!}-{!! \Illuminate\Support\Str::slug( $album->user['username'], '_') !!}">
-                                <div class="img" style="background-image: url({!! asset('/storage/users/'.$album->user['avatar']) !!});"></div>
+                            <a href="{!! $album->pathProfile() !!}">
+                                <div class="img" style="background-image: url({!! $album->userPics() !!});"></div>
                                 <span class="position">{!! $album->user['username'] !!}</span>
                             </a>
                         </div>
@@ -119,8 +119,8 @@
                 <div class="row">
                 <div class="col-md-4 text-center">
                     <div class="image-wrap">
-                        <a href="/image/{!! $image->id !!}-{!! \Illuminate\Support\Str::slug( $image->name, '_') !!}">
-                            <img src="{!! asset('/storage/photos/'.$image->pics) !!}" alt="{!! $image->name !!}" class="rounded img-fluid image image-2 image-full">
+                        <a href="{!! $image->pathTitle() !!}">
+                            <img src="{!! $image->imagePics() !!}" class="rounded img-fluid image image-2 image-full">
                         </a>
                     </div>
                 </div>

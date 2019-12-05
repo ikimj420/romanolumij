@@ -15,6 +15,9 @@ class CategoriesController extends Controller
 
     public function index()
     {
+        //SEO
+        $this->setSeo(__('app.category'), 'Categories Page Latest Categories With Images And Description');
+
         $categories = Category::latest()->get();
         return view('categories.index', compact('categories'));
     }
@@ -42,6 +45,8 @@ class CategoriesController extends Controller
 
     public function show(Category $category)
     {
+        //SEO
+        $this->setSeo( $category->name, $category->desc);
 
         return view('categories.show', compact('category'));
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use SEO;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -59,6 +60,17 @@ class Controller extends BaseController
             $pics = '';
         }
         return $pics;
+    }
+
+    //SEO go to controler use $this->setSeo($title, $description);
+    public function setSeo ($title, $description)
+    {
+        SEO::setTitle($title);
+        SEO::setDescription($description);
+        SEO::opengraph()->setUrl(request()->url());
+        SEO::setCanonical(request()->url());
+        SEO::opengraph()->addProperty('type', 'screencasts');
+        SEO::twitter()->setSite('@lumijromano');
     }
 
 }

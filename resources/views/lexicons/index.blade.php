@@ -38,10 +38,10 @@
                 @forelse($lexicons as $lexicon)
                     <div class="col-md-3 mb-2">
                         <div class="card text-center">
-                            <a href="/lexicon/{!! $lexicon->id !!}-{!! \Illuminate\Support\Str::slug($lexicon->rom.'_'.$lexicon->ser.'_'.$lexicon->eng, '_') !!}">
+                            <a href="{!! $lexicon->pathTitle() !!}">
                                 <div class="card-img">
                                     <div class="image-wrap">
-                                        <img src="{!! asset('/storage/categories/'.$lexicon->category['pics']) !!}" alt="{!! $lexicon->eng !!}" class="rounded img-fluid image image-2 image-full">
+                                        <img src="{!! $lexicon->lexiconPics() !!}" alt="{!! $lexicon->eng !!}" class="rounded img-fluid image image-2 image-full">
                                     </div>
                                 </div>
                                 <div class="card-body pb-5">

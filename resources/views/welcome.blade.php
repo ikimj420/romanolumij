@@ -62,10 +62,10 @@
                                             @forelse($lexicons as $lexicon)
                                             <div class="col-md-4 mb-2">
                                                 <div class="card text-center">
-                                                    <a href="/lexicon/{!! $lexicon->id !!}-{!! \Illuminate\Support\Str::slug($lexicon->rom.'_'.$lexicon->ser.'_'.$lexicon->eng, '_') !!}">
+                                                    <a href="{!! $lexicon->pathTitle() !!}">
                                                         <div class="card-img">
                                                             <div class="image-wrap">
-                                                                <img src="{!! asset('/storage/categories/'.$lexicon->category['pics']) !!}" alt="{!! $lexicon->eng !!}" class="rounded img-fluid image image-2 image-full">
+                                                                <img src="{!! $lexicon->lexiconPics() !!}" alt="{!! $lexicon->eng !!}" class="rounded img-fluid image image-2 image-full">
                                                             </div>
                                                         </div>
                                                         <div class="card-body pb-5">
@@ -98,18 +98,18 @@
                     <div class="row">
                         @forelse($albums as $album)
                             <div class="col-md-4 text-center">
-                                <a href="/album/{!! $album->id !!}-{!! \Illuminate\Support\Str::slug($album->name, '_') !!}">
+                                <a href="{!! $album->pathTitle() !!}">
                                     <h2 class="heading-section mb-4">
                                         <small>{!! $album->name !!}</small>
                                     </h2>
                                 </a>
                             <div class="image-wrap">
-                                <a href="/album/{!! $album->id !!}-{!! \Illuminate\Support\Str::slug($album->name, '_') !!}">
-                                    <img src="{!! asset('/storage/albums/'.$album->pics) !!}" alt="{!! $album->name !!}" class="rounded img-fluid image image-2 image-full">
+                                <a href="{!! $album->pathTitle() !!}">
+                                    <img src="{!! $album->albumPics() !!}" alt="{!! $album->name !!}" class="rounded img-fluid image image-2 image-full">
                                 </a>
                                 <div class="text">
-                                <a href="/profile/{!! $album->user['id'] !!}-{!! \Illuminate\Support\Str::slug( $album->user['username'], '_') !!}">
-                                    <div class="img" style="background-image: url({!! '/storage/users/'.$album->user['avatar'] !!});"></div>
+                                <a href="{!! $album->pathProfile() !!}">
+                                    <div class="img" style="background-image: url({!! $album->userPics() !!});"></div>
                                     <span class="position">{!! $album->user['username'] !!}</span>
                                 </a>
                                 </div>

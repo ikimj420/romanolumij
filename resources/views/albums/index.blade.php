@@ -39,18 +39,18 @@
                     <h2 class="heading-section mb-4"></h2>
                     <div class="row">
                         @forelse($albums as $album)
-                            <div class="col-md-4 text-center"><a href="/album/{!! $album->id !!}-{!! \Illuminate\Support\Str::slug( $album->name, '_') !!}">
+                            <div class="col-md-4 text-center"><a href="{!! $album->pathTitle() !!}">
                                     <h2 class="heading-section mb-4">
                                         <small>{!! $album->name !!}</small>
                                     </h2>
                                 </a>
                                 <div class="image-wrap">
-                                    <a href="/album/{!! $album->id !!}-{!! \Illuminate\Support\Str::slug( $album->name, '_') !!}">
-                                        <img src="{!! asset('/storage/albums/'.$album->pics) !!}" alt="{!! $album->name !!}" class="rounded img-fluid image image-2">
+                                    <a href="{!! $album->pathTitle() !!}">
+                                        <img src="{!! $album->albumPics() !!}" alt="{!! $album->name !!}" class="rounded img-fluid image image-2">
                                     </a>
                                     <div class="text">
-                                        <a href="/profile/{!! $album->user['id'] !!}-{!! \Illuminate\Support\Str::slug( $album->user['username'], '_') !!}">
-                                            <div class="img" style="background-image: url({!! '/storage/users/'.$album->user['avatar'] !!});"></div>
+                                        <a href="{!! $album->pathProfile() !!}">
+                                            <div class="img" style="background-image: url({!! $album->userPics() !!});"></div>
                                             <span class="position">{!! $album->user['username'] !!}</span>
                                         </a>
                                     </div>

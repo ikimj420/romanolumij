@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Lexicon extends Model
 {
@@ -19,5 +20,17 @@ class Lexicon extends Model
     public function user()
     {
         return $this->belongsTo(\App\User::class, 'user_id');
+    }
+
+    //url pathTitle
+    public function pathTitle()
+    {
+        return url("/lexicon/{$this->id}-".Str::slug($this->rom.'_'.$this->ser.'_'.$this->eng, '_'));
+    }
+
+    //url lexiconPics
+    public function lexiconPics()
+    {
+        return asset('/storage/categories/'.$this->category['pics']);
     }
 }

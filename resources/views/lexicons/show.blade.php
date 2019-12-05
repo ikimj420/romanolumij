@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-md-4 text-center">
                     <div class="image-wrap mb-3">
-                        <img src="{!! asset('/storage/categories/'.$lexicon->category['pics']) !!}" alt="{!! $lexicon->eng !!}" class="rounded img-fluid image image-2">
+                        <img src="{!! $lexicon->lexiconPics() !!}" alt="{!! $lexicon->eng !!}" class="rounded img-fluid image image-2">
                     </div>
                 </div>
                 <div class="col-md-12">

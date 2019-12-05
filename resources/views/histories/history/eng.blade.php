@@ -2,7 +2,7 @@
     <h2 class="heading-section mb-4">
         @auth
             @if(Auth::user()->Admin())
-                <a href="/history/{!! $history->id !!}-{!! \Illuminate\Support\Str::slug($history->title, '_') !!}">{!! $history->title !!}</a>
+                <a href="{!! $history->pathTitle() !!}">{!! $history->title !!}</a>
             @endif
         @endauth
     </h2>

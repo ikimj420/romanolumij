@@ -40,12 +40,12 @@
                     <div class="row">
                         @forelse($categories as $category)
                             <div class="col-md-4 text-center">
-                                <a href="/category/{!! $category->id !!}-{!! \Illuminate\Support\Str::slug($category->name, '_') !!}">
+                                <a href="{!! $category->pathTitle() !!}">
                                     <h2 class="heading-section">
                                         <small>{!! $category->name !!}</small>
                                     </h2>
                                     <div class="image-wrap">
-                                        <img src="{!! asset('/storage/categories/'.$category->pics) !!}" alt="{!! $category->name !!}" class="rounded img-fluid image image-2">
+                                        <img src="{!! $category->categoryPics() !!}" class="rounded img-fluid image image-2">
                                     </div>
                                 </a>
                             </div>

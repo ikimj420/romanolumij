@@ -15,6 +15,9 @@ class LexiconsController extends Controller
 
     public function index()
     {
+        //SEO
+        $this->setSeo(__('app.lexicon'), 'Lexicons Page Latest Lexicons With Rom Serbian And English Word');
+
         $lexicons = Lexicon::latest()->paginate(36);
         $categories = Category::get();
 
@@ -35,6 +38,9 @@ class LexiconsController extends Controller
 
     public function show(Lexicon $lexicon)
     {
+        //SEO
+        $this->setSeo( $lexicon->rom, $lexicon->eng);
+
         $categories = Category::get();
 
         return view('lexicons.show', compact('lexicon', 'categories'));

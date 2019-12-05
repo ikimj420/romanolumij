@@ -4,10 +4,10 @@
             <small>{!! $poem->alav !!}</small>
         </h2>
         <div class="image-wrap">
-            <img src="{!! asset('/storage/poems/'.$poem->pics) !!}" alt="{!! $poem->title !!}" class="rounded img-fluid image image-2">
+            <img src="{!! $poem->poemPics() !!}" alt="{!! $poem->title !!}" class="rounded img-fluid image image-2">
             <div class="text">
-                <a href="/profile/{!! $poem->user['id'] !!}-{!! \Illuminate\Support\Str::slug( $poem->user['username'], '_') !!}">
-                    <div class="img" style="background-image: url({!! asset('/storage/users/'.$poem->user['avatar']) !!});"></div>
+                <a href="{!! $poem->pathProfile() !!}">
+                    <div class="img" style="background-image: url({!! $poem->userPics() !!});"></div>
                     <span class="position">{!! $poem->user['username'] !!}</span>
                 </a>
             </div>

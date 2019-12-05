@@ -40,10 +40,10 @@
             <div class="row">
                 <div class="col-md-4 text-center">
                     <div class="image-wrap">
-                        <img src="{!! asset('/storage/photos/'.$image->pics) !!}" alt="{!! $image->name !!}" class="rounded img-fluid image image-2">
+                        <img src="{!! $image->imagePics() !!}" alt="{!! $image->name !!}" class="rounded img-fluid image image-2">
                         <div class="text">
-                            <a href="/profile/{!! $image->user['id'] !!}-{!! \Illuminate\Support\Str::slug( $image->user['username'], '_') !!}">
-                                <div class="img" style="background-image: url({!! asset('/storage/users/'.$image->user['avatar']) !!});"></div>
+                            <a href="{!! $image->pathProfile() !!}">
+                                <div class="img" style="background-image: url({!! $image->userPics() !!});"></div>
                                 <span class="position">{!! $image->user['username'] !!}</span>
                             </a>
                         </div>

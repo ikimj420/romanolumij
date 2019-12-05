@@ -43,10 +43,10 @@
                         <small>{!! $blog->title !!}</small>
                     </h2>
                     <div class="image-wrap">
-                        <img src="{!! asset('/storage/blogs/'.$blog->pics) !!}" alt="{!! $blog->title !!}" class="rounded img-fluid image image-2">
+                        <img src="{!! $blog->blogPics() !!}" alt="{!! $blog->title !!}" class="rounded img-fluid image image-2">
                         <div class="text">
-                            <a href="/profile/{!! $blog->user['id'] !!}-{!! \Illuminate\Support\Str::slug( $blog->user['username'], '_') !!}">
-                                <div class="img" style="background-image: url({!! asset('/storage/users/'.$blog->user['avatar']) !!});"></div>
+                            <a href="{!! $blog->pathProfile() !!}">
+                                <div class="img" style="background-image: url({!! $blog->userPics() !!});"></div>
                                 <span class="position">{!! $blog->user['username'] !!}</span>
                             </a>
                         </div>

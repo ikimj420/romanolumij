@@ -15,6 +15,9 @@ class RolesController extends Controller
 
     public function index()
     {
+        //SEO
+        $this->setSeo('Role', 'Role Page');
+
         $roles = Role::latest()->get();
         return view('roles.index', compact('roles'));
     }
@@ -33,6 +36,8 @@ class RolesController extends Controller
 
     public function show(Role $role)
     {
+        //SEO
+        $this->setSeo( $role->userLevel, '');
 
         return view('roles.show', compact('role'));
     }

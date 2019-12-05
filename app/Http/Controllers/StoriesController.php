@@ -17,6 +17,9 @@ class StoriesController extends Controller
 
     public function index()
     {
+        //SEO
+        $this->setSeo(__('app.story'), 'Stories Page Latest Stories From Rom Author');
+
         $stories = Story::latest()->paginate(36);
         $categories = Category::get();
 
@@ -49,6 +52,9 @@ class StoriesController extends Controller
 
     public function show(Story $story)
     {
+        //SEO
+        $this->setSeo( $story->title, $story->description);
+
         $categories = Category::get();
 
         return view('stories.show', compact('story', 'categories'));

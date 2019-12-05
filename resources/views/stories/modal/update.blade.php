@@ -70,7 +70,7 @@
                     <input type="file" name="pics" class="form-control">
                     @if(!empty($story->pics))
                         <div class="image-wrap">
-                            <img src="{!! asset('/storage/stories/'.$story->pics) !!}" alt="{!! $story->title !!}" class="rounded img-fluid image image-2 image-full" style="width: 15%;">
+                            <img src="{!! $story->storyPics() !!}" alt="{!! $story->title !!}" class="rounded img-fluid image image-2 image-full" style="width: 15%;">
                         </div>
                     @endif
                 </div>

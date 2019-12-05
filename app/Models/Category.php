@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Category extends Model
 {
@@ -30,5 +31,17 @@ class Category extends Model
     public function stories()
     {
         return $this->hasMany(\App\Models\Story::class);
+    }
+
+    //url pathTitle
+    public function pathTitle()
+    {
+        return url("/category/{$this->id}-".Str::slug($this->name, '_'));
+    }
+
+    //url categoryPics
+    public function categoryPics()
+    {
+        return asset('/storage/categories/'.$this->pics);
     }
 }

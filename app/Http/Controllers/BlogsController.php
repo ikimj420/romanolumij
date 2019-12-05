@@ -16,6 +16,9 @@ class BlogsController extends Controller
 
     public function index()
     {
+        //SEO
+        $this->setSeo(__('app.blog'), 'Blog Page Latest Blog With Comment');
+
         $blogs = Blog::latest()->paginate(36);
 
         return view('blogs.index', compact('blogs'));
@@ -47,6 +50,8 @@ class BlogsController extends Controller
 
     public function show(Blog $blog)
     {
+        //SEO
+        $this->setSeo( $blog->title, $blog->body);
 
         return view('blogs.show', compact('blog'));
     }

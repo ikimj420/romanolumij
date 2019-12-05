@@ -17,6 +17,9 @@ class PoemsController extends Controller
 
     public function index()
     {
+        //SEO
+        $this->setSeo( __('app.poem'), 'Poems Page Latest Poems From Rom Author Language Rom Serbian English');
+
         $poems = Poem::latest()->paginate(36);
         $categories = Category::get();
 
@@ -49,6 +52,9 @@ class PoemsController extends Controller
 
     public function show(Poem $poem)
     {
+        //SEO
+        $this->setSeo( $poem->title, $poem->description);
+
         $categories = Category::get();
 
         return view('poems.show', compact('poem', 'categories'));

@@ -14,6 +14,9 @@ class HistoriesController extends Controller
 
     public function index()
     {
+        //SEO
+        $this->setSeo(__('app.history'), 'History Page Small Part Of Rom History Origin Flag Anthem');
+
         $histories = History::latest()->get();
         return view('histories.index', compact('histories'));
     }
@@ -32,6 +35,8 @@ class HistoriesController extends Controller
 
     public function show(History $history)
     {
+        //SEO
+        $this->setSeo('Rom History', 'History Page Small Part Of Rom History Origin Flag Anthem');
 
         return view('histories.show', compact('history'));
     }

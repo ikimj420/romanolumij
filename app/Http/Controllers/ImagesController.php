@@ -45,6 +45,9 @@ class ImagesController extends Controller
 
     public function show(Image $image)
     {
+        //SEO
+        $this->setSeo( $image->name, $image->desc);
+
         return view('images.show', compact('image'));
     }
 

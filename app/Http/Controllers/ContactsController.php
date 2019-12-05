@@ -9,6 +9,9 @@ class ContactsController extends Controller
 {
     public function index()
     {
+        //SEO
+        $this->setSeo(__('app.contact'), 'Contact Page Contact Form About Me');
+
         return view('contacts.index');
     }
 
@@ -21,7 +24,7 @@ class ContactsController extends Controller
             'message' => 'required',
         ]);
         //
-        Mail::to('LumijRomano@test.com')->send(new ContactsMail($data));
+        Mail::to('lumijromano@test.com')->send(new ContactsMail($data));
         return back()->withToastSuccess('Message Sent Successfully!');
     }
 }

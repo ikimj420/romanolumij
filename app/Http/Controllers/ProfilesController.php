@@ -31,6 +31,9 @@ class ProfilesController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
+        //SEO
+        $this->setSeo( $user->username, 'User Personal Info');
+
         return view('profiles.show', compact('user'));
     }
 

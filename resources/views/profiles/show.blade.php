@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-md-4 text-center">
                     <div class="image-wrap">
-                        <img src="{!! asset('/storage/users/'.$user->avatar) !!}" alt="{!! $user->name !!}" class="rounded img-fluid image image-2">
+                        <img src="{!! $user->userPics() !!}" alt="{!! $user->name !!}" class="rounded img-fluid image image-2">
                     </div>
                 </div>
                 <div class="col-md-12">

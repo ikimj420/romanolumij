@@ -30,5 +30,7 @@ return[
     'album' => 'Albums',
     'lexicon' => 'Dictionary',
     'contact' => 'Contact',
-    'blog' => 'Yours Comments',
+    'blog' => 'Write Hire',
+    'category' => 'Categories',
+    'friend' => 'Friends',
 ];

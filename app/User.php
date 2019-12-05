@@ -83,4 +83,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Models\Blog::class);
     }
+
+    //url userPics
+    public function userPics()
+    {
+        return asset('/storage/users/'.$this->avatar);
+    }
 }

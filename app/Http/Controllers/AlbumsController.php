@@ -18,6 +18,9 @@ class AlbumsController extends Controller
 
     public function index()
     {
+        //SEO
+        $this->setSeo(__('app.album'), 'Albums Page Latest Albums With Images From Rom Author');
+
         $albums = Album::latest()->paginate(36);
         $categories = Category::get();
 
@@ -50,6 +53,9 @@ class AlbumsController extends Controller
 
     public function show(Album $album)
     {
+        //SEO
+        $this->setSeo( $album->name, $album->desc);
+
         $categories = Category::get();
 
         return view('albums.show', compact('album', 'categories'));

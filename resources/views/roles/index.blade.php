@@ -43,9 +43,9 @@
                                 <h2 class="heading-section mb-4">
                                     <small></small>
                                 </h2>
-                                <a href="/role/{!! $role->id !!}-{!! \Illuminate\Support\Str::slug($role->userLevel, '_') !!}">
+                                <a href="{!! $role->pathTitle() !!}">
                                 <div class="image-wrap">
-                                    <img src="{!! asset('/storage/svg/login.svg') !!}" alt="Thumbnail Image" class="img-raised rounded-circle thumbnail img-fluid image">
+                                    <img src="{!! $role->rolePics() !!}" alt="{!! $role->userLevel !!}" class="rounded img-fluid image image-2 image-full">
                                     <div class="text">
                                         <div class="img"></div>
                                         <span class="position">{!! $role->userLevel !!}</span>

@@ -15,6 +15,9 @@ class FriendsController extends Controller
 
     public function index()
     {
+        //SEO
+        $this->setSeo(__('app.friend'), 'Friends Page Latest Friends With Images Site Sponsors');
+
         $friends = Friend::latest()->get();
         return view('friends.index', compact('friends'));
     }
@@ -42,6 +45,8 @@ class FriendsController extends Controller
 
     public function show(Friend $friend)
     {
+        //SEO
+        $this->setSeo( $friend->title, $friend->url);
 
         return view('friends.show', compact('friend'));
     }

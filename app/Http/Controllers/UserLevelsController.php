@@ -16,6 +16,9 @@ class UserLevelsController extends Controller
 
     public function index()
     {
+        //SEO
+        $this->setSeo('Users', 'Users Page Latest Users');
+
         $users = User::latest()->get();
         return view('userLevels.index', compact('users'));
     }
@@ -33,6 +36,9 @@ class UserLevelsController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
+        //SEO
+        $this->setSeo( $user->username, 'User Personal Info');
+
         $roles = Role::get();
 
         return view('userLevels.show', compact('user', 'roles'));

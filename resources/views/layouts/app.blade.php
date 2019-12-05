@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <title>{{ config('app.name', 'RomanoLumij') }}</title>
+        <!-- SEO Meta Tags-->
+        {!! SEO::generate() !!}
+
         <meta charset="utf-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicons
         ================================================== -->

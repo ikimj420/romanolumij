@@ -4,10 +4,10 @@
             <small>{!! $story->title !!}</small>
         </h2>
         <div class="image-wrap">
-            <img src="{!! asset('/storage/stories/'.$story->pics) !!}" alt="{!! $story->title !!}" class="rounded img-fluid image image-2">
+            <img src="{!! $story->storyPics() !!}" alt="{!! $story->title !!}" class="rounded img-fluid image image-2">
             <div class="text">
-                <a href="/profile/{!! $story->user['id'] !!}-{!! \Illuminate\Support\Str::slug( $story->user['username'], '_') !!}">
-                    <div class="img" style="background-image: url({!! asset('/storage/users/'.$story->user['avatar']) !!});"></div>
+                <a href="{!! $story->pathProfile() !!}">
+                    <div class="img" style="background-image: url({!! $story->userPics() !!});"></div>
                     <span class="position">{!! $story->user['username'] !!}</span>
                 </a>
             </div>
