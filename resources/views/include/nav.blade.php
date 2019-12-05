@@ -14,6 +14,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="/search" class="nav-link icon d-flex align-items-center"> @lang('menu.search')</a></li>
                 <li class="nav-item"><a href="/history" class="nav-link icon d-flex align-items-center"> @lang('menu.history')</a></li>
                 <li class="nav-item"><a href="/poem" class="nav-link icon d-flex align-items-center"> @lang('menu.poems')</a></li>
                 <li class="nav-item"><a href="/story" class="nav-link icon d-flex align-items-center"> @lang('menu.stories')</a></li>

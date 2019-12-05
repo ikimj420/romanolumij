@@ -15,5 +15,6 @@ return[
     'blogs' => 'Hrami',
     'contact' => 'Akhar',
     'profile' => 'Profil',
+    'search' => 'Rode',
 
 ];

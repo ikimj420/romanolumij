@@ -36,7 +36,8 @@ Route::get('/contact', 'ContactsController@index');
 Route::post('/contact', 'ContactsController@store');
 //Show Group Of Tags
 Route::get('/tag/tags/{tag}', 'TagsController@index');
-
+//search
+Route::get('/search', 'SearchController@index')->name('search');
 
 
 

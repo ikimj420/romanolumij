@@ -15,5 +15,6 @@ return[
     'blogs' => 'Write',
     'contact' => 'Contact',
     'profile' => 'Profile',
+    'search' => 'Search',
 
 ];
