@@ -61,6 +61,16 @@ class AlbumsController extends Controller
         return view('albums.show', compact('album', 'categories'));
     }
 
+    public function showByCategory($album)
+    {
+        //SEO
+        $this->setSeo(__('app.album'), 'Albums Page Latest Albums With Images From Rom Author Show By Category');
+
+        $albums = Album::with('category')->where('category_id', '=', $album)->paginate(12);
+
+        return view('albums.showByCategory', compact('albums'));
+    }
+
     public function edit()
     {
         return back();

@@ -34,7 +34,7 @@
             <span class="typo-note">Category</span>
             <div class="blockquote">
                 <h3>
-                    <a href="/">{!! $story->category['name'] !!}</a>
+                    <a href="{!! $story->pathStoryCategory() !!}">{!! $story->category['name'] !!}</a>
                 </h3>
             </div>
         </div>

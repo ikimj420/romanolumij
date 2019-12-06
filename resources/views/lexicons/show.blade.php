@@ -72,7 +72,7 @@
                         <span class="typo-note">Categoria</span>
                         <div class="blockquote">
                             <h3>
-                                <a href="/">{!! $lexicon->category['name'] !!}</a>
+                                <a href="{!! $lexicon->pathLexiconCategory() !!}">{!! $lexicon->category['name'] !!}</a>
                             </h3>
                         </div>
                     </div>

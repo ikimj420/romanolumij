@@ -38,6 +38,12 @@ class Album extends Model
         return url("/album/{$this->id}-".Str::slug($this->name, '_'));
     }
 
+    //url pathAlbumCategory
+    public function pathAlbumCategory()
+    {
+        return url("/album/showByCategory/{$this->category_id}-".Str::slug($this->category['name'], '_'));
+    }
+
     //url albumPics
     public function albumPics()
     {

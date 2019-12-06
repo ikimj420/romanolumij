@@ -33,6 +33,12 @@ class Story extends Model
         return url("/story/{$this->id}-".Str::slug($this->title, '_'));
     }
 
+    //url pathStoryCategory
+    public function pathStoryCategory()
+    {
+        return url("/story/showByCategory/{$this->category_id}-".Str::slug($this->category['name'], '_'));
+    }
+
     //url pathAlav
     public function pathAlav()
     {

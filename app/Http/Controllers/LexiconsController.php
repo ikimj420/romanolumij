@@ -46,6 +46,16 @@ class LexiconsController extends Controller
         return view('lexicons.show', compact('lexicon', 'categories'));
     }
 
+    public function showByCategory($lexicon)
+    {
+        //SEO
+        $this->setSeo(__('app.lexicon'), 'Lexicon Page Latest Lexicon Show By Category');
+
+        $lexicons = Lexicon::with('category')->where('category_id', '=', $lexicon)->paginate(12);
+
+        return view('lexicons.showByCategory', compact('lexicons'));
+    }
+
     public function edit()
     {
         return back();

@@ -60,6 +60,16 @@ class PoemsController extends Controller
         return view('poems.show', compact('poem', 'categories'));
     }
 
+    public function showByCategory($poem)
+    {
+        //SEO
+        $this->setSeo(__('app.poem'), 'Poems Page Latest Poems From Rom Author Show By Category');
+
+        $poems = Poem::with('category')->where('category_id', '=', $poem)->paginate(12);
+
+        return view('poems.showByCategory', compact('poems'));
+    }
+
     public function edit()
     {
         return back();

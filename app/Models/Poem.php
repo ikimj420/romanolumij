@@ -33,6 +33,12 @@ class Poem extends Model
         return url("/poem/{$this->id}-".Str::slug($this->title, '_'));
     }
 
+    //url pathPoemCategory
+    public function pathPoemCategory()
+    {
+        return url("/poem/showByCategory/{$this->category_id}-".Str::slug($this->category['name'], '_'));
+    }
+
     //url pathAlav
     public function pathAlav()
     {

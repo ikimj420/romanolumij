@@ -70,7 +70,7 @@
                         <span class="typo-note">Categoria</span>
                         <div class="blockquote">
                             <h3>
-                                <a href="/">{!! $album->category['name'] !!}</a>
+                                <a href="{!! $album->pathAlbumCategory() !!}">{!! $album->category['name'] !!}</a>
                             </h3>
                         </div>
                     </div>

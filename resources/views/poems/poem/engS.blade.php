@@ -34,7 +34,7 @@
             <span class="typo-note">Category</span>
             <div class="blockquote">
                 <h3>
-                    <a href="/">{!! $poem->category['name'] !!}</a>
+                    <a href="{!! $poem->pathPoemCategory() !!}">{!! $poem->category['name'] !!}</a>
                 </h3>
             </div>
         </div>

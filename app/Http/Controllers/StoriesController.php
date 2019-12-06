@@ -60,6 +60,16 @@ class StoriesController extends Controller
         return view('stories.show', compact('story', 'categories'));
     }
 
+    public function showByCategory($story)
+    {
+        //SEO
+        $this->setSeo(__('app.story'), 'Stories Page Latest Stories From Rom Author Show By Category');
+
+        $stories = Story::with('category')->where('category_id', '=', $story)->paginate(12);
+
+        return view('stories.showByCategory', compact('stories'));
+    }
+
     public function edit()
     {
         return back();

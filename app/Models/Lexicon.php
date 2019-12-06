@@ -28,6 +28,12 @@ class Lexicon extends Model
         return url("/lexicon/{$this->id}-".Str::slug($this->rom.'_'.$this->ser.'_'.$this->eng, '_'));
     }
 
+    //url pathLexiconCategory
+    public function pathLexiconCategory()
+    {
+        return url("/lexicon/showByCategory/{$this->category_id}-".Str::slug($this->category['name'], '_'));
+    }
+
     //url lexiconPics
     public function lexiconPics()
     {

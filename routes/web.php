@@ -38,6 +38,11 @@ Route::post('/contact', 'ContactsController@store');
 Route::get('/tag/tags/{tag}', 'TagsController@index');
 //search
 Route::get('/search', 'SearchController@index')->name('search');
+//showByCategory
+Route::get('/album/showByCategory/{album}', 'AlbumsController@showByCategory');
+Route::get('/lexicon/showByCategory/{lexicon}', 'LexiconsController@showByCategory');
+Route::get('/poem/showByCategory/{poem}', 'PoemsController@showByCategory');
+Route::get('/story/showByCategory/{story}', 'StoriesController@showByCategory');
 
 
 
