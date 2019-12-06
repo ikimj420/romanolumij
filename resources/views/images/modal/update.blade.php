@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label for="desc" class="col-form-label">Description</label>
-                    <textarea name="desc" class="form-control">{!! $image->desc !!}</textarea>
+                    <textarea id="desc" name="desc" class="form-control" required>{!! $image->desc !!}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="pics" class="col-form-label">Image-Pinta</label>
@@ -42,3 +42,7 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'desc' );
+</script>

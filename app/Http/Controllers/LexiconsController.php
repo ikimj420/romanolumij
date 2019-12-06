@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Lexicon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class LexiconsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index', 'show');
+        $this->middleware('auth')->except('index', 'show', 'showByCategory');
     }
 
     public function index()
@@ -31,7 +32,28 @@ class LexiconsController extends Controller
 
     public function store(Request $request)
     {
-        Lexicon::create($this->validateRequest());
+        //validate save album
+        $validator = Validator::make($request->all(), [
+            'rom' => 'required',
+            'ser' => 'sometimes',
+            'eng' => 'sometimes',
+            'category_id' => 'sometimes',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $lexicon = new Lexicon();
+
+        $lexicon->rom = htmlspecialchars($request->rom);
+        $lexicon->ser = htmlspecialchars($request->ser);
+        $lexicon->eng = htmlspecialchars($request->eng);
+        $lexicon->category_id = $request->category_id;
+
+        $lexicon->save();
 
         return redirect(route('lexicon.index'))->withToastSuccess('Word Created Successfully!');
     }
@@ -61,29 +83,39 @@ class LexiconsController extends Controller
         return back();
     }
 
-    public function update(Request $request, Lexicon $lexicon)
+    public function update(Request $request, $id)
     {
-        //update history
-        $lexicon->update($this->validateRequest());
+        //validate save lexicon
+        $validator = Validator::make($request->all(), [
+            'rom' => 'required',
+            'ser' => 'sometimes',
+            'eng' => 'sometimes',
+            'category_id' => 'sometimes',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $lexicon = Lexicon::findOrFail($id);
+
+        $lexicon->rom = htmlspecialchars($request->rom);
+        $lexicon->ser = htmlspecialchars($request->ser);
+        $lexicon->eng = htmlspecialchars($request->eng);
+        $lexicon->category_id = $request->category_id;
+
+        $lexicon->update();
 
         return redirect(route('lexicon.index'))->withToastSuccess('Word Updated Successfully!');
     }
 
     public function destroy(Lexicon $lexicon)
     {
-        //delete history
+        //delete lexicon
         $lexicon->delete();
 
         return redirect(route('lexicon.index'))->withToastSuccess('Word Deleted Successfully!');
-    }
-
-    private function validateRequest()
-    {
-        return request()->validate([
-            'rom' => 'required',
-            'ser' => 'sometimes',
-            'eng' => 'sometimes',
-            'category_id' => 'sometimes',
-        ]);
     }
 }

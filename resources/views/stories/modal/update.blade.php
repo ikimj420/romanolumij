@@ -59,7 +59,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description" class="col-form-label">Description</label>
-                    <textarea name="description" class="form-control" required>{!! $story->description !!}</textarea>
+                    <textarea id="description" name="description" class="form-control" required>{!! $story->description !!}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="story_tag" class="col-form-label">Tags</label>

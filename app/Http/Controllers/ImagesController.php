@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Album;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ImagesController extends Controller
 {
@@ -27,16 +27,35 @@ class ImagesController extends Controller
 
     public function store(Request $request, $id)
     {
+        //validate save image
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'desc' => 'required',
 
-        $image = Image::create($this->validateRequest());
+            'user_id' => 'sometimes',
+            'album_id' => 'sometimes',
+            'pics' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $image = new Image;
+
+        $image->name = htmlspecialchars($request->name);
+        $image->desc = $request->desc;
+        $image->user_id = Auth::id();
+        $image->album_id = $id;
+
         //add pics
         $img_request = $request->hasFile('pics');
         $img = $request->file('pics');
         $folder = 'photos';
         $pics = $this->createImage($img_request, $img, $folder);
         $image->pics = $pics;
-        $image->album_id = $id;
-        $image->user_id = Auth::id();
 
         $image->save();
 
@@ -58,22 +77,40 @@ class ImagesController extends Controller
 
     public function update(Request $request, $id)
     {
+        //validate save image
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'desc' => 'required',
+
+            'pics' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $image = Image::findOrFail($id);
 
-        $image->update($this->validateRequest());
+        $image->name = htmlspecialchars($request->name);
+        $image->desc = $request->desc;
 
-        $folder = 'photos';
-        $image_request = $request->hasFile('pics');
-        $img = Request()->file('pics');
-        if(Request()->hasFile('pics')){
-
-            Storage::delete('public/'. $folder .'/'.$image->pics);
-
+        //add pics
+        if($request->hasFile('pics')){
+            if ($image->pics != 'default.svg')
+            {
+                Storage::delete('/public/photos/'.$image->pics);
+            }
+            $folder = 'photos';
+            $image_request = $request->hasFile('pics');
+            $img = Request()->file('pics');
             $pics = $this->updateImage($image_request, $img, $folder);
             $image->pics = $pics;
             $image->update();
         }
 
+        $image->update();
 
         return back()->withToastSuccess('Image Updated Successfully!');
     }
@@ -81,23 +118,11 @@ class ImagesController extends Controller
     public function destroy($id)
     {
         $image = Image::findOrFail($id);
-        //delete history
+        //delete image
         $image->delete();
 
-        Storage::delete('public/photos/'.$image->pics);
+        Storage::delete('/public/photos/'.$image->pics);
 
         return redirect(route('album.index'))->withToastSuccess('Image Deleted Successfully!');
-    }
-
-    private function validateRequest()
-    {
-        return request()->validate([
-            'name' => 'required',
-            'desc' => 'required',
-
-            'user_id' => 'sometimes',
-            'category_id' => 'sometimes',
-            //'pics' => 'sometimes|image|mimes:jpeg,png,jpg,|max:1024',
-        ]);
     }
 }

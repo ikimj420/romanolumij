@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Friend;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class FriendsController extends Controller
 {
@@ -29,13 +30,31 @@ class FriendsController extends Controller
 
     public function store(Request $request)
     {
-        $friend = Friend::create($this->validateRequest());
+        //validate save friend
+        $validator = Validator::make($request->all(), [
+            'alav' => 'required',
+            'title' => 'required',
+            'url' => 'required',
+            'pics' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-        $img_request = $request->hasFile('pics');
-        $image = $request->file('pics');
-        $folder = 'friends';
+        $friend = new Friend();
+
+        $friend->alav = htmlspecialchars($request->alav);
+        $friend->title = htmlspecialchars($request->title);
+        $friend->url = htmlspecialchars($request->url);
+
         //add pics
-        $pics = $this->createImage($img_request, $image, $folder);
+        $img_request = $request->hasFile('pics');
+        $img = $request->file('pics');
+        $folder = 'friends';
+        $pics = $this->createImage($img_request, $img, $folder);
         $friend->pics = $pics;
 
         $friend->save();
@@ -58,42 +77,53 @@ class FriendsController extends Controller
 
     public function update(Request $request, $id)
     {
+        //validate save friend
+        $validator = Validator::make($request->all(), [
+            'alav' => 'required',
+            'title' => 'required',
+            'url' => 'required',
+            'pics' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $friend = Friend::findOrFail($id);
-        $folder = 'friends';
-        $image_request = $request->hasFile('pics');
-        $friend->update($this->validateRequest());
 
-        if(Request()->hasFile('pics')){
-            $image = Request()->file('pics');
-            Storage::delete('public/'. $folder .'/'.$friend->pics);
-            $pics = $this->updateImage($image_request, $image, $folder);
+        $friend->alav = htmlspecialchars($request->alav);
+        $friend->title = htmlspecialchars($request->title);
+        $friend->url = htmlspecialchars($request->url);
+
+        //add pics
+        if($request->hasFile('pics')){
+            if ($friend->pics != 'default.svg')
+            {
+                Storage::delete('/public/friends/'.$friend->pics);
+            }
+            $folder = 'friends';
+            $image_request = $request->hasFile('pics');
+            $img = Request()->file('pics');
+            $pics = $this->updateImage($image_request, $img, $folder);
             $friend->pics = $pics;
-
             $friend->update();
         }
+
+        $friend->update();
 
         return redirect(route('friend.index'))->withToastSuccess('Friend Updated Successfully!');
     }
 
     public function destroy(Friend $friend)
     {
-        //delete history
+        //delete friend
         $friend->delete();
 
         //
-        Storage::delete('public/friends/'.$friend->pics);
+        Storage::delete('/public/friends/'.$friend->pics);
 
         return redirect(route('friend.index'))->withToastSuccess('Friend Deleted Successfully!');
-    }
-
-
-    private function validateRequest()
-    {
-        return request()->validate([
-            'alav' => 'required',
-            'title' => 'required',
-            'url' => 'required',
-            //'pics' => 'required|image|mimes:jpeg,png,jpg,|max:512',
-        ]);
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class BlogsController extends Controller
 {
@@ -31,19 +32,45 @@ class BlogsController extends Controller
 
     public function store(Request $request)
     {
+        //validate save blog
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'body' => 'required',
+
+            'user_id' => 'sometimes',
+            'tag' => 'sometimes',
+            'pics' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $blog = new Blog;
+
+        $blog->title = htmlspecialchars($request->title);
+        $blog->body = $request->body;
+        $blog->user_id = Auth::id();
+
+        $tagD = htmlspecialchars($request->blog_tag);
         //explode tags by ,
-        $tags = explode(',', $request->blog_tag);
-        $blog = Blog::create($this->validateRequest());
+        $tags = explode(',', $tagD);
+
         //add pics
         $img_request = $request->hasFile('pics');
-        $image = $request->file('pics');
+        $img = $request->file('pics');
         $folder = 'blogs';
-        $pics = $this->createImage($img_request, $image, $folder);
+        $pics = $this->createImage($img_request, $img, $folder);
         $blog->pics = $pics;
-        $blog->user_id = Auth::id();
+
+        $blog->save();
+
         //add tags
         $blog->tag($tags);
-        $blog->save();
+
+        $blog->update();
 
         return redirect(route('blog.index'))->withToastSuccess('Blog Created Successfully!');
     }
@@ -63,26 +90,48 @@ class BlogsController extends Controller
 
     public function update(Request $request, $id)
     {
+        //validate save blog
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'body' => 'required',
+
+            'tag' => 'sometimes',
+            'pics' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $blog = Blog::findOrFail($id);
+
+        $blog->title = htmlspecialchars($request->title);
+        $blog->body = $request->body;
+
+        $tagD = htmlspecialchars($request->blog_tag);
         //explode tags by ,
-        $tags = explode(',', $request->blog_tag);
+        $tags = explode(',', $tagD);
 
-        $blog->update($this->validateRequest());
-
-        $folder = 'blogs';
-        $image_request = $request->hasFile('pics');
-        $image = Request()->file('pics');
-        if(Request()->hasFile('pics')){
-
-            Storage::delete('public/'. $folder .'/'.$blog->pics);
-
-            $pics = $this->updateImage($image_request, $image, $folder);
+        //add pics
+        if($request->hasFile('pics')){
+            if ($blog->pics != 'default.svg')
+            {
+                Storage::delete('/public/blogs/'.$blog->pics);
+            }
+            $folder = 'blogs';
+            $image_request = $request->hasFile('pics');
+            $img = Request()->file('pics');
+            $pics = $this->updateImage($image_request, $img, $folder);
             $blog->pics = $pics;
             $blog->update();
         }
+
         //retag
         $blog->retag($tags);
 
+        $blog->update();
 
         return redirect(route('blog.index'))->withToastSuccess('Blog Updated Successfully!');
     }
@@ -90,26 +139,14 @@ class BlogsController extends Controller
     public function destroy($id)
     {
         $blog = Blog::findOrFail($id);
-        //delete history
+        //delete blog
         $blog->delete();
 
         //
         if ($blog->pics != 'default.svg'){
-            Storage::delete('public/blogs/'.$blog->pics);
+            Storage::delete('/public/blogs/'.$blog->pics);
         }
 
         return redirect(route('blog.index'))->withToastSuccess('Blog Deleted Successfully!');
-    }
-
-    private function validateRequest()
-    {
-        return request()->validate([
-            'title' => 'required',
-            'body' => 'required',
-
-            'user_id' => 'sometimes',
-            'tags' => 'sometimes',
-            //'pics' => 'sometimes|image|mimes:jpeg,png,jpg,|max:1024',
-        ]);
     }
 }

@@ -1,9 +1,5 @@
 <h2 class="heading-section mb-4">
-    @auth
-        @if(Auth::user()->Admin())
-            <a href="{!! $history->pathAlav() !!}">{!! $history->alav !!}</a>
-        @endif
-    @endauth
+    {!! $history->alav !!}
 </h2>
 <div class="typo">
     <p>

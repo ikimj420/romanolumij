@@ -8,12 +8,13 @@ use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AlbumsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index', 'show');
+        $this->middleware('auth')->except('index', 'show', 'showByCategory');
     }
 
     public function index()
@@ -34,19 +35,47 @@ class AlbumsController extends Controller
 
     public function store(Request $request)
     {
+        //validate save album
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'desc' => 'required',
+
+            'user_id' => 'sometimes',
+            'category_id' => 'sometimes',
+            'tag' => 'sometimes',
+            'pics' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $album = new Album;
+
+        $album->name = htmlspecialchars($request->name);
+        $album->desc = $request->desc;
+        $album->user_id = Auth::id();
+        $album->category_id = $request->category_id;
+
+        $tagD = htmlspecialchars($request->album_tag);
         //explode tags by ,
-        $tags = explode(',', $request->album_tag);
-        $album = Album::create($this->validateRequest());
+        $tags = explode(',', $tagD);
+
         //add pics
         $img_request = $request->hasFile('pics');
         $img = $request->file('pics');
         $folder = 'albums';
         $pics = $this->createImage($img_request, $img, $folder);
         $album->pics = $pics;
-        $album->user_id = Auth::id();
+
+        $album->save();
+
         //add tags
         $album->tag($tags);
-        $album->save();
+
+        $album->update();
 
         return redirect(route('album.index'))->withToastSuccess('Album Created Successfully!');
     }
@@ -78,26 +107,50 @@ class AlbumsController extends Controller
 
     public function update(Request $request, $id)
     {
+        //validate save album
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'desc' => 'required',
+
+            'category_id' => 'sometimes',
+            'tag' => 'sometimes',
+            'pics' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $album = Album::findOrFail($id);
+
+        $album->name = htmlspecialchars($request->name);
+        $album->desc = $request->desc;
+        $album->category_id = $request->category_id;
+
+        $tagD = htmlspecialchars($request->album_tag);
         //explode tags by ,
-        $tags = explode(',', $request->album_tag);
+        $tags = explode(',', $tagD);
 
-        $album->update($this->validateRequest());
-
-        $folder = 'albums';
-        $image_request = $request->hasFile('pics');
-        $img = Request()->file('pics');
-        if(Request()->hasFile('pics')){
-
-            Storage::delete('public/'. $folder .'/'.$album->pics);
-
+        //add pics
+        if($request->hasFile('pics')){
+            if ($album->pics != 'default.svg')
+            {
+                Storage::delete('/public/albums/'.$album->pics);
+            }
+            $folder = 'albums';
+            $image_request = $request->hasFile('pics');
+            $img = Request()->file('pics');
             $pics = $this->updateImage($image_request, $img, $folder);
             $album->pics = $pics;
             $album->update();
         }
+
         //retag
         $album->retag($tags);
 
+        $album->update();
 
         return redirect(route('album.index'))->withToastSuccess('Album Updated Successfully!');
     }
@@ -110,27 +163,13 @@ class AlbumsController extends Controller
         $album->delete();
 
         //
-
-        Storage::delete('public/albums/'.$album->pics);
+        Storage::delete('/public/albums/'.$album->pics);
         // Delete Images when del albums in app and db
         foreach ($images as $image){
-            Storage::delete('public/photos/'.$image->pics);
+            Storage::delete('/public/photos/'.$image->pics);
             $image->delete();
         }
 
         return redirect(route('album.index'))->withToastSuccess('Album Deleted Successfully!');
-    }
-
-    private function validateRequest()
-    {
-        return request()->validate([
-            'name' => 'required',
-            'desc' => 'required',
-
-            'user_id' => 'sometimes',
-            'category_id' => 'sometimes',
-            'tags' => 'sometimes',
-            //'pics' => 'sometimes|image|mimes:jpeg,png,jpg,|max:1024',
-        ]);
     }
 }

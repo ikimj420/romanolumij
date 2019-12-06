@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\History;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class HistoriesController extends Controller
 {
@@ -28,7 +29,28 @@ class HistoriesController extends Controller
 
     public function store(Request $request)
     {
-        History::create($this->validateRequest());
+        //validate save history
+        $validator = Validator::make($request->all(), [
+            'alav' => 'required',
+            'title' => 'required',
+            'istorija' => 'required',
+            'history' => 'required',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $history = new History;
+
+        $history->alav = htmlspecialchars($request->alav);
+        $history->title = htmlspecialchars($request->title);
+        $history->istorija = $request->istorija;
+        $history->history = $request->history;
+
+        $history->save();
 
         return redirect(route('history.index'))->withToastSuccess('History Created Successfully!');
     }
@@ -46,10 +68,31 @@ class HistoriesController extends Controller
         return back();
     }
 
-    public function update(Request $request, History $history)
+    public function update(Request $request, $history)
     {
-        //update history
-        $history->update($this->validateRequest());
+        //validate update history
+        $validator = Validator::make($request->all(), [
+            'alav' => 'required',
+            'title' => 'required',
+            'istorija' => 'required',
+            'history' => 'required',
+        ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $history = History::findOrFail($history);
+
+        $history->alav = htmlspecialchars($request->alav);
+        $history->title = htmlspecialchars($request->title);
+        $history->istorija = $request->istorija;
+        $history->history = $request->history;
+
+        $history->update();
+
 
         return redirect(route('history.index'))->withToastSuccess('History Updated Successfully!');
     }
@@ -60,15 +103,5 @@ class HistoriesController extends Controller
         $history->delete();
 
         return redirect(route('history.index'))->withToastSuccess('History Deleted Successfully!');
-    }
-
-    private function validateRequest()
-    {
-        return request()->validate([
-            'alav' => 'required',
-            'title' => 'required',
-            'istorija' => 'required',
-            'history' => 'required',
-        ]);
     }
 }

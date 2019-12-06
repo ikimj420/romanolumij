@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ProfilesController extends Controller
 {
@@ -44,50 +45,12 @@ class ProfilesController extends Controller
 
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
-        //update
-        $user->update($this->validateRequest());
-
-        //save picture
-        $folder = 'users';
-        $img_request = $request->hasFile('avatar');
-        $img = Request()->file('avatar');
-        //check for picture
-        if($img_request){
-            // Delete Images
-            if($user->avatar != 'default.svg'){
-                Storage::delete('public/'. $folder .'/'.$user->avatar);
-            }
-            $picture = $this->updateImage($img_request, $img, $folder);
-            $user->avatar = $picture;
-            $user->update();
-        }
-
-        return back()->withToastSuccess('Profile Updated Successfully!');
-    }
-
-    public function destroy($id)
-    {
-        $profile = User::findOrFail($id);
-        //delete history
-        $profile->delete();
-
-        //
-        if ($profile->avatar != 'default.svg'){
-            Storage::delete('public/users/'.$profile->avatar);
-        }
-
-        return redirect(route('welcome'))->withToastSuccess('User Deleted Successfully!');
-    }
-
-    private function validateRequest()
-    {
-        return request()->validate([
+        //validate save user
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
             'username' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
 
-            'role_id' => 'sometimes',
             'birthDate' => 'sometimes',
             'site' => 'sometimes',
             'phones' => 'sometimes',
@@ -95,7 +58,60 @@ class ProfilesController extends Controller
             'city' => 'sometimes',
             'state' => 'sometimes',
             'bio' => 'sometimes',
-            //'avatar' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
+            'avatar' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
         ]);
+        //display error
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = User::findOrFail($id);
+
+        $user->name = htmlspecialchars($request->name);
+        $user->username = htmlspecialchars($request->username);
+        $user->email = htmlspecialchars($request->email);
+
+        $user->birthDate = htmlspecialchars($request->birthDate);
+        $user->site = htmlspecialchars($request->site);
+        $user->phones = htmlspecialchars($request->phones);
+        $user->street = htmlspecialchars($request->street);
+        $user->city = htmlspecialchars($request->city);
+        $user->state = htmlspecialchars($request->state);
+
+        $user->bio = $request->bio;
+
+        //add pics
+        if($request->hasFile('avatar')){
+            if ($user->avatar != 'default.svg')
+            {
+                Storage::delete('/public/users/'.$user->avatar);
+            }
+            $folder = 'users';
+            $image_request = $request->hasFile('avatar');
+            $img = Request()->file('avatar');
+            $pics = $this->updateImage($image_request, $img, $folder);
+            $user->avatar = $pics;
+            $user->update();
+        }
+
+        $user->update();
+
+        return back()->withToastSuccess('Profile Updated Successfully!');
+    }
+
+    public function destroy($id)
+    {
+        $profile = User::findOrFail($id);
+        //delete user
+        $profile->delete();
+
+        //
+        if ($profile->avatar != 'default.svg'){
+            Storage::delete('/public/users/'.$profile->avatar);
+        }
+
+        return redirect(route('welcome'))->withToastSuccess('User Deleted Successfully!');
     }
 }
