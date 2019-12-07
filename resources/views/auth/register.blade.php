@@ -70,6 +70,11 @@
                                     @error('password-confirm') is-invalid @enderror"
                                        name="password_confirmation" required autocomplete="new-password">
                             </div>
+
+                            <div class="input-group mb-3">
+                                {!! NoCaptcha::renderJs() !!}
+                                {!! NoCaptcha::display() !!}
+                            </div>
                         </div>
 
                         <div class="footer text-center">
