@@ -62,7 +62,7 @@
                 </div>
                 <div class="form-group">
                     <label for="pics" class="col-form-label">Image-Pinta</label>
-                    <input type="file" name="pics" class="form-control" required>
+                    <input type="file" name="pics" class="form-control">
                 </div>
             </div>
             <div class="modal-footer">

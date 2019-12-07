@@ -31,7 +31,11 @@ class ProfilesController extends Controller
 
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::with('albums')
+                    ->with('blogs')
+                    ->with('poems')
+                    ->with('stories')
+                    ->findOrFail($id);
         //SEO
         $this->setSeo( $user->username, 'User Personal Info');
 

@@ -31,7 +31,7 @@
         @endif
     @endauth
 
-    <!-- Images -->
+    <!-- Albums -->
     <section class="ftco-section" id="images">
         <div class="container">
             <div class="row">

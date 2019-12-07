@@ -31,6 +31,7 @@ return[
     'lexicon' => 'Dictionary',
     'contact' => 'Contact',
     'blog' => 'Write Hire',
+    'blogs' => 'Post',
     'category' => 'Categories',
     'friend' => 'Friends',
 ];

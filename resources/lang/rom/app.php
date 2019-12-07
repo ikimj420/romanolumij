@@ -31,6 +31,7 @@ return[
     'lexicon' => 'Alavari',
     'contact' => 'Kontakt',
     'blog' => 'Hrami Kate',
+    'blogs' => 'Hramidan',
     'category' => 'Kategorije',
     'friend' => 'Amala',
 ];

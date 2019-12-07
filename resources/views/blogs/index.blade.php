@@ -31,7 +31,7 @@
         @endif
     @endauth
 
-    <!-- Poems -->
+    <!-- Blog -->
     <section class="ftco-section ftco-section-2 bg-light" id="cards">
         <div class="container">
             <div class="row">
