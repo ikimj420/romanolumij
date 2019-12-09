@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="typo">
-                        <span class="typo-note">User Level</span>
+                        <span class="typo-note">{!! __('profile.userL') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $user->role['userLevel'] !!}
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">Name</span>
+                        <span class="typo-note">{!! __('profile.name') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $user->name !!}
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">Username</span>
+                        <span class="typo-note">{!! __('profile.username') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $user->username !!}
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">Email</span>
+                        <span class="typo-note">{!! __('profile.email') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $user->email !!}
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">BirthDate</span>
+                        <span class="typo-note">{!! __('profile.bDate') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $user->birthDate !!}
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">Site</span>
+                        <span class="typo-note">{!! __('profile.site') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $user->site !!}
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">Phones</span>
+                        <span class="typo-note">{!! __('profile.phones') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $user->phones !!}
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">Street</span>
+                        <span class="typo-note">{!! __('profile.street') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $user->street !!}
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">City</span>
+                        <span class="typo-note">{!! __('profile.city') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $user->city !!}
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">State</span>
+                        <span class="typo-note">{!! __('profile.state') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $user->state !!}
@@ -125,7 +125,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">Biography</span>
+                        <span class="typo-note">{!! __('profile.bio') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $user->bio !!}

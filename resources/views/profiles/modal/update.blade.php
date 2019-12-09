@@ -17,47 +17,47 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="name" class="col-form-label">Name</label>
+                    <label for="name" class="col-form-label">{!! __('profile.name') !!}</label>
                     <input type="text" name="name" class="form-control" required value="{!! $user->name !!}">
                 </div>
                 <div class="form-group">
-                    <label for="username" class="col-form-label">Username</label>
+                    <label for="username" class="col-form-label">{!! __('profile.username') !!}</label>
                     <input type="text" name="username" class="form-control" required value="{!! $user->username !!}">
                 </div>
                 <div class="form-group">
-                    <label for="email" class="col-form-label">Email</label>
+                    <label for="email" class="col-form-label">{!! __('profile.email') !!}</label>
                     <input type="email" name="email" class="form-control" required value="{!! $user->email !!}">
                 </div>
                 <div class="form-group">
-                    <label for="birthDate" class="col-form-label">BirthDate</label>
+                    <label for="birthDate" class="col-form-label">{!! __('profile.bDate') !!}</label>
                     <input type="date" name="birthDate" class="form-control" required value="{!! $user->birthDate !!}">
                 </div>
                 <div class="form-group">
-                    <label for="site" class="col-form-label">Site</label>
+                    <label for="site" class="col-form-label">{!! __('profile.site') !!}</label>
                     <input type="text" name="site" class="form-control" required value="{!! $user->site !!}">
                 </div>
                 <div class="form-group">
-                    <label for="phones" class="col-form-label">Phones</label>
+                    <label for="phones" class="col-form-label">{!! __('profile.phones') !!}</label>
                     <input type="text" name="phones" class="form-control" required value="{!! $user->phones !!}">
                 </div>
                 <div class="form-group">
-                    <label for="street" class="col-form-label">Street</label>
+                    <label for="street" class="col-form-label">{!! __('profile.street') !!}</label>
                     <input type="text" name="street" class="form-control" required value="{!! $user->street !!}">
                 </div>
                 <div class="form-group">
-                    <label for="city" class="col-form-label">City</label>
+                    <label for="city" class="col-form-label">{!! __('profile.city') !!}</label>
                     <input type="text" name="city" class="form-control" required value="{!! $user->city !!}">
                 </div>
                 <div class="form-group">
-                    <label for="state" class="col-form-label">State</label>
+                    <label for="state" class="col-form-label">{!! __('profile.state') !!}</label>
                     <input type="text" name="state" class="form-control" required value="{!! $user->state !!}">
                 </div>
                 <div class="form-group">
-                    <label for="bio" class="col-form-label">Biography</label>
+                    <label for="bio" class="col-form-label">{!! __('profile.bio') !!}</label>
                     <textarea name="bio" class="form-control" required>{!! $user->bio !!}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="avatar" class="col-form-label">Avatar</label>
+                    <label for="avatar" class="col-form-label">{!! __('profile.avatar') !!}</label>
                     <input type="file" name="avatar" class="form-control">
                     @if(!empty($user->avatar))
                         <div class="image-wrap">

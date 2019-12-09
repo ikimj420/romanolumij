@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="typo">
-                        <span class="typo-note">Image Name</span>
+                        <span class="typo-note">{!! __('album.image') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $image->name !!}
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">Description</span>
+                        <span class="typo-note">{!! __('album.desc') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $image->desc !!}

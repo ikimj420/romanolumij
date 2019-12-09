@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="typo">
-                        <span class="typo-note">Album Name</span>
+                        <span class="typo-note">{!! __('album.album') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $album->name !!}
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">Description</span>
+                        <span class="typo-note">{!! __('album.desc') !!}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $album->desc !!}
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">Categoria</span>
+                        <span class="typo-note">{!! __('album.cat') !!}</span>
                         <div class="blockquote">
                             <a href="{!! $album->pathAlbumCategory() !!}">
                                 <img src="{!! $album->albumCategoryPics() !!}" alt="{!! $album->category['name'] !!}" class="image img-fluid img-2" style="width: 25%;">
@@ -142,7 +142,7 @@
                                 @else
                                     <h2 class="padding-top-1x text-normal">{!! $image->name !!}</h2>
                             @endif
-                        <div class="pt-1 mb-2"><span class="text-medium">Description:</span> {!! $image->desc !!}</div>
+                        <div class="pt-1 mb-2"><span class="text-medium">{!! __('album.desc') !!} : </span> {!! $image->desc !!}</div>
                         <hr class="mb-3">
                         @empty
                     @endforelse

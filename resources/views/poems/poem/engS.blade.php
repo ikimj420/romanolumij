@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-4 text-center">
         <h2 class="heading-section mb-4">
-            <small>{!! $poem->title !!}</small>
+            <small></small>
         </h2>
         <div class="image-wrap">
             <img src="{!! $poem->poemPics() !!}" alt="{!! $poem->title !!}" class="rounded img-fluid image image-2">
@@ -14,6 +14,14 @@
         </div>
     </div>
     <div class="col-md-12">
+        <div class="typo">
+            <span class="typo-note">Title</span>
+            <div class="blockquote">
+                <h1>
+                    {!! $poem->title !!}
+                </h1>
+            </div>
+        </div>
         <div class="typo">
             <span class="typo-note">Poem</span>
             <div class="blockquote">
