@@ -8,6 +8,12 @@
         <div class="modal-content">
             <form method="post" action="{{ action('ContactsController@store') }}" id="add" enctype="multipart/form-data">
                 @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Title">{{ __('button.addC') }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="subject" class="col-form-label">{{ __('contact.sub') }}</label>
@@ -41,3 +47,7 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'message' );
+</script>

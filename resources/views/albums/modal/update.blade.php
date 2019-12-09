@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label for="desc" class="col-form-label">Description</label>
-                    <textarea name="desc" class="form-control" required>{!! $album->desc !!}</textarea>
+                    <input type="text" name="desc" class="form-control" required value="{!! $album->desc !!}">
                 </div>
                 <div class="form-group">
                     <label for="album_tag" class="col-form-label">Tags</label>
@@ -59,7 +59,3 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace( 'desc' );
-</script>

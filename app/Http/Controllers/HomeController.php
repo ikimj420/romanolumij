@@ -14,10 +14,10 @@ class HomeController extends Controller
         //SEO
         $this->setSeo(__('app.welcome'), 'Welcome Page Latest Poems Stories Lexicons Albums Language Rom Serbian English');
 
-        $poems = Poem::latest()->take(3)->get();
-        $stories = Story::latest()->take(3)->get();
-        $lexicons = Lexicon::latest()->take(3)->get();
-        $albums = Album::latest()->take(3)->get();
+        $poems = Poem::latest()->take(4)->get();
+        $stories = Story::latest()->take(4)->get();
+        $lexicons = Lexicon::latest()->take(4)->get();
+        $albums = Album::latest()->take(4)->get();
 
         return view('welcome', compact('poems', 'stories', 'lexicons', 'albums'));
     }

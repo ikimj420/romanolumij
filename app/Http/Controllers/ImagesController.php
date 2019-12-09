@@ -46,7 +46,7 @@ class ImagesController extends Controller
         $image = new Image;
 
         $image->name = htmlspecialchars($request->name);
-        $image->desc = $request->desc;
+        $image->desc = htmlspecialchars($request->desc);
         $image->user_id = Auth::id();
         $image->album_id = $id;
 
@@ -94,7 +94,7 @@ class ImagesController extends Controller
         $image = Image::findOrFail($id);
 
         $image->name = htmlspecialchars($request->name);
-        $image->desc = $request->desc;
+        $image->desc = htmlspecialchars($request->desc);
 
         //add pics
         if($request->hasFile('pics')){

@@ -1,6 +1,6 @@
 <div class="row">
     @forelse($poems as $poem)
-        <div class="col-md-4 mb-2">
+        <div class="col-md-3 mb-2">
             <div class="card text-center">
                 <div class="card-img">
                     <div class="image-wrap">

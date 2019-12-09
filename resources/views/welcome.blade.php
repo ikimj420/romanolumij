@@ -60,7 +60,7 @@
                                     <div class="container">
                                         <div class="row">
                                             @forelse($lexicons as $lexicon)
-                                            <div class="col-md-4 mb-2">
+                                            <div class="col-md-3 mb-2">
                                                 <div class="card text-center">
                                                     <a href="{!! $lexicon->pathTitle() !!}">
                                                         <div class="card-img">
@@ -97,7 +97,7 @@
                     <h2 class="heading-section mb-4">{{ __('app.album') }}</h2>
                     <div class="row">
                         @forelse($albums as $album)
-                            <div class="col-md-4 text-center">
+                            <div class="col-md-3 text-center">
                                 <a href="{!! $album->pathTitle() !!}">
                                     <h2 class="heading-section mb-4">
                                         <small>{!! $album->name !!}</small>

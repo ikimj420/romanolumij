@@ -13,7 +13,7 @@
             <span class="typo-note">Sose</span>
             <div class="blockquote">
                 <p>
-                    {!! '-' !!}
+                    {!! 'Ako Manđe Te Dićhe Kate Ćire Djila Paramiće Vaj Pinte' !!}
                 </p>
             </div>
         </div>
@@ -21,16 +21,16 @@
             <span class="typo-note">Sar</span>
             <div class="blockquote">
                 <p>
-                    {!! '-' !!}
+                    {!! 'Hrami E-mail Akhar Ma Arak Ma' !!}
                 </p>
             </div>
         </div>
         <div class="typo">
             <span class="typo-note">Kaj</span>
             <div class="blockquote">
-                <h3>
-                    {!! '-' !!}
-                </h3>
+                <p>
+                    {!! 'ikimj420@gmail.com' !!}
+                </p>
             </div>
         </div>
     </div>

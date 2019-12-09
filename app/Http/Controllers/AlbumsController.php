@@ -55,7 +55,7 @@ class AlbumsController extends Controller
         $album = new Album;
 
         $album->name = htmlspecialchars($request->name);
-        $album->desc = $request->desc;
+        $album->desc = htmlspecialchars($request->desc);
         $album->user_id = Auth::id();
         $album->category_id = $request->category_id;
 
@@ -126,7 +126,7 @@ class AlbumsController extends Controller
         $album = Album::findOrFail($id);
 
         $album->name = htmlspecialchars($request->name);
-        $album->desc = $request->desc;
+        $album->desc = htmlspecialchars($request->desc);
         $album->category_id = $request->category_id;
 
         $tagD = htmlspecialchars($request->album_tag);
