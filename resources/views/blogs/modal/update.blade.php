@@ -17,11 +17,11 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="title" class="col-form-label">Title</label>
+                    <label for="title" class="col-form-label">{{ __('blog.title') }}</label>
                     <input type="text" name="title" class="form-control" required value="{!! $blog->title !!}">
                 </div>
                 <div class="form-group">
-                    <label for="body" class="col-form-label">Write Here</label>
+                    <label for="body" class="col-form-label">{{ __('blog.body') }}</label>
                     <textarea name="body" class="form-control" required>{!! $blog->body !!}</textarea>
                 </div>
                 <div class="form-group">
@@ -29,7 +29,7 @@
                     <input type="text" value="{!! $blog->tagList !!}" name="blog_tag" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="pics" class="col-form-label">Image</label>
+                    <label for="pics" class="col-form-label">{{ __('blog.pics') }}</label>
                     <input type="file" name="pics" class="form-control">
                     @if(!empty($blog->pics))
                         <div class="image-wrap">

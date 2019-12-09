@@ -16,11 +16,11 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="title" class="col-form-label">Title</label>
+                    <label for="title" class="col-form-label">{{ __('blog.title') }}</label>
                     <input type="text" name="title" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="body" class="col-form-label">Write Here</label>
+                    <label for="body" class="col-form-label">{{ __('blog.body') }}</label>
                     <textarea name="body" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
@@ -28,7 +28,7 @@
                     <input type="text" placeholder="After Each Tag Comma Is Required" name="blog_tag" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="pics" class="col-form-label">Image</label>
+                    <label for="pics" class="col-form-label">{{ __('blog.pics') }}</label>
                     <input type="file" name="pics" class="form-control">
                 </div>
             </div>

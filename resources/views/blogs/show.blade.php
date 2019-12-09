@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="typo">
-                        <span class="typo-note">Title</span>
+                        <span class="typo-note">{{ __('blog.title') }}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $blog->title !!}
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">Blog</span>
+                        <span class="typo-note">{{ __('blog.bodyS') }}</span>
                         <div class="blockquote">
                             <p>
                                 {!! $blog->body !!}
