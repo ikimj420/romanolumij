@@ -33,9 +33,9 @@
         <div class="typo">
             <span class="typo-note">Kategoria</span>
             <div class="blockquote">
-                <h3>
-                    <a href="{!! $story->pathStoryCategory() !!}">{!! $story->category['name'] !!}</a>
-                </h3>
+                <a href="{!! $story->pathStoryCategory() !!}">
+                    <img src="{!! $story->storyCategoryPics() !!}" alt="{!! $story->category['name'] !!}" class="image img-fluid img-2" style="width: 25%;">
+                </a>
             </div>
         </div>
         <div class="typo">

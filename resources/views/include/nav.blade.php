@@ -5,12 +5,22 @@
             <span class="oi oi-menu"></span> @lang('menu.menu')
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
+            @auth
+                @if(Auth::user()->Admin())
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="/category" class="nav-link icon d-flex align-items-center">C</a></li>
+                        <li class="nav-item"><a href="/friend" class="nav-link icon d-flex align-items-center">F</a></li>
+                        <li class="nav-item"><a href="/role" class="nav-link icon d-flex align-items-center">R</a></li>
+                        <li class="nav-item"><a href="/userLevel" class="nav-link icon d-flex align-items-center">U</a></li>
+                    </ul>
+                @endif
+            @endauth
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="/locale/en" class="nav-link icon d-flex align-items-center"><img src="{!! asset('/storage/images/eng.png') !!}" alt="English"></a>
+                    <a href="/locale/en" class="nav-link icon d-flex align-items-center"><img src="{!! asset('/storage/svg/eng.svg') !!}" alt="English"></a>
                 </li>
                 <li class="nav-item">
-                    <a href="/locale/rom" class="nav-link icon d-flex align-items-center"><img src="{!! asset('/storage/images/rom.png') !!}" alt="Romane"></a>
+                    <a href="/locale/rom" class="nav-link icon d-flex align-items-center"><img src="{!! asset('/storage/svg/rom.svg') !!}" alt="Romane"></a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">

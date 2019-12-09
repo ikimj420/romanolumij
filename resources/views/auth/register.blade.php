@@ -75,8 +75,14 @@
                                 {!! NoCaptcha::renderJs() !!}
                                 {!! NoCaptcha::display() !!}
                             </div>
-                        </div>
 
+                            <div class="input-group mb-3">
+                                <span class="group-text">
+                                    By Clicking Register You Are Agreeing To The <a href="/">&nbsp; Therms Of Use &nbsp;</a> And <a
+                                        href="/">&nbsp; Privacy Policy</a>
+                                </span>
+                            </div>
+                        </div>
                         <div class="footer text-center">
                             <button type="submit" class="btn btn-primary">
                                 {{ __('app.register') }}

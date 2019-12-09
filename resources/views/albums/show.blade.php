@@ -18,7 +18,7 @@
 
     <!-- Update Delete Button -->
     @auth
-        @if(Auth::user()->Admin())
+        @if(Auth::user()->Admin() || Auth::id() === $album->user_id)
             <section class="ftco-section">
                 <div class="container">
                     <div class="row">
@@ -69,9 +69,9 @@
                     <div class="typo">
                         <span class="typo-note">Categoria</span>
                         <div class="blockquote">
-                            <h3>
-                                <a href="{!! $album->pathAlbumCategory() !!}">{!! $album->category['name'] !!}</a>
-                            </h3>
+                            <a href="{!! $album->pathAlbumCategory() !!}">
+                                <img src="{!! $album->albumCategoryPics() !!}" alt="{!! $album->category['name'] !!}" class="image img-fluid img-2" style="width: 25%;">
+                            </a>
                         </div>
                     </div>
                     <div class="typo">
@@ -86,12 +86,6 @@
                             @endforelse
                         </div>
                     </div>
-                    <div class="typo">
-                        <span class="typo-note">Comment</span>
-                        <div class="blockquote">
-                            @comments(['model' => $album])
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -99,7 +93,7 @@
 
     <!-- Add Button -->
     @auth
-        @if(Auth::user()->Admin())
+        @if(Auth::id() === $album->user_id)
             <section class="ftco-section">
                 <div class="container">
                     <div class="row">
@@ -112,40 +106,102 @@
         @endif
     @endauth
 
-    <!-- Images -->
-    <section class="ftco-section" id="typography">
-        <div class="container">
-            @forelse($album->images as $image)
-                <div class="row">
-                <div class="col-md-4 text-center">
-                    <div class="image-wrap">
-                        <a href="{!! $image->pathTitle() !!}">
-                            <img src="{!! $image->imagePics() !!}" class="rounded img-fluid image image-2 image-full">
-                        </a>
+
+    <!-- Off-Canvas Wrapper-->
+    <div class="offcanvas-wrapper">
+        <!-- Page Content-->
+        <div class="container pb-3 mb-1">
+            <div class="row">
+                <!-- Poduct Gallery-->
+                <div class="col-md-6">
+                    <div class="product-gallery">
+                        <div class="product-carousel owl-carousel gallery-wrapper">
+                            @forelse($album->images as $image)
+                                <div class="gallery-item" data-hash="{!! $image->id !!}"><a href="{!! $image->imagePics() !!}" data-size="1000x667"><img src="{!! $image->imagePics() !!}" alt="{!! $image->name !!}"></a></div>
+                                @empty
+                            @endforelse
+                        </div>
+                        <ul class="product-thumbnails">
+                            @forelse($album->images as $image)
+                                <li class="active"><a href="#{!! $image->id !!}"><img src="{!! $image->imagePics() !!}" alt="{!! $image->name !!}"></a></li>
+                                @empty
+                            @endforelse
+                        </ul>
                     </div>
                 </div>
+
+                <!-- Product Info-->
+                <div class="col-md-6">
+                    @forelse($album->images as $image)
+                        @auth
+                            @if(Auth::user()->Admin() || Auth::id() === $album->user_id)
+                        @endauth
+                                <a href="{!! $image->pathTitle() !!}">
+                                    <h2 class="padding-top-1x text-normal">{!! $image->name !!}</h2>
+                                </a>
+                                @else
+                                    <h2 class="padding-top-1x text-normal">{!! $image->name !!}</h2>
+                            @endif
+                        <div class="pt-1 mb-2"><span class="text-medium">Description:</span> {!! $image->desc !!}</div>
+                        <hr class="mb-3">
+                        @empty
+                    @endforelse
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Albums -->
+    <section class="ftco-section" id="typography">
+        <div class="container">
+            <div class="row">
                 <div class="col-md-12">
                     <div class="typo">
-                        <span class="typo-note">Image Name</span>
+                        <span class="typo-note">Comment</span>
                         <div class="blockquote">
-                            <p>
-                                {!! $image->name !!}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="typo">
-                        <span class="typo-note">Description</span>
-                        <div class="blockquote">
-                            <p>
-                                {!! $image->desc !!}
-                            </p>
+                            @comments(['model' => $album])
                         </div>
                     </div>
                 </div>
             </div>
-            @empty
-            @endforelse
         </div>
     </section>
+
+    <!-- Photoswipe container-->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection

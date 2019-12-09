@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Auth;
 
 class UserLevelsController extends Controller
 {
@@ -16,6 +16,10 @@ class UserLevelsController extends Controller
 
     public function index()
     {
+        //check is admin
+        if (!Auth::user()->Admin()){
+            return redirect(route('welcome'))->withToastError('No No No!!!');
+        }
         //SEO
         $this->setSeo('Users', 'Users Page Latest Users');
 
@@ -35,6 +39,10 @@ class UserLevelsController extends Controller
 
     public function show($id)
     {
+        //check is admin
+        if (!Auth::user()->Admin()){
+            return redirect(route('welcome'))->withToastError('No No No!!!');
+        }
         $user = User::findOrFail($id);
         //SEO
         $this->setSeo( $user->username, 'User Personal Info');

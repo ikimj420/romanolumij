@@ -6,6 +6,7 @@ use App\Models\Friend;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class FriendsController extends Controller
 {
@@ -16,6 +17,10 @@ class FriendsController extends Controller
 
     public function index()
     {
+        //check is admin
+        if (!Auth::user()->Admin()){
+            return redirect(route('welcome'))->withToastError('No No No!!!');
+        }
         //SEO
         $this->setSeo(__('app.friend'), 'Friends Page Latest Friends With Images Site Sponsors');
 
@@ -64,6 +69,10 @@ class FriendsController extends Controller
 
     public function show(Friend $friend)
     {
+        //check is admin
+        if (!Auth::user()->Admin()){
+            return redirect(route('welcome'))->withToastError('No No No!!!');
+        }
         //SEO
         $this->setSeo( $friend->title, $friend->url);
 

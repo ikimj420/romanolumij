@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class CategoriesController extends Controller
 {
@@ -16,6 +17,10 @@ class CategoriesController extends Controller
 
     public function index()
     {
+        //check is admin
+        if (!Auth::user()->Admin()){
+            return redirect(route('welcome'))->withToastError('No No No!!!');
+        }
         //SEO
         $this->setSeo(__('app.category'), 'Categories Page Latest Categories With Images And Description');
 
@@ -65,6 +70,10 @@ class CategoriesController extends Controller
 
     public function show(Category $category)
     {
+        //check is admin
+        if (!Auth::user()->Admin()){
+            return redirect(route('welcome'))->withToastError('No No No!!!');
+        }
         //SEO
         $this->setSeo( $category->name, $category->desc);
 
@@ -83,23 +92,7 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-/*        $category = Category::findOrFail($id);
-        //update
-        $category->update($this->validateRequest());
-
-        //save picture
-        $folder = 'categories';
-        $img_request = $request->hasFile('pics');
-        $img = Request()->file('pics');
-        //check for picture
-        if($img_request){
-            // Delete Images
-            Storage::delete('public/'. $folder .'/'.$category->pics);
-            $picture = $this->updateImage($img_request, $img, $folder);
-            $category->pics = $picture;
-            $category->update();
-        }*/
-        //validate save blog
+        //validate update category
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'varnanipe' => 'required',

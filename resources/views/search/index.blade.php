@@ -17,7 +17,7 @@
     </div>
 
     <!-- Search -->
-    <section class="ftco-section ftco-section-2 bg-light" id="cards" style="min-height: 440px;">
+    <section class="ftco-section ftco-section-2 bg-light" id="cards">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-2">
@@ -38,15 +38,17 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
-                        <div class="card-body pb-5">
-                            <h3 id="display" class="card-title text-center"></h3>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+   {{--Search--}}
+    <section class="ftco-section ftco-section-2 bg-light" id="cards" style="padding: 0px;">
+        <div class="container">
+            <div class="row" id="display"> </div>
+        </div>
+    </section>
 
 @endsection

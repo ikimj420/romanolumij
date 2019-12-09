@@ -57,7 +57,8 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%); }
+    background-image: linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%); }
+
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -1591,7 +1592,7 @@ pre {
 .form-control {
   display: block;
   width: 100%;
-  height: calc(1.5em + 0.75rem + 2px);
+/*  height: calc(1.5em + 0.75rem + 2px);*/
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;
@@ -3778,9 +3779,8 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  background-image: linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%);
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
   .card > hr {
     margin-right: 0;
@@ -4778,7 +4778,7 @@ a.close.disabled {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  background-image: linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%);
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
@@ -8149,9 +8149,9 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #f44336; }
+  color: #1b1b1b; }
   a:hover, a:active, a:focus {
-    color: #f44336;
+    color: #d2190b;
     outline: none !important;
     text-decoration: none !important; }
 
@@ -9256,7 +9256,7 @@ h1, h2, h3, h4, h5,
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 ); }
 
 .card.card-login {
-  background: linear-gradient(to top, #09203f 0%, #537895 100%);
+    background-image: linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%);
   border: none;
   -webkit-box-shadow: 0px 26px 29px -13px rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0px 26px 29px -13px rgba(0, 0, 0, 0.12);

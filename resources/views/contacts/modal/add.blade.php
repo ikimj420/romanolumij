@@ -15,15 +15,22 @@
                     </div>
                     <div class="form-group">
                         <label for="name" class="col-form-label">{{ __('contact.name') }}</label>
-                        <input type="text" name="name" class="form-control" required>
+                        <input type="text" name="name" class="form-control" required value="{!! \Illuminate\Support\Facades\Auth::user()->name !!}">
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-form-label">{{ __('contact.email') }}</label>
-                        <input type="email" name="email" class="form-control" required>
+                        <input type="email" name="email" class="form-control" required value="{!! \Illuminate\Support\Facades\Auth::user()->email !!}">
                     </div>
                     <div class="form-group">
                         <label for="message" class="col-form-label">{{ __('contact.mess') }}</label>
                         <textarea name="message" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="col-form-label">Captcha</label>
+                        <div>
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

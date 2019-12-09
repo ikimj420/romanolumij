@@ -18,7 +18,7 @@
 
     <!-- Update Delete Button -->
     @auth
-        @if(Auth::user()->Admin())
+        @if(Auth::user()->Admin() || Auth::id() === $blog->user_id)
             <section class="ftco-section">
                 <div class="container">
                     <div class="row">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="typo">
-                        <span class="typo-note">Blog</span>
+                        <span class="typo-note">Title</span>
                         <div class="blockquote">
                             <p>
                                 {!! $blog->title !!}
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="typo">
-                        <span class="typo-note">Text</span>
+                        <span class="typo-note">Blog</span>
                         <div class="blockquote">
                             <p>
                                 {!! $blog->body !!}

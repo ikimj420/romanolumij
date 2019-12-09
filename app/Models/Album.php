@@ -44,6 +44,12 @@ class Album extends Model
         return url("/album/showByCategory/{$this->category_id}-".Str::slug($this->category['name'], '_'));
     }
 
+    //url albumCategoryPics
+    public function albumCategoryPics()
+    {
+        return asset('/storage/categories/'.$this->category['pics']);
+    }
+
     //url albumPics
     public function albumPics()
     {

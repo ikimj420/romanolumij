@@ -71,9 +71,9 @@
                     <div class="typo">
                         <span class="typo-note">Categoria</span>
                         <div class="blockquote">
-                            <h3>
-                                <a href="{!! $lexicon->pathLexiconCategory() !!}">{!! $lexicon->category['name'] !!}</a>
-                            </h3>
+                            <a href="{!! $lexicon->pathLexiconCategory() !!}">
+                                <img src="{!! $lexicon->lexiconCategoryPics() !!}" alt="{!! $lexicon->category['name'] !!}" class="image img-fluid img-2" style="width: 25%;">
+                            </a>
                         </div>
                     </div>
                 </div>

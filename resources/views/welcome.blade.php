@@ -123,4 +123,13 @@
         </div>
     </section>
 
+
+    <!-- Popular Brands-->
+    <section class="bg-faded pt-3 pb-3">
+        <div class="container">
+            <h3 class="text-center mb-3 pb-2">Amare Amala</h3>
+            <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: false, &quot;loop&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 4000, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2}, &quot;470&quot;:{&quot;items&quot;:3},&quot;630&quot;:{&quot;items&quot;:4},&quot;991&quot;:{&quot;items&quot;:5},&quot;1200&quot;:{&quot;items&quot;:6}} }"><img class="d-block w-110 opacity-75 m-auto" src="/storage/svg/blog.svg" alt="Adidas"><img class="d-block w-110 opacity-75 m-auto" src="/storage/svg/blog.svg" alt="Brooks"><img class="d-block w-110 opacity-75 m-auto" src="/storage/svg/blog.svg" alt="Valentino"><img class="d-block w-110 opacity-75 m-auto" src="/storage/svg/blog.svg" alt="Nike"><img class="d-block w-110 opacity-75 m-auto" src="/storage/svg/blog.svg" alt="Puma"><img class="d-block w-110 opacity-75 m-auto" src="/storage/svg/blog.svg" alt="New Balance"><img class="d-block w-110 opacity-75 m-auto" src="/storage/svg/blog.svg" alt="Dior"></div>
+        </div>
+    </section>
+
 @endsection

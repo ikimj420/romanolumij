@@ -18,7 +18,7 @@
 
     <!-- Add Button -->
     @auth
-        @if(Auth::user()->Admin())
+        @if(Auth::user()->Admin() || Auth::user()->Moderator())
             <section class="ftco-section">
                 <div class="container">
                     <div class="row">

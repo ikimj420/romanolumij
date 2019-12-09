@@ -42,6 +42,7 @@ class User extends Authenticatable
     {
         return $this->role()->where('userLevel', 'Admin')->exists();
     }
+
     //check if auth user is Moderator
     public function Moderator()
     {

@@ -18,10 +18,11 @@ class ContactsController extends Controller
     public function store(Request $request)
     {
         $data = request()->validate([
-            'subjects' => 'required',
+            'subject' => 'required',
             'name' => 'required',
             'email' => 'required|email',
             'message' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
         //
         Mail::to('lumijromano@test.com')->send(new ContactsMail($data));

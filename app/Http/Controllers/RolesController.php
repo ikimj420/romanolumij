@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RolesController extends Controller
 {
@@ -14,6 +15,10 @@ class RolesController extends Controller
 
     public function index()
     {
+        //check is admin
+        if (!Auth::user()->Admin()){
+            return redirect(route('welcome'))->withToastError('No No No!!!');
+        }
         //SEO
         $this->setSeo('Role', 'Role Page');
 
@@ -35,6 +40,10 @@ class RolesController extends Controller
 
     public function show(Role $role)
     {
+        //check is admin
+        if (!Auth::user()->Admin()){
+            return redirect(route('welcome'))->withToastError('No No No!!!');
+        }
         //SEO
         $this->setSeo( $role->userLevel, '');
 

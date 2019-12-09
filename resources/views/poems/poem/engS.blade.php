@@ -33,9 +33,9 @@
         <div class="typo">
             <span class="typo-note">Category</span>
             <div class="blockquote">
-                <h3>
-                    <a href="{!! $poem->pathPoemCategory() !!}">{!! $poem->category['name'] !!}</a>
-                </h3>
+                <a href="{!! $poem->pathPoemCategory() !!}">
+                    <img src="{!! $poem->poemCategoryPics() !!}" alt="{!! $poem->category['name'] !!}" class="image img-fluid img-2" style="width: 25%;">
+                </a>
             </div>
         </div>
         <div class="typo">

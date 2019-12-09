@@ -34,6 +34,12 @@ class Lexicon extends Model
         return url("/lexicon/showByCategory/{$this->category_id}-".Str::slug($this->category['name'], '_'));
     }
 
+    //url lexiconCategoryPics
+    public function lexiconCategoryPics()
+    {
+        return asset('/storage/categories/'.$this->category['pics']);
+    }
+
     //url lexiconPics
     public function lexiconPics()
     {

@@ -35,6 +35,12 @@
         <link rel="stylesheet" href="{!! asset('css/icomoon.css') !!}">
         <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
 
+        <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
+        <link rel="stylesheet" media="screen" href="{!! asset('css/new/vendor.min.css') !!}">
+        <!-- Main Template Styles-->
+        <link id="mainStyles" rel="stylesheet" media="screen" href="{!! asset('css/new/styles.css') !!}">
+        <!-- Modernizr-->
+        <script src="{!! asset('js/new/modernizr.min.js') !!}"></script>
     </head>
     <body>
 
@@ -73,6 +79,10 @@
     <script src="{!! asset('js/moment-with-locales.min.js') !!}"></script>
     <script src="{!! asset('js/bootstrap-datetimepicker.min.js') !!}"></script>
     <script src="{!! asset('js/main.js') !!}"></script>
+
+    <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
+    <script src="{!! asset('js/new/vendor.min.js') !!}"></script>
+    <script src="{!! asset('js/new/scripts.min.js') !!}"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type="text/javascript">

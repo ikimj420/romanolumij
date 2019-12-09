@@ -18,17 +18,15 @@
 
     <!-- Add Button -->
     @auth
-        @if(Auth::user()->Admin())
-            <section class="ftco-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="mt-3">
-                            @include('blogs.modal.add')
-                        </div>
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row">
+                    <div class="mt-3">
+                        @include('blogs.modal.add')
                     </div>
                 </div>
-            </section>
-        @endif
+            </div>
+        </section>
     @endauth
 
     <!-- Blog -->

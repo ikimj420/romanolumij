@@ -18,7 +18,7 @@
 
     <!-- Update Delete Button -->
     @auth
-        @if(Auth::user()->Admin())
+        @if(Auth::user()->Admin() || Auth::id() === $image->user_id)
             <section class="ftco-section">
                 <div class="container">
                     <div class="row">

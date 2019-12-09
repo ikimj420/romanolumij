@@ -39,6 +39,12 @@ class Poem extends Model
         return url("/poem/showByCategory/{$this->category_id}-".Str::slug($this->category['name'], '_'));
     }
 
+    //url poemCategoryPics
+    public function poemCategoryPics()
+    {
+        return asset('/storage/categories/'.$this->category['pics']);
+    }
+
     //url pathAlav
     public function pathAlav()
     {
