@@ -19,14 +19,14 @@
                         <label for="subject" class="col-form-label">{{ __('contact.sub') }}</label>
                         <input type="text" name="subject" class="form-control" required>
                     </div>
-                    <div class="form-group">
+{{--                    <div class="form-group">
                         <label for="name" class="col-form-label">{{ __('contact.name') }}</label>
                         <input type="text" name="name" class="form-control" required value="{!! \Illuminate\Support\Facades\Auth::user()->name !!}">
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-form-label">{{ __('contact.email') }}</label>
                         <input type="email" name="email" class="form-control" required value="{!! \Illuminate\Support\Facades\Auth::user()->email !!}">
-                    </div>
+                    </div>--}}
                     <div class="form-group">
                         <label for="message" class="col-form-label">{{ __('contact.mess') }}</label>
                         <textarea name="message" class="form-control" required></textarea>

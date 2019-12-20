@@ -85,6 +85,12 @@ class User extends Authenticatable
         return $this->hasMany(\App\Models\Blog::class);
     }
 
+    //HasMany
+    public function contacts()
+    {
+        return $this->hasMany(\App\Models\Contact::class);
+    }
+
     //url userPics
     public function userPics()
     {

@@ -31,9 +31,12 @@ Route::resource('/album', 'AlbumsController');
 Route::post('/album/{album}', 'ImagesController@store');
 //Images
 Route::resource('/image', 'ImagesController');
-//Contact Send Mail
-Route::get('/contact', 'ContactsController@index');
+//Contact Mail
+Route::get('/contact', 'ContactsController@index')->name('contact');
 Route::post('/contact', 'ContactsController@store');
+Route::get('/contact/{contact}', 'ContactsController@show');
+Route::patch('/contact/{contact}', 'ContactsController@update')->name('contact.done');
+Route::delete('/contact/{contact}', 'ContactsController@destroy');
 //Show Group Of Tags
 Route::get('/tag/tags/{tag}', 'TagsController@index');
 //search

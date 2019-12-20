@@ -44,4 +44,41 @@
         </div>
     </section>
 
+    <!-- All unread mail -->
+    @auth
+        @if(Auth::user()->Admin())
+            <section class="ftco-section" id="images">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="heading-section mb-4"></h2>
+                            <div class="row">
+                                @forelse($contacts as $contact)
+                                    <div class="col-md-4 text-center"><a href="{!! $contact->pathTitle() !!}">
+                                            <h2 class="heading-section mb-4">
+                                                <small></small>
+                                            </h2>
+                                        </a>
+                                        <div class="image-wrap">
+                                            <a href="{!! $contact->pathTitle() !!}">
+                                                <img src="{!! asset('/storage/svg/contact.svg') !!}" alt="{!! $contact->subject !!}" class="rounded img-fluid image image-2">
+                                            </a>
+                                            <div class="text">
+                                                <a href="{!! $contact->pathProfile() !!}">
+                                                    <div class="img" style="background-image: url({!! $contact->userPics() !!});"></div>
+                                                    <span class="position">{!! $contact->user['username'] !!}</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @empty
+                                @endforelse
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endif
+    @endauth
+
 @endsection
